@@ -1,25 +1,27 @@
+"use client"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Users, Target, Lightbulb, Award, MapPin, Phone, Mail, Globe, Code2, TrendingUp, Shield, Clock } from "lucide-react"
+import { ShieldCheck, Lock, CircleCheck, Activity } from "lucide-react";
+import { motion } from "framer-motion"
+import Tilt from "react-parallax-tilt"
+import { Users, Target, Lightbulb, Award, MapPin, Phone, Mail, Globe } from "lucide-react"
 
 const team = [
   {
     name: "Sachin Rathod",
     role: "CEO & Founder",
-    image: "/placeholder.svg?height=200&width=200",
-    bio: "15+ years in software development with expertise in scaling Indian tech companies. Former senior developer at Infosys and Wipro.",
-    linkedin: "https://www.linkedin.com/in/sachin-rathod-b1b1b1b1b1/",
-    email: "sachin@rsnecus.in",
+    image: "/images/sachin-rathod.jpg",
+    bio: "With over 15 years of experience in software development, Sachin drives RSNexus’s mission to deliver innovative, scalable solutions for global businesses.",
+    email: "sachin@rsnexus.in",
     phone: "+91 98260 00000",
   },
   {
     name: "Kushagra Ranjan",
     role: "CTO & Co-Founder",
-    image: "/placeholder.svg?height=200&width=200",
-    bio: "Former TCS engineer specializing in cloud architecture and AI solutions. Expert in AWS, Azure, and Google Cloud for Indian market.",
-    linkedin: "https://www.linkedin.com/in/kushagra-ranjan-b1b1b1b1b1/",
-    email: "kushagra@rsnecus.in",
+    image: "/images/kushagra-ranjan.jpg",
+    bio: "A cloud and AI expert, Kushagra brings technical excellence to RSNexus, crafting modern solutions for diverse industries.",
+    email: "kushagra@rsnexus.in",
     phone: "+91 98260 00001",
   }
 ]
@@ -28,133 +30,135 @@ const values = [
   {
     icon: Target,
     title: "Excellence",
-    description: "We strive for perfection in every line of code and every pixel of design for Indian businesses.",
+    description: "We aim for precision and quality in every line of code.",
   },
   {
     icon: Users,
     title: "Collaboration",
-    description: "We believe in the power of teamwork and transparent communication across Indian time zones.",
+    description: "We build lasting partnerships grounded in transparency and trust.",
   },
   {
     icon: Lightbulb,
     title: "Innovation",
-    description: "We stay ahead of global technology trends while understanding local Indian market needs.",
+    description: "We explore the edge of what's possible—bold ideas, smarter tech.",
   },
   {
     icon: Award,
-    title: "Quality",
-    description: "We maintain the highest international standards while serving Indian businesses.",
+    title: "Reliability",
+    description: "We deliver consistent, scalable solutions that grow with your business.",
   },
 ]
 
 const stats = [
   {
-    icon: Code2,
-    number: "200+",
-    label: "Projects Completed",
-    description: "Successfully delivered across India and globally"
+    icon: ShieldCheck,
+    number: "99.9%",
+    label: "System Uptime",
+    description: "Highly reliable infrastructure with near-zero downtime"
   },
   {
-    icon: Users,
-    number: "50+",
-    label: "Happy Clients",
-    description: "From startups to enterprise companies"
+    icon: Lock,
+    number: "100%",
+    label: "Data Security Compliance",
+    description: "Adheres to global standards like GDPR & ISO 27001"
   },
   {
-    icon: TrendingUp,
-    number: "95%",
-    label: "Client Satisfaction",
-    description: "Consistently high ratings and feedback"
+    icon: CircleCheck,
+    number: "97%",
+    label: "Successful Deliveries",
+    description: "On-time, within scope, and budget-aligned project outcomes"
   },
   {
-    icon: Clock,
-    number: "6+",
-    label: "Years Experience",
-    description: "Serving the Indian tech ecosystem since 2017"
+    icon: Activity,
+    number: "92%",
+    label: "Performance Optimization",
+    description: "Projects launched with high-speed & scalable architecture"
   },
-]
+];
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
         <div className="container mx-auto px-4 text-center">
-          <Badge variant="outline" className="mb-4">
-            About RSNecus India
+          <Badge variant="outline" className="mb-4 text-xs md:text-sm">
+            About RSNexus
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
-            Building the Future of Software in India
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
+            Driven by Innovation, Powered by Passion
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Founded in 2017 in Mumbai, RSNecus has grown from a small startup to India's leading software development
-            company, helping businesses across Mumbai, Delhi, Bangalore, and globally transform their ideas into
-            powerful digital solutions.
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            RSNexus is a fast-growing team of passionate engineers and creative technologists. With over 4 years of experience and a portfolio of high-impact solutions, we help startups and enterprises worldwide bring digital products to life—scalable, reliable, and future-ready.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4" />
-              <span>3 Offices across India</span>
+              <span>Delivering Solutions Worldwide</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="h-4 w-4" />
-              <span>25+ Team Members</span>
+              <span>Passionate Developers</span>
             </div>
             <div className="flex items-center gap-2">
               <Globe className="h-4 w-4" />
-              <span>Serving 50+ Countries</span>
+              <span>Building for 15+ Industries</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-primary/5">
+      <section className="py-10 md:py-16 bg-primary/5 dark:bg-[#0f172a] transition-colors duration-500">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
-              <Card key={index} className="text-center p-6 border-0 bg-white/50 dark:bg-slate-800/50">
-                <CardContent className="p-0">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
-                    <stat.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
-                  <div className="font-semibold mb-1">{stat.label}</div>
-                  <p className="text-sm text-muted-foreground">{stat.description}</p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Tilt glareEnable={true} glareMaxOpacity={0.2} scale={1.05} transitionSpeed={400}>
+                  <Card className="p-4 md:p-6 bg-white/20 dark:bg-slate-800/30 backdrop-blur-md rounded-xl shadow-lg">
+                    <CardContent className="p-0">
+                      <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg mb-4">
+                        <stat.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                      </div>
+                      <div className="text-2xl md:text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                      <div className="font-semibold mb-1">{stat.label}</div>
+                      <p className="text-xs md:text-sm text-muted-foreground">{stat.description}</p>
+                    </CardContent>
+                  </Card>
+                </Tilt>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Our Story */}
-      <section className="py-16 bg-white dark:bg-slate-900">
+      <section className="py-10 md:py-16 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Our Story in India</h2>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                RSNecus was born from a simple belief: that great software can transform Indian businesses and improve
-                lives across the subcontinent. What started as a small team of passionate developers in Mumbai has
-                evolved into a comprehensive software development company serving clients from Bangalore to Delhi and
-                beyond.
+              <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Journey</h2>
+              <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
+                RSNexus was founded to transform digital ideas into reality through modern, efficient technology. Starting in Mumbai, we’ve built a reputation for delivering reliable software solutions, with a focus on realistic demo projects that drive innovation across industries.
               </p>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Today, we're proud to have delivered over 200 successful projects, helped dozens of Indian startups
-                scale, and partnered with enterprise clients to modernize their technology infrastructure while
-                understanding the unique challenges of the Indian market.
+              <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
+                Our 4+ years of experience reflect a commitment to precision and a growth mindset. We collaborate with businesses worldwide, forging lasting partnerships to create scalable, impactful solutions.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Our journey reflects the growth of India's tech ecosystem - from serving local businesses to becoming
-                a trusted partner for international companies looking to establish their presence in the Indian market.
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                At RSNexus, we’re on a journey to build better—empowering clients with technology that shapes the future.
               </p>
             </div>
             <div className="relative">
               <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="RSNecus team working in Mumbai office"
-                className="rounded-2xl shadow-lg"
+                src="/images/team-working.jpg"
+                alt="RSNexus team collaborating on innovative projects"
+                className="rounded-2xl shadow-lg w-full max-w-md mx-auto"
               />
             </div>
           </div>
@@ -162,24 +166,24 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
+      <section className="py-10 md:py-16 bg-slate-50 dark:bg-slate-800/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              These core values guide everything we do and shape how we work with our Indian clients and each other.
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Core Values</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
+              Our values fuel our passion for innovation and guide our mission to deliver exceptional software solutions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {values.map((value, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
-                    <value.icon className="h-6 w-6 text-primary" />
+                  <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg mb-4">
+                    <value.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
                   </div>
                   <h3 className="font-semibold mb-2">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -188,22 +192,21 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-white dark:bg-slate-900">
+      <section className="py-10 md:py-16 bg-white dark:bg-slate-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Meet Our Indian Team</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our diverse team of Indian experts brings together years of experience in software development, design,
-              and business strategy tailored for the Indian market.
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Meet Our Leadership</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
+              Our leadership team combines passion and expertise to drive RSNexus’s vision of innovative software solutions.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {team.map((member, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
-                  <Avatar className="w-24 h-24 mx-auto mb-4">
-                    <AvatarImage src={member.image || "/placeholder.svg"} alt={member.name} />
+                  <Avatar className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4">
+                    <AvatarImage src={member.image} alt={member.name} />
                     <AvatarFallback>
                       {member.name
                         .split(" ")
@@ -211,10 +214,10 @@ export default function AboutPage() {
                         .join("")}
                     </AvatarFallback>
                   </Avatar>
-                  <h3 className="font-semibold mb-1">{member.name}</h3>
-                  <p className="text-primary text-sm mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
-                  <div className="flex justify-center gap-3 text-xs text-muted-foreground">
+                  <h3 className="font-semibold mb-1 text-base md:text-lg">{member.name}</h3>
+                  <p className="text-primary text-xs md:text-sm mb-3">{member.role}</p>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-4">{member.bio}</p>
+                  <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-3 text-xs text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Mail className="h-3 w-3" />
                       <span>{member.email}</span>
@@ -229,6 +232,13 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+      </section>
+      <section className="py-8 md:py-12 bg-primary text-white text-center">
+        <h3 className="text-xl md:text-2xl font-semibold mb-2">Ready to Build With Us?</h3>
+        <p className="mb-6 text-sm md:text-base">Let’s turn your digital vision into a scalable product.</p>
+        <a href="/contact" className="bg-white text-primary px-4 md:px-6 py-2 md:py-3 rounded-full font-medium hover:bg-slate-100 transition">
+          Get in Touch
+        </a>
       </section>
     </div>
   )
