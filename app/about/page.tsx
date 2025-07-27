@@ -8,22 +8,32 @@ import Tilt from "react-parallax-tilt"
 import { Users, Target, Lightbulb, Award, MapPin, Phone, Mail, Globe } from "lucide-react"
 
 const team = [
-  {
-    name: "Sachin Rathod",
-    role: "CEO & Founder",
-    image: "/images/sachin-rathod.jpg",
-    bio: "With over 15 years of experience in software development, Sachin drives RSNexus’s mission to deliver innovative, scalable solutions for global businesses.",
-    email: "sachin@rsnexus.in",
-    phone: "+91 98260 00000",
-  },
-  {
-    name: "Kushagra Ranjan",
-    role: "CTO & Co-Founder",
-    image: "/images/kushagra-ranjan.jpg",
-    bio: "A cloud and AI expert, Kushagra brings technical excellence to RSNexus, crafting modern solutions for diverse industries.",
-    email: "kushagra@rsnexus.in",
-    phone: "+91 98260 00001",
-  }
+    {
+        name: "Sachin Rathod",
+        role: "CEO & Founder",
+        image: "https://media.licdn.com/dms/image/v2/D4D03AQGNW7-tgqn0jQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1669641609996?e=1756339200&v=beta&t=xyl1favbYelaXzpC3aUtv6ixd-RofcEI2e4_7rk4PfQ",
+        bio: "Full Stack MERN Developer and tech entrepreneur focused on empowering startups through innovative digital solutions and agile development practices.",
+        linkedin: "https://www.linkedin.com/in/sachin-rathod-b20b83175/",
+        email: "sachinrathodnic1@gmail.com",
+        phone: "+91 9309931886",
+    },
+    {
+        name: "Kushagra Ranjan",
+        role: "Co-Founder",
+        image: "https://media.licdn.com/dms/image/v2/D4E03AQH4g0mkIMZgPA/profile-displayphoto-shrink_800_800/B4EZY9QRwWHUAc-/0/1744784400879?e=1756339200&v=beta&t=FHhgZmBAHiDdZSnJIlzA56_HUKgqNBrfwf7V2dZ_gng",
+        bio: "Frontend Developer specializing in responsive, modern web apps using React and Tailwind. Passionate about building fast, user-friendly interfaces for growing businesses.",
+        linkedin: "https://www.linkedin.com/in/kushranjan/",
+        email: "kushagra.ranjan21@gmail.com",
+        phone: "+91 9852731566",
+    }, {
+        name: "Anubhav Trivedi ",
+        role: "CTO ",
+        image: "https://media.licdn.com/dms/image/v2/D5603AQEhRj-NeiZpiw/profile-displayphoto-shrink_800_800/B56ZOntQJoG8Ac-/0/1733685481259?e=1756339200&v=beta&t=KtSeiI4M_S5glxDDcTXddv2VaQ3IMIbVyJ7k9L13yRg",
+        bio: "Full-Stack MERN Developer and Mobile App Specialist delivering innovative, AI-powered solutions for web and mobile platforms.",
+        linkedin: "https://www.linkedin.com/in/anubhav-trivedi-developer/",
+        email: "anubhavtrivedi222@gmail.com",
+        phone: "+91 8218821466",
+    }
 ]
 
 const values = [
