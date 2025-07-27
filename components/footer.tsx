@@ -41,9 +41,9 @@ export function Footer() {
               <span className="text-2xl font-bold text-white">RSNecus</span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-md">
-              India's leading software development company transforming ideas into exceptional digital solutions.
-              Serving businesses across Mumbai, Delhi, Bangalore, and globally.
-            </p>
+  RSNecus is a forward-thinking software development company crafting scalable, innovative digital solutions for businesses worldwide. We turn ideas into powerful, user-centric products with a focus on quality and efficiency.
+</p>
+
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
