@@ -23,7 +23,7 @@ export function CTASection() {
           <CardContent className="p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business in India?</h2>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Let's discuss your project and explore how RSNecus can help you achieve your goals with innovative
+              Let's discuss your project and explore how RSNexus can help you achieve your goals with innovative
               software solutions tailored for the Indian market.
             </p>
 

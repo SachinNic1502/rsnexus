@@ -1,94 +1,109 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Play } from "lucide-react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { GlobeDemo } from "@/components/ui/GlobeDemo"
-import { SparklesPreview } from "@/components/SparklesPreview"
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Play, Code, Zap, Globe } from "lucide-react";
+import { GlobeDemo } from "@/components/ui/GlobeDemo";
+
 export function HeroSection() {
-  const router = useRouter()
-
   const handleStartProject = () => {
-    router.push("/contact")
-  }
+    // Scroll to contact section or navigate
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const handleWatchDemo = () => {
-    // You can replace this with actual demo video URL
-    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank")
-  }
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+  };
 
   return (
-    
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 overflow-hidden">
-      {/* Background Pattern */}
-      
-      <div className="absolute inset-0 bg-grid-slate-200 dark:bg-grid-slate-700 bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+    <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+
+      {/* Floating background elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-float-delay" />
+      <div className="absolute top-40 right-20 w-24 h-24 bg-primary-glow/10 rounded-full blur-xl animate-float" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <Badge variant="outline" className="mb-4 inline-flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              Leading Software Solutions in India
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
+          <div className="text-center lg:text-left space-y-8">
+            <Badge variant="outline" className="inline-flex items-center gap-2 bg-background/10 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-colors">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              Elite Software Development Team
             </Badge>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 dark:from-slate-100 dark:via-slate-300 dark:to-slate-100 bg-clip-text text-transparent">
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <span className="text-gradient-hero block">
                 Transform Ideas
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                </span>
+                <span className="text-gradient-primary block">
                 Into Digital Reality
-              </span>
-            </h1>
+                </span>
+              </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
-            We’re a growing software development team helping startups and businesses turn their ideas into powerful digital products—serving clients across India and around the world
-            </p>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+              We’re a growing software development team helping startups and businesses turn their ideas into powerful digital products—serving clients across India and around the world
+              </p>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="text-lg px-8 py-6 group" onClick={handleStartProject}>
+              <Button 
+                variant="default"
+                size="lg" 
+                className="text-lg px-8 py-6 group" 
+                onClick={handleStartProject}
+              >
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+              
               <Button
-                variant="outline"
+                variant="ghost"
                 size="lg"
-                className="text-lg px-8 py-6 group bg-transparent"
+                className="text-lg px-8 py-6 group hidden"
                 onClick={handleWatchDemo}
               >
                 <Play className="mr-2 h-5 w-5" />
-                Watch Demo
+                Watch Our Work
               </Button>
             </div>
 
-            <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full" />
-                <span>Innovative & Scalable Digital Products</span>
+            {/* Feature highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+              <div className="flex items-center gap-3 text-sm">
+                <div className="p-2 bg-primary/20 rounded-lg">
+                  <Code className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-foreground font-medium">Full-Stack Development</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full" />
-                <span>Agile & End-to-End Product Engineering</span>
+              <div className="flex items-center gap-3 text-sm">
+                <div className="p-2 bg-accent/20 rounded-lg">
+                  <Zap className="h-4 w-4 text-accent" />
+                </div>
+                <span className="text-foreground font-medium">Lightning Fast Delivery</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <div className="p-2 bg-primary-glow/20 rounded-lg">
+                  <Globe className="h-4 w-4 text-primary-glow" />
+                </div>
+                <span className="text-foreground font-medium">Global Client Base</span>
               </div>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative z-10">
-              
-              <GlobeDemo/>
-            </div>
-
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-pulse" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-500/20 rounded-full blur-xl animate-pulse delay-1000" />
+          {/* Interactive Globe */}
+          <div className="relative flex items-center justify-center">
+            <GlobeDemo />
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

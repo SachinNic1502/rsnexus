@@ -38,7 +38,7 @@ export function Navigation() {
             <Link href="/" className="flex items-center space-x-2">
               <Code2 className="h-8 w-8 text-primary" />
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                RSNecus
+                RSNexus
               </span>
             </Link>
           </div>
@@ -62,17 +62,17 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+            {/* <Button variant="ghost" size="icon" onClick={toggleTheme}>
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            </Button> */}
             <Button onClick={handleGetStarted}>Get Started</Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+            {/* <Button variant="ghost" size="icon" onClick={toggleTheme}>
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            </Button> */}
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>

@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 const teamMembers = [
     {
         name: "Sachin Rathod",
-        role: "CEO & Founder",
+        role: "Co-Founder",
         image: "https://media.licdn.com/dms/image/v2/D4D03AQGNW7-tgqn0jQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1669641609996?e=1756339200&v=beta&t=xyl1favbYelaXzpC3aUtv6ixd-RofcEI2e4_7rk4PfQ",
         bio: "Full Stack MERN Developer and tech entrepreneur focused on empowering startups through innovative digital solutions and agile development practices.",
         linkedin: "https://www.linkedin.com/in/sachin-rathod-b20b83175/",
@@ -37,7 +37,7 @@ export default function TeamPage() {
         <main className="container mx-auto px-4 py-16">
             <h1 className="text-4xl font-bold mb-8 text-center dark:text-white transition-colors">Meet Our Founders</h1>
             <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto transition-colors">
-                RSNecus is a passionate startup founded by experienced professionals dedicated to empowering Indian businesses with cutting-edge technology and personalized solutions.
+                RSNexus is a passionate startup founded by experienced professionals dedicated to empowering Indian businesses with cutting-edge technology and personalized solutions.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center">
                 {teamMembers.map((member, idx) => (

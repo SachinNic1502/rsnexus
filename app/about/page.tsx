@@ -10,7 +10,7 @@ import { Users, Target, Lightbulb, Award, MapPin, Phone, Mail, Globe } from "luc
 const team = [
     {
         name: "Sachin Rathod",
-        role: "CEO & Founder",
+        role: "Co-Founder",
         image: "https://media.licdn.com/dms/image/v2/D4D03AQGNW7-tgqn0jQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1669641609996?e=1756339200&v=beta&t=xyl1favbYelaXzpC3aUtv6ixd-RofcEI2e4_7rk4PfQ",
         bio: "Full Stack MERN Developer and tech entrepreneur focused on empowering startups through innovative digital solutions and agile development practices.",
         linkedin: "https://www.linkedin.com/in/sachin-rathod-b20b83175/",
@@ -211,7 +211,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
             {team.map((member, index) => (
               <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
@@ -227,7 +227,7 @@ export default function AboutPage() {
                   <h3 className="font-semibold mb-1 text-base md:text-lg">{member.name}</h3>
                   <p className="text-primary text-xs md:text-sm mb-3">{member.role}</p>
                   <p className="text-xs md:text-sm text-muted-foreground mb-4">{member.bio}</p>
-                  <div className="flex flex-col md:flex-row justify-center gap-2 md:gap-3 text-xs text-muted-foreground">
+                  <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-3 text-xs text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Mail className="h-3 w-3" />
                       <span>{member.email}</span>

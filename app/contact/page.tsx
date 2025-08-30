@@ -20,23 +20,22 @@ const contactInfo = [
     details: [
       "Mumbai: Andheri East, Maharashtra",
       "Delhi: Connaught Place, New Delhi",
-      "Bangalore: Koramangala, Karnataka",
     ],
   },
   {
     icon: Phone,
     title: "Phone Numbers",
-    details: ["+91 98765 43210", "+91 87654 32109", "Mon-Sat 9AM-7PM IST"],
+    details: ["+91 8218821466", "+91 9852731566", "+91 9309931886"],
   },
   {
     icon: Mail,
     title: "Email Addresses",
-    details: ["hello@rsnecus.in", "support@rsnecus.in", "careers@rsnecus.in"],
+    details: ["sr.nexus.it@gmail.com"],
   },
   {
     icon: Clock,
     title: "Business Hours",
-    details: ["Monday - Friday: 9AM - 7PM IST", "Saturday: 10AM - 5PM IST", "Sunday: Closed"],
+    details: ["Monday - Friday: 10AM - 8PM IST", "Saturday: 10AM - 6PM IST", "Sunday: Closed"],
   },
 ]
 
@@ -92,7 +91,7 @@ export default function ContactPage() {
 
       toast({
         title: "Message Sent Successfully!",
-        description: "Thank you for contacting RSNecus. We'll get back to you within 24 hours.",
+        description: "Thank you for contacting RSNexus. We'll get back to you within 24 hours.",
       })
 
       // Reset form
@@ -128,7 +127,7 @@ export default function ContactPage() {
   }
 
   const handleScheduleCall = () => {
-    window.open("https://calendly.com/rsnecus", "_blank")
+    window.open("https://calendly.com/RSNexus", "_blank")
   }
 
   return (
@@ -137,7 +136,7 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
-            Contact RSNecus India
+            Contact RSNexus
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
             Let's Build Something Amazing Together

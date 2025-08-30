@@ -35,7 +35,7 @@ export function AboutSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
-            About RSNecus India
+            About RSNexus India
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Driven by Innovation, Powered by Passion</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

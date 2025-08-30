@@ -18,7 +18,7 @@ const projects = [
     technologies: ["Next.js", "TypeScript", "Razorpay", "PostgreSQL", "Tailwind CSS"],
     features: ["Payment Processing", "GST Integration", "Multi-language", "Mobile Responsive"],
     liveUrl: "https://swadeshimart-demo.vercel.app",
-    githubUrl: "https://github.com/rsnecus/swadeshimart",
+    githubUrl: "https://github.com/RSNexus/swadeshimart",
     results: {
       metric1: "500% increase in online sales",
       metric2: "60% faster load times",
@@ -34,7 +34,7 @@ const projects = [
     technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Chart.js"],
     features: ["Telemedicine", "Appointment System", "Medicine Delivery", "Hindi Support"],
     liveUrl: "https://ayurveda-portal-demo.vercel.app",
-    githubUrl: "https://github.com/rsnecus/ayurveda-portal",
+    githubUrl: "https://github.com/RSNexus/ayurveda-portal",
     results: {
       metric1: "75% reduction in admin time",
       metric2: "1000+ active patients",
@@ -50,7 +50,7 @@ const projects = [
     technologies: ["React Native", "Firebase", "UPI API", "Redux", "TypeScript"],
     features: ["UPI Integration", "Biometric Auth", "Bank Integration", "QR Payments"],
     liveUrl: "https://upi-app-demo.vercel.app",
-    githubUrl: "https://github.com/rsnecus/upi-payment-app",
+    githubUrl: "https://github.com/RSNexus/upi-payment-app",
     results: {
       metric1: "50K+ downloads in India",
       metric2: "4.9/5 Play Store rating",
@@ -66,7 +66,7 @@ const projects = [
     technologies: ["Python", "TensorFlow", "React", "FastAPI", "PostgreSQL"],
     features: ["Crop Prediction", "Weather Integration", "Hindi Interface", "SMS Alerts"],
     liveUrl: "https://crop-ai-demo.vercel.app",
-    githubUrl: "https://github.com/rsnecus/crop-prediction",
+    githubUrl: "https://github.com/RSNexus/crop-prediction",
     results: {
       metric1: "85% accurate predictions",
       metric2: "10K+ farmers helped",
@@ -82,7 +82,7 @@ const projects = [
     technologies: ["Vue.js", "Laravel", "MySQL", "AWS", "WebRTC"],
     features: ["Video Streaming", "Progress Tracking", "Regional Languages", "Offline Mode"],
     liveUrl: "https://edtech-india-demo.vercel.app",
-    githubUrl: "https://github.com/rsnecus/edtech-platform",
+    githubUrl: "https://github.com/RSNexus/edtech-platform",
     results: {
       metric1: "25K+ active students",
       metric2: "92% completion rate",
@@ -98,7 +98,7 @@ const projects = [
     technologies: ["Angular", "Node.js", "InfluxDB", "MQTT", "D3.js"],
     features: ["Air Quality Monitoring", "Traffic Management", "Energy Optimization", "Real-time Alerts"],
     liveUrl: "https://smart-city-demo.vercel.app",
-    githubUrl: "https://github.com/rsnecus/smart-city-iot",
+    githubUrl: "https://github.com/RSNexus/smart-city-iot",
     results: {
       metric1: "40% improvement in air quality",
       metric2: "500+ sensors monitored",

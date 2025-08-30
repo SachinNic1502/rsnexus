@@ -10,7 +10,7 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "RSNecus - Leading Software Development Company in India",
+  title: "RSNexus - Leading Software Development Company in India",
   description:
     "Professional software development company in India specializing in web development, mobile apps, AI solutions, and cloud services. Serving clients across Mumbai, Delhi, Bangalore, and globally.",
   keywords:

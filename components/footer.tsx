@@ -13,19 +13,19 @@ const navigation = {
   company: [
     { name: "About Us", href: "/about" },
     { name: "Our Team", href: "/team" },
-    { name: "Careers", href: "/careers" },
-    { name: "Blog", href: "/blog" },
+    // { name: "Careers", href: "/careers" },
+    // { name: "Blog", href: "/blog" },
   ],
   support: [
     { name: "Contact", href: "/contact" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
+    // { name: "FAQ", href: "/faq" },
+    // { name: "Privacy Policy", href: "/privacy" },
+    // { name: "Terms of Service", href: "/terms" },
   ],
   social: [
-    { name: "GitHub", href: "https://github.com/rsnecus", icon: Github },
-    { name: "Twitter", href: "https://twitter.com/rsnecus", icon: Twitter },
-    { name: "LinkedIn", href: "https://linkedin.com/company/rsnecus", icon: Linkedin },
+    // { name: "GitHub", href: "https://github.com/RSNexus", icon: Github },
+    { name: "Twitter", href: "", icon: Twitter },
+    { name: "LinkedIn", href: "", icon: Linkedin },
   ],
 }
 
@@ -38,22 +38,22 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Code2 className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold text-white">RSNecus</span>
+              <span className="text-2xl font-bold text-white">RSNexus</span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-md">
-  RSNecus is a forward-thinking software development company crafting scalable, innovative digital solutions for businesses worldwide. We turn ideas into powerful, user-centric products with a focus on quality and efficiency.
+  RSNexus is a forward-thinking software development company crafting scalable, innovative digital solutions for businesses worldwide. We turn ideas into powerful, user-centric products with a focus on quality and efficiency.
 </p>
 
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>hello@rsnecus.in</span>
+                <span>sr.nexus.it@gmail.com</span>
               </div>
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-primary" />
                 <span>+91 98765 43210</span>
-              </div>
+              </div> */}
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-primary" />
                 <span>Mumbai, Maharashtra, India</span>
@@ -105,9 +105,9 @@ export function Footer() {
         </div>
 
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400 text-sm">© 2024 RSNecus India. All rights reserved.</p>
+          <p className="text-slate-400 text-sm">© 2025 RSNexus India. All rights reserved.</p>
 
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex space-x-6 mt-4 md:mt-0 hidden">
             {navigation.social.map((item) => (
               <Link
                 key={item.name}

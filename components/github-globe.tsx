@@ -113,7 +113,7 @@ export const GitHubGlobe = ({
         {/* Center Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white">
-            <div className="text-4xl font-bold mb-2">RSNecus</div>
+            <div className="text-4xl font-bold mb-2">RSNexus</div>
             <div className="text-sm opacity-80">Global Software Solutions</div>
             {children}
           </div>

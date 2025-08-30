@@ -31,7 +31,7 @@ const pricingPlans = [
   {
     name: "Professional",
     icon: Star,
-    price: "₹1,49,999",
+    price: "₹1,25,999",
     period: "per project",
     description: "Comprehensive solution for growing Indian businesses needing advanced functionality.",
     features: [
@@ -54,7 +54,7 @@ const pricingPlans = [
   {
     name: "Enterprise",
     icon: Crown,
-    price: "₹4,99,999",
+    price: "₹3,99,999",
     period: "per project",
     description: "Full-scale solution for large Indian organizations requiring complex systems.",
     features: [
@@ -81,7 +81,7 @@ const pricingPlans = [
 const addOnServices = [
   {
     name: "Mobile App Development",
-    price: "₹79,999",
+    price: "₹49,999",
     description: "iOS and Android app development for Indian market",
   },
   {
