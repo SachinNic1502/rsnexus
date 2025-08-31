@@ -11,7 +11,7 @@ const team = [
     {
         name: "Sachin Rathod",
         role: "Co-Founder",
-        image: "https://media.licdn.com/dms/image/v2/D4D03AQGNW7-tgqn0jQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1669641609996?e=1756339200&v=beta&t=xyl1favbYelaXzpC3aUtv6ixd-RofcEI2e4_7rk4PfQ",
+        image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756665179/BK_S5313_zohrat.jpg",
         bio: "Full Stack MERN Developer and tech entrepreneur focused on empowering startups through innovative digital solutions and agile development practices.",
         linkedin: "https://www.linkedin.com/in/sachin-rathod-b20b83175/",
         email: "sachinrathodnic1@gmail.com",
@@ -20,7 +20,7 @@ const team = [
     {
         name: "Kushagra Ranjan",
         role: "Co-Founder",
-        image: "https://media.licdn.com/dms/image/v2/D4E03AQH4g0mkIMZgPA/profile-displayphoto-shrink_800_800/B4EZY9QRwWHUAc-/0/1744784400879?e=1756339200&v=beta&t=FHhgZmBAHiDdZSnJIlzA56_HUKgqNBrfwf7V2dZ_gng",
+        image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756665626/DSC07504-min_girxt6.jpg",
         bio: "Frontend Developer specializing in responsive, modern web apps using React and Tailwind. Passionate about building fast, user-friendly interfaces for growing businesses.",
         linkedin: "https://www.linkedin.com/in/kushranjan/",
         email: "kushagra.ranjan21@gmail.com",
@@ -33,7 +33,25 @@ const team = [
         linkedin: "https://www.linkedin.com/in/anubhav-trivedi-developer/",
         email: "anubhavtrivedi222@gmail.com",
         phone: "+91 8218821466",
-    }
+    },
+    {
+        name: "Anand Tiwari",
+        role: "COO",
+        image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756665044/IMG-20250621-WA0005_fjdxlw.jpg",
+        bio: "Backend and Frontend Developer specializing in scalable, high-performance applications using Node.js and modern frameworks. Passionate about designing efficient APIs, secure architectures, and reliable backend systems to support growing businesses.",
+        linkedin: "https://www.linkedin.com/in/anand-tiwari-773a99233/",
+        email: "anandtiwari4009@gmail.com",
+        phone: "+91 6306010753",
+    },
+    {
+      name: "Lukman Alam",
+      role: "CMO",
+      image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1749636523/mylapkart/avatars/684408adeab755463841b65f.webp",
+      bio: "Marketing Officer driving brand growth and digital strategies. Passionate about engaging customers and creating impactful campaigns that strengthen market presence.",
+      linkedin: "",
+      email: "",
+      phone: "+91 90976 05363",
+  }
 ]
 
 const values = [
@@ -215,8 +233,8 @@ export default function AboutPage() {
             {team.map((member, index) => (
               <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
-                  <Avatar className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4">
-                    <AvatarImage src={member.image} alt={member.name} />
+                  <Avatar className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 overflow-hidden">
+                    <AvatarImage className="object-cover w-full h-full" src={member.image} alt={member.name} />
                     <AvatarFallback>
                       {member.name
                         .split(" ")
