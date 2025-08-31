@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -21,6 +21,13 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
+
+  // Set theme to dark by default
+  useEffect(() => {
+    if (theme !== "dark") {
+      setTheme("dark")
+    }
+  }, [theme, setTheme])
 
   const handleGetStarted = () => {
     window.location.href = "/contact"
@@ -52,7 +59,7 @@ export function Navigation() {
                   href={item.href}
                   className={cn(
                     "px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary",
-                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground",
+                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground"
                   )}
                 >
                   {item.name}
@@ -89,7 +96,7 @@ export function Navigation() {
                   href={item.href}
                   className={cn(
                     "block px-3 py-2 rounded-md text-base font-medium transition-colors",
-                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-primary",
+                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-primary"
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
