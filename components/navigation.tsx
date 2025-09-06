@@ -1,11 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Code2, Sun, Moon } from "lucide-react"
-import { useTheme } from "next-themes"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
@@ -20,21 +19,9 @@ const navigation = [
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
-
-  // Set theme to dark by default
-  useEffect(() => {
-    if (theme !== "dark") {
-      setTheme("dark")
-    }
-  }, [theme, setTheme])
 
   const handleGetStarted = () => {
     window.location.href = "/contact"
-  }
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
   }
 
   return (
@@ -43,7 +30,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <Code2 className="h-8 w-8 text-primary" />
+              <img src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png" alt="RSNexus" className="h-8 w-8" />
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 RSNexus
               </span>
@@ -59,7 +46,7 @@ export function Navigation() {
                   href={item.href}
                   className={cn(
                     "px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-primary",
-                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground"
+                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground",
                   )}
                 >
                   {item.name}
@@ -69,17 +56,11 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-2">
-            {/* <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button> */}
             <Button onClick={handleGetStarted}>Get Started</Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button> */}
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -96,7 +77,7 @@ export function Navigation() {
                   href={item.href}
                   className={cn(
                     "block px-3 py-2 rounded-md text-base font-medium transition-colors",
-                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-primary"
+                    pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-primary",
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >

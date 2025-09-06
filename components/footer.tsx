@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Code2, Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-react"
+import { Code2, Mail, Phone, MapPin, Github,Instagram, Facebook,  Twitter, Linkedin } from "lucide-react"
+import { IconAddressBook } from "@tabler/icons-react"
 
 const navigation = {
   services: [
@@ -24,8 +25,8 @@ const navigation = {
   ],
   social: [
     // { name: "GitHub", href: "https://github.com/RSNexus", icon: Github },
-    { name: "Twitter", href: "", icon: Twitter },
-    { name: "LinkedIn", href: "", icon: Linkedin },
+    { name: "Instagram", href: "https://www.instagram.com/rs.nexus/", icon: Instagram },
+    { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61580499203785", icon: Facebook },
   ],
 }
 
@@ -37,7 +38,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Code2 className="h-8 w-8 text-primary" />
+            <img src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png" alt="RSNexus" className="h-8 w-8" />
               <span className="text-2xl font-bold text-white">RSNexus</span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-md">
@@ -56,8 +57,12 @@ export function Footer() {
               </div> */}
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>At present, we work entirely remotely without a physical office.</span>
               </div>
+              {/* <div className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-primary" />
+                <span>Mumbai, Maharashtra, India</span>
+              </div> */}
             </div>
           </div>
 
@@ -107,7 +112,7 @@ export function Footer() {
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-400 text-sm">© 2025 RSNexus India. All rights reserved.</p>
 
-          <div className="flex space-x-6 mt-4 md:mt-0 hidden">
+          <div className="flex space-x-6 mt-4 md:mt-0">
             {navigation.social.map((item) => (
               <Link
                 key={item.name}

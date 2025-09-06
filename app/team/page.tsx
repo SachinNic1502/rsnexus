@@ -2,53 +2,7 @@
 import Image from "next/image"
 import { Mail, Phone, Linkedin } from "lucide-react"
 import { motion } from "framer-motion"
-
-const teamMembers = [
-    {
-        name: "Sachin Rathod",
-        role: "Co-Founder",
-        image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756665179/BK_S5313_zohrat.jpg",
-        bio: "Full Stack MERN Developer and tech entrepreneur focused on empowering startups through innovative digital solutions and agile development practices.",
-        linkedin: "https://www.linkedin.com/in/sachin-rathod-b20b83175/",
-        email: "sachinrathodnic1@gmail.com",
-        phone: "+91 9309931886",
-    },
-    {
-        name: "Kushagra Ranjan",
-        role: "Co-Founder",
-        image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756665626/DSC07504-min_girxt6.jpg",
-        bio: "Frontend Developer specializing in responsive, modern web apps using React and Tailwind. Passionate about building fast, user-friendly interfaces for growing businesses.",
-        linkedin: "https://www.linkedin.com/in/kushranjan/",
-        email: "kushagra.ranjan21@gmail.com",
-        phone: "+91 9852731566",
-    }, {
-        name: "Anubhav Trivedi ",
-        role: "CTO ",
-        image: "https://media.licdn.com/dms/image/v2/D5603AQEhRj-NeiZpiw/profile-displayphoto-shrink_800_800/B56ZOntQJoG8Ac-/0/1733685481259?e=1756339200&v=beta&t=KtSeiI4M_S5glxDDcTXddv2VaQ3IMIbVyJ7k9L13yRg",
-        bio: "Full-Stack MERN Developer and Mobile App Specialist delivering innovative, AI-powered solutions for web and mobile platforms.",
-        linkedin: "https://www.linkedin.com/in/anubhav-trivedi-developer/",
-        email: "anubhavtrivedi222@gmail.com",
-        phone: "+91 8218821466",
-    },
-    {
-        name: "Anand Tiwari",
-        role: "COO",
-        image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756665044/IMG-20250621-WA0005_fjdxlw.jpg",
-        bio: "Backend and Frontend Developer specializing in scalable, high-performance applications using Node.js and modern frameworks. Passionate about designing efficient APIs, secure architectures, and reliable backend systems to support growing businesses.",
-        linkedin: "https://www.linkedin.com/in/anand-tiwari-773a99233/",
-        email: "anandtiwari4009@gmail.com",
-        phone: "+91 6306010753",
-    },
-    {
-      name: "Lukman Alam",
-      role: "CMO",
-      image: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1749636523/mylapkart/avatars/684408adeab755463841b65f.webp",
-      bio: "Marketing Officer driving brand growth and digital strategies. Passionate about engaging customers and creating impactful campaigns that strengthen market presence.",
-      linkedin: "",
-      email: "",
-      phone: "+91 90976 05363",
-  }
-]
+import teamMembers from "@/data/team.json"
 
 export default function TeamPage() {
     return (

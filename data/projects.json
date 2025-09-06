@@ -1,0 +1,320 @@
+{
+  "projects": [
+    {
+      "title": "MyLapKart",
+      "slug": "mylapkart",
+      "category": "E-commerce",
+      "description": "An online marketplace for laptops and accessories with secure payments, responsive UI, and efficient product management.",
+      "images": [
+        "/projects/mylapkart/1.png",
+        "/projects/mylapkart/2.png",
+        "/projects/mylapkart/3.png"
+      ],
+      "technologies": [
+        { "name": "MongoDB" },
+        { "name": "Express.js" },
+        { "name": "React.js" },
+        { "name": "Node.js" },
+        { "name": "Tailwind CSS" },
+        { "name": "Razorpay", "description": "Integrated secure payments" },
+        { "name": "Cloudinary", "description": "Cloud image storage and optimization" }
+      ],
+      "features": [
+        "User Authentication",
+        "Razorpay Payments",
+        "Cloudinary Image Storage",
+        "Admin Dashboard",
+        "Mobile Responsive"
+      ],
+      "liveUrl": "https://www.mylapkart.in/",
+      "githubUrl": "",
+      "results": [
+        "Successfully launched a live marketplace",
+        "Secured transactions with Razorpay integration",
+        "Optimized user experience with Tailwind CSS"
+      ],
+      "tags": ["E-commerce", "Marketplace", "Web App"]
+    },
+    {
+      "title": "Step Up Style",
+      "slug": "step-up-style",
+      "category": "Retail / Footwear",
+      "description": "A footwear e-commerce and POS platform with robust inventory, order management, and reporting features tailored for retail businesses.",
+      "images": [
+        "/projects/step-up-style/1.png",
+        "/projects/step-up-style/2.png",
+        "/projects/step-up-style/3.png"
+      ],
+      "technologies": [
+        { "name": "MongoDB" },
+        { "name": "Express.js" },
+        { "name": "React.js" },
+        { "name": "Node.js" },
+        { "name": "Tailwind CSS" },
+        { "name": "Shopify API", "description": "Integration for product management" }
+      ],
+      "features": [
+        "Product Management",
+        "Inventory Management",
+        "Order Management",
+        "POS Audits & Reports",
+        "Role-based Login",
+        "Customer Management (CRM)",
+        "Discounts & Promotions",
+        "Sales Analytics Dashboard",
+        "Stock Alerts & Notifications",
+        "Multi-Store Support",
+        "Secure Payment Integration",
+        "Mobile Responsive Design"
+      ],
+      "liveUrl": "",
+      "githubUrl": "",
+      "results": [
+        "35% faster checkout process with POS optimization",
+        "40% reduction in inventory mismatches using stock alerts",
+        "25% increase in repeat customers with CRM and loyalty features",
+        "Multi-store support improved scalability for franchise expansion",
+        "Real-time analytics improved decision-making efficiency by 50%"
+      ],
+      "tags": ["Retail", "POS", "E-commerce", "Analytics"]
+    },{
+      "title": "Sanjivani Care",
+      "slug": "sanjivani-care",
+      "category": "Healthcare / Management",
+      "description": "A hospital management platform with patient records, insurance handling, and role-based access for doctors, admins, and staff.",
+      "images": [
+        "/projects/sanjivani-care/1.png",
+        "/projects/sanjivani-care/2.png",
+        "/projects/sanjivani-care/3.png"
+      ],
+      "technologies": [
+        { "name": "MongoDB" },
+        { "name": "Express.js" },
+        { "name": "React.js" },
+        { "name": "Node.js" },
+        { "name": "Tailwind CSS" },
+        { "name": "Framer Motion" }
+      ],
+      "features": [
+        "Patient Management",
+        "Insurance Handling",
+        "Role-based Access",
+        "Animated UI"
+      ],
+      "liveUrl": "https://sanjivanicare.in/",
+      "githubUrl": "",
+      "results": [
+        "Improved hospital record management",
+        "Enabled insurance workflow automation",
+        "Enhanced patient experience with modern UI"
+      ],
+      "tags": ["Healthcare", "Management", "Web App"]
+    },
+    {
+      "title": "Cestt Limited",
+      "slug": "cestt-limited",
+      "category": "Construction / Training",
+      "description": "CESTT helps customers across the UK quickly book CSCS Cards, CITB Tests, NVQ Courses, and Construction Training. With fast, reliable service, customers can advance their career in construction.",
+      "images": [
+        "/projects/cestt-limited/1.png",
+        "/projects/cestt-limited/2.png",
+        "/projects/cestt-limited/3.png"
+      ],
+      "technologies": [
+        { "name": "Next.js" },
+        { "name": "React.js" },
+        { "name": "Tailwind CSS" },
+        { "name": "TypeScript" },
+        { "name": "Framer Motion" },
+        { "name": "Vercel Hosting" }
+      ],
+      "features": [
+        "Quick booking of CSCS Cards, CITB Tests, and NVQ Courses",
+        "Comprehensive construction training options",
+        "Fast and reliable online service",
+        "Detailed course & card information",
+        "Responsive design for all devices",
+        "SEO optimized and user-friendly"
+      ],
+      "services": [
+        "CSCS Cards",
+        "Green Labour Card",
+        "Red Supervisor or Manager",
+        "Red Apprentice Card",
+        "Red Experienced Worker",
+        "Red Trainee Card",
+        "Black Manager",
+        "White AQP Card",
+        "Red Provisional Card",
+        "Blue Skilled Worker",
+        "White PQP Card",
+        "Gold Supervisory Card",
+        "Gold Skilled Worker",
+        "CITB Test",
+        "CPCS",
+        "Construction Qualifications",
+        "SMSTS Course",
+        "Health Safety and Awareness Course",
+        "L1 Award Health & Safety in Construction",
+        "SMSTS Refresher Course",
+        "SSSTS Course",
+        "SSSTS Refresher Course"
+      ],
+      "contact": {
+        "email": "info@cestt.co.uk",
+        "phone": "020 8129 4432",
+        "address": "71-75 Shelton Street, Covent Garden, London, UK, WC2H 9JQ",
+        "vat": "478117273"
+      },
+      "liveUrl": "https://cesttlimited.co.uk/",
+      "githubUrl": "",
+      "results": [
+        "Improved career advancement opportunities for customers",
+        "Fast and reliable service across the UK",
+        "Streamlined booking and training process for construction professionals"
+      ],
+      "tags": ["Construction", "Training", "CSCS", "CITB", "NVQ", "Web App"]
+    },
+    {
+      "title": "College Website",
+      "slug": "college-website",
+      "category": "Education / Website",
+      "description": "A responsive and modern college website showcasing courses, departments, faculty, events, and student resources. Built to provide an intuitive user experience for students, staff, and visitors.",
+      "images": [
+        "/projects/college-website/1.png",
+        "/projects/college-website/2.png",
+        "/projects/college-website/3.png"
+      ],
+      "technologies": [
+        { "name": "Next.js" },
+        { "name": "React.js" },
+        { "name": "Tailwind CSS" },
+        { "name": "TypeScript" },
+        { "name": "Framer Motion" },
+        { "name": "Vercel Hosting" }
+      ],
+      "features": [
+        "Responsive design for desktop, tablet, and mobile",
+        "Course listings with detailed curriculum",
+        "Faculty and staff profiles",
+        "Event calendar and notifications",
+        "Student resources and downloads",
+        "Modern UI with animations and interactive elements",
+        "SEO optimized"
+      ],
+      "services": [
+        "College Course Display",
+        "Department Information",
+        "Faculty Profiles",
+        "Events & News",
+        "Student Resources",
+        "Admissions Information"
+      ],
+      "contact": {
+        "email": "info@college-website.com",
+        "phone": "N/A",
+        "address": "N/A"
+      },
+      "liveUrl": "https://collage-website-kappa.vercel.app/",
+      "githubUrl": "",
+      "results": [
+        "Enhanced user experience for students and visitors",
+        "Improved accessibility to college information",
+        "Responsive and visually appealing design"
+      ],
+      "tags": ["Education", "College", "Website", "Next.js", "React", "Tailwind CSS"]
+    },
+    {
+      "title": "Job Course Portal",
+      "slug": "job-course-portal",
+      "category": "Career Development / Web App",
+      "description": "A comprehensive platform offering job listings and professional courses to help individuals advance their careers. Features include job search, course enrollment, community engagement, and career advice.",
+      "images": [
+        "/projects/job-course-portal/1.png",
+        "/projects/job-course-portal/2.png",
+        "/projects/job-course-portal/3.png"
+      ],
+      "technologies": [
+        { "name": "Next.js" },
+        { "name": "React.js" },
+        { "name": "Tailwind CSS" },
+        { "name": "TypeScript" },
+        { "name": "Vercel Hosting" }
+      ],
+      "features": [
+        "Browse and apply for jobs in various industries",
+        "Enroll in professional development courses",
+        "Join communities for job seekers and learners",
+        "Receive career advice and job alerts",
+        "Responsive design for all devices",
+        "User-friendly interface with smooth navigation"
+      ],
+      "services": [
+        "Job Listings",
+        "Course Enrollment",
+        "Career Advice",
+        "Community Engagement",
+        "Job Alerts"
+      ],
+      "contact": {
+        "email": "contact@jobcourseportal.com",
+        "phone": "+1 (555) 123-4567",
+        "address": "123 Career Street, Education City"
+      },
+      "liveUrl": "https://job-course-portal.vercel.app/",
+      "githubUrl": "",
+      "results": [
+        "Over 1,000 active job listings",
+        "500+ professional courses available",
+        "10,000+ registered users",
+        "98% user satisfaction rate"
+      ],
+      "tags": ["Career Development", "Job Portal", "Online Courses", "Web App"]
+    },
+    {
+      "title": "Astro Guide",
+      "slug": "astro-guide",
+      "category": "Astrology / Web App",
+      "description": "Astro Guide offers personalized Vedic astrology services, including birth chart readings, transit analysis, compatibility assessments, and career guidance. With over 15 years of experience, the astrologer combines traditional wisdom with modern psychological insights to provide practical advice for personal growth and transformation.",
+      "images": [
+        "/projects/astro-guide/1.png",
+        "/projects/astro-guide/2.png",
+        "/projects/astro-guide/3.png"
+      ],
+      "technologies": [
+        { "name": "Astro" },
+        { "name": "Tailwind CSS" },
+        { "name": "Vercel Hosting" }
+      ],
+      "features": [
+        "Personalized Vedic astrology readings",
+        "Detailed birth chart and transit analysis",
+        "Compatibility assessments for relationships",
+        "Career guidance based on astrological insights",
+        "Remedial measures including gemstone and ritual recommendations",
+        "Responsive design optimized for mobile and desktop"
+      ],
+      "services": [
+        "Birth Chart Reading",
+        "Transit Analysis",
+        "Compatibility Analysis",
+        "Career Guidance",
+        "Remedial Measures"
+      ],
+      "contact": {
+        "email": "contact@astroguide.com",
+        "phone": "+91 98765 43210",
+        "address": "123 Astrology Lane, Mumbai, Maharashtra 400001, India"
+      },
+      "liveUrl": "https://astroguide-livid.vercel.app/",
+      "githubUrl": "",
+      "results": [
+        "Over 5,000 successful consultations",
+        "15+ years of experience in Vedic astrology",
+        "High client satisfaction with personalized guidance"
+      ],
+      "tags": ["Astrology", "Vedic", "Web App", "Personalized Readings"]
+    }
+ 
+  ]
+}

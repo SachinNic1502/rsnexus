@@ -142,13 +142,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link
-          rel="preload"
-          href={inter.variable}
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        {/* Remove preload for inter.variable as it does not exist */}
+        {/* If you want to preload the font, specify the actual font file path or remove this block */}
         <link rel="dns-prefetch" href="https://rsnexus.in" />
         <link rel="preconnect" href="https://rsnexus.in" crossOrigin="anonymous" />
         <script

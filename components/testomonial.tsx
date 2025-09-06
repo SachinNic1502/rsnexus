@@ -1,14 +1,38 @@
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import TestimonialData from "@/data/testimonial.json";
-import { Badge } from "@/components/ui/badge";
+"use client"
+
+import { useState } from "react"
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
+import TestimonialData from "@/data/testimonial.json"
+import { Badge } from "@/components/ui/badge"
+
+interface TestimonialItem {
+  src?: string
+  name: string
+  designation: string
+  quote: string
+}
 
 export function Testimonial() {
-  const testimonials = TestimonialData.map((item) => ({
-    src: item.src,
-    name: item.name,
-    designation: item.designation,
-    quote: item.quote,
-  }));
+  const [imageErrorMap, setImageErrorMap] = useState<Record<number, boolean>>({})
+
+  // Get initials from full name
+  const getInitials = (name: string) => {
+    const parts = name.split(" ")
+    const first = parts[0]?.charAt(0).toUpperCase() || ""
+    const last = parts[parts.length - 1]?.charAt(0).toUpperCase() || ""
+    return first + last
+  }
+
+  const testimonials: TestimonialItem[] = TestimonialData.map((item, index) => ({
+    ...item,
+    src: item.src && !imageErrorMap[index] ? item.src : undefined,
+    fallback: (
+      <div className="flex items-center justify-center w-full h-full bg-gray-300 dark:bg-gray-700 text-white font-bold text-xl">
+        {getInitials(item.name)}
+      </div>
+    ),
+    onError: () => setImageErrorMap((prev) => ({ ...prev, [index]: true })),
+  }))
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
@@ -31,5 +55,5 @@ export function Testimonial() {
         <AnimatedTestimonials testimonials={testimonials} />
       </div>
     </section>
-  );
+  )
 }

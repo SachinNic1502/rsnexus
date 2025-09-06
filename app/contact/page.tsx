@@ -18,8 +18,7 @@ const contactInfo = [
     icon: MapPin,
     title: "Office Locations",
     details: [
-      "Mumbai: Andheri East, Maharashtra",
-      "Delhi: Connaught Place, New Delhi",
+      "At present, we work entirely remotely without a physical office.",
     ],
   },
   {
@@ -296,7 +295,7 @@ export default function ContactPage() {
             ))}
 
             {/* Map Placeholder */}
-            <Card className="overflow-hidden">
+            {/* <Card className="overflow-hidden">
               <div className="h-64 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="h-12 w-12 text-primary mx-auto mb-2" />
@@ -304,7 +303,7 @@ export default function ContactPage() {
                   <p className="text-sm text-muted-foreground">Mumbai, Delhi, Bangalore Offices</p>
                 </div>
               </div>
-            </Card>
+            </Card> */}
           </div>
         </div>
 
