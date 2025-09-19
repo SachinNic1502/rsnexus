@@ -7,7 +7,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
@@ -39,11 +39,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   alternates: {
     canonical: "https://rsnexus.in",
   },
@@ -55,10 +50,10 @@ export const metadata: Metadata = {
     siteName: "RSNexus",
     images: [
       {
-        url: "https://rsnexus.in/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "RSNexus Software Development Services",
+        url :"https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
+        width: 512,
+        height: 512,
+        alt: "RSNexus Logo",
       },
     ],
     locale: "en_IN",
@@ -69,9 +64,15 @@ export const metadata: Metadata = {
     title: "RSNexus - Software Development Company in India",
     description:
       "Expert software solutions by RSNexus, including web development, mobile apps, AI, and cloud services in Mumbai, Delhi, and Bangalore.",
-    images: ["https://rsnexus.in/twitter-image.jpg"],
+    images: ["https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png"],
     creator: "@RSNexus",
   },
+  icons: {
+  icon: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
+  apple: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
+  shortcut: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
+},
+
 };
 
 export default function RootLayout({
@@ -85,9 +86,7 @@ export default function RootLayout({
       "@type": "Organization",
       name: "RSNexus",
       url: "https://rsnexus.in",
-      logo: "https://rsnexus.in/logo.png",
-      description:
-        "RSNexus is a leading software development company in India, providing innovative web development, mobile app development, AI solutions, and cloud services.",
+      logo: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
       sameAs: [
         "https://www.linkedin.com/company/rsnexus",
         "https://twitter.com/RSNexus",
@@ -95,11 +94,11 @@ export default function RootLayout({
       ],
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+91-1234567890",
+        telephone: "+91-9309931886",
         contactType: "customer support",
-        email: "support@rsnexus.in",
+        email: "sachinrathodnic1@gmail.com",
         areaServed: "IN",
-        availableLanguage: ["English", "Hindi"],
+        availableLanguage: ["English", "Hindi", "Marathi"],
       },
       address: {
         "@type": "PostalAddress",
@@ -140,21 +139,20 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        {/* Remove preload for inter.variable as it does not exist */}
-        {/* If you want to preload the font, specify the actual font file path or remove this block */}
+        <meta name="color-scheme" content="light dark" />
         <link rel="dns-prefetch" href="https://rsnexus.in" />
         <link rel="preconnect" href="https://rsnexus.in" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <link rel="shortcut icon" href="https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png" type="image/x-icon" />
+        
       </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

@@ -1,29 +1,65 @@
 [
   {
     "projectSlug": "mylapkart",
-    "quote": "The online marketplace for laptops is extremely user-friendly. Transactions are smooth and secure, making it a pleasure to shop.",
+    "quote": "The online marketplace for laptops is extremely user-friendly. Transactions are smooth and secure, and the responsive design makes it easy to shop on any device.",
     "name": "Santosh Gorle",
     "designation": "Product Manager at TechFlow",
-    "src": ""
+    "src": "/testimonials/santosh-gorle.png"
+  },
+  {
+    "projectSlug": "mylapkart-erp",
+    "quote": "The ERP system simplified our entire operations. From product management to customer support, everything is centralized and highly efficient.",
+    "name": "Kiran More",
+    "designation": "Operations Head at MyLapKart",
+    "src": "/testimonials/kiran-more.png"
   },
   {
     "projectSlug": "step-up-style",
-    "quote": "The footwear POS system is incredibly efficient. Inventory and order management is now seamless and accurate across multiple stores.",
+    "quote": "The footwear POS system has transformed our business operations. Inventory and order management are now seamless, and reporting is highly accurate across all branches.",
     "name": "Emily Watson",
     "designation": "Operations Director at CloudScale",
-    "src": ""
+    "src": "/testimonials/emily-watson.png"
   },
   {
     "projectSlug": "step-up-style",
-    "quote": "The footwear POS system is incredibly efficient. Inventory and order management is now seamless and accurate across multiple stores.",
+    "quote": "With Step Up Style’s POS solution, managing multiple stores has become effortless. Sales tracking and inventory audits are now quick and error-free.",
     "name": "Shadab Shaikh",
     "designation": "Operations Director at Step Up Style",
-    "src": ""
-  },{
-    "projectSlug": "Sanjivani Care",
-    "quote": "The healthcare POS system is incredibly efficient. Inventory and order management is now seamless and accurate across multiple stores.",
+    "src": "/testimonials/shadab-shaikh.png"
+  },
+  {
+    "projectSlug": "sanjivani-care",
+    "quote": "The hospital management platform streamlined our patient records and insurance workflows. Doctors and staff now collaborate more efficiently with role-based access.",
     "name": "Amol Seth",
     "designation": "Director at Sanjivani Care",
-    "src": ""
+    "src": "/testimonials/amol-seth.png"
+  },
+  {
+    "projectSlug": "cestt-limited",
+    "quote": "Booking CSCS cards and construction training has never been easier. The platform is fast, reliable, and has made compliance training stress-free for our team.",
+    "name": "James Cooper",
+    "designation": "Training Manager at BuildRight UK",
+    "src": "/testimonials/james-cooper.png"
+  },
+  {
+    "projectSlug": "college-website",
+    "quote": "The new college website is modern, responsive, and easy to navigate. Students and parents now find information instantly, and event updates are seamless.",
+    "name": "Dr. Meera Patil",
+    "designation": "Principal at Horizon College",
+    "src": "/testimonials/meera-patil.png"
+  },
+  {
+    "projectSlug": "job-course-portal",
+    "quote": "This platform gave our students direct access to jobs and professional courses. The career advice and community features are a huge plus for continuous growth.",
+    "name": "Rajesh Nair",
+    "designation": "Career Counselor at Bright Futures",
+    "src": "/testimonials/rajesh-nair.png"
+  },
+  {
+    "projectSlug": "astro-guide",
+    "quote": "Astro Guide’s personalized readings gave me clarity about my career and relationships. The experience felt authentic, and the guidance was truly actionable.",
+    "name": "Priya Sharma",
+    "designation": "Entrepreneur",
+    "src": "/testimonials/priya-sharma.png"
   }
 ]

@@ -81,38 +81,54 @@ export default function ContactPage() {
   }, [searchParams])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for contacting RSNexus. We'll get back to you within 24 hours.",
-      })
+      const data = await response.json();
 
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        budget: "",
-        message: "",
-      })
+      if (response.ok) {
+        toast({
+          title: "Message Sent Successfully!",
+          description: data.message || "Thank you for contacting RSNexus. We'll get back to you within 24 hours.",
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "",
+          budget: "",
+          message: "",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: data.message || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
+      console.error("Submission error:", error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: "An unexpected error occurred. Please try again.",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -262,7 +278,7 @@ export default function ContactPage() {
           {/* Contact Information */}
           <div className="space-y-6">
             {/* Quick Actions */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 hidden">
               <Button className="h-16 flex-col gap-2 bg-transparent" variant="outline" onClick={handleLiveChat}>
                 <MessageCircle className="h-5 w-5" />
                 <span>Live Chat</span>

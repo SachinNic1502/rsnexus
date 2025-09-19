@@ -4,36 +4,137 @@
       "title": "MyLapKart",
       "slug": "mylapkart",
       "category": "E-commerce",
-      "description": "An online marketplace for laptops and accessories with secure payments, responsive UI, and efficient product management.",
+      "description": "A customer-facing online marketplace for laptops and accessories with secure payments, responsive UI, and seamless shopping experience.",
       "images": [
-        "/projects/mylapkart/1.png",
-        "/projects/mylapkart/2.png",
-        "/projects/mylapkart/3.png"
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758132673/lapkart_eui9qo.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758132672/lapkart2_oftjxf.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758132672/lapkart3_qrabc0.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758132672/lapkart2_oftjxf.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758132672/lapkat_c6rqyy.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758132672/admin_ywpd8n.png"
       ],
       "technologies": [
-        { "name": "MongoDB" },
-        { "name": "Express.js" },
-        { "name": "React.js" },
-        { "name": "Node.js" },
-        { "name": "Tailwind CSS" },
-        { "name": "Razorpay", "description": "Integrated secure payments" },
-        { "name": "Cloudinary", "description": "Cloud image storage and optimization" }
+        {
+          "name": "MongoDB"
+        },
+        {
+          "name": "Express.js"
+        },
+        {
+          "name": "React.js"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "Razorpay",
+          "description": "Secure payment gateway integration"
+        },
+        {
+          "name": "Cloudinary",
+          "description": "Cloud image storage & optimization"
+        }
       ],
       "features": [
         "User Authentication",
+        "Product Listings & Categories",
+        "Seller Dashboard",
+        "Product Reviews & Ratings",
         "Razorpay Payments",
+        "Order Management",
+        "Refer and Earn",
+        "On Order Coins System for Discounts",
+        "Wishlist & Cart",
         "Cloudinary Image Storage",
-        "Admin Dashboard",
-        "Mobile Responsive"
+        "Cart & Checkout System",
+        "Mobile Responsive Design",
+        "PWA Support"
       ],
       "liveUrl": "https://www.mylapkart.in/",
       "githubUrl": "",
       "results": [
         "Successfully launched a live marketplace",
         "Secured transactions with Razorpay integration",
-        "Optimized user experience with Tailwind CSS"
+        "Optimized user shopping experience with responsive UI",
+        "Increased sales with effective product reviews and ratings",
+        "Enhanced performance with PWA features"
       ],
-      "tags": ["E-commerce", "Marketplace", "Web App"]
+      "tags": [
+        "E-commerce",
+        "Marketplace",
+        "Web App",
+        "Mobile App",
+        "PWA"
+      ]
+    },
+    {
+      "title": "MyLapKart ERP",
+      "slug": "mylapkart-erp",
+      "category": "E-commerce / ERP",
+      "description": "An enterprise resource planning (ERP) system built for MyLapKart to manage orders, inventory, customer support, and multi-store operations.",
+      "images": [
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133595/erp_xo7aig.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133725/erp7_vdtttt.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133706/erp6_wz5yza.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133635/erp5_nrrquq.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133595/erp4_dzpz6c.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133596/erp2_hoxngw.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133596/erp3_qmdzrl.png"
+      ],
+      "technologies": [
+        {
+          "name": "MongoDB"
+        },
+        {
+          "name": "Express.js"
+        },
+        {
+          "name": "React.js"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "Razorpay",
+          "description": "Integrated payments for backend operations"
+        },
+        {
+          "name": "Cloudinary",
+          "description": "Media storage for ERP assets"
+        }
+      ],
+      "features": [
+        "Admin Authentication",
+        "Product & Inventory Management",
+        "POS For Sell and Invoice Generation",
+        "Order Management Dashboard",
+        "Customer Support Module",
+        "Reports & Analytics",
+        "Multi-Store Support",
+        "Secure Payments Handling",
+        "Role-based Access",
+        "Mobile Responsive Design",
+        "Invoice On Email and whatsapp"
+      ],
+      "liveUrl": "",
+      "githubUrl": "",
+      "results": [
+        "Streamlined backend operations for MyLapKart",
+        "Reduced inventory mismatches with ERP management",
+        "Improved decision-making with analytics dashboard"
+      ],
+      "tags": [
+        "E-commerce",
+        "ERP",
+        "Inventory",
+        "Management System"
+      ]
     },
     {
       "title": "Step Up Style",
@@ -41,31 +142,45 @@
       "category": "Retail / Footwear",
       "description": "A footwear e-commerce and POS platform with robust inventory, order management, and reporting features tailored for retail businesses.",
       "images": [
-        "/projects/step-up-style/1.png",
-        "/projects/step-up-style/2.png",
-        "/projects/step-up-style/3.png"
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135036/wear_xxncnf.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135056/wear4_goenqo.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135036/wear3_yegubo.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135036/wear2_gamdzg.png"
       ],
       "technologies": [
-        { "name": "MongoDB" },
-        { "name": "Express.js" },
-        { "name": "React.js" },
-        { "name": "Node.js" },
-        { "name": "Tailwind CSS" },
-        { "name": "Shopify API", "description": "Integration for product management" }
+        {
+          "name": "MongoDB"
+        },
+        {
+          "name": "Express.js"
+        },
+        {
+          "name": "React.js"
+        },
+        {
+          "name": "Node.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "Shopify API",
+          "description": "Integrated for product management"
+        }
       ],
       "features": [
-        "Product Management",
-        "Inventory Management",
+        "Product & Inventory Management",
         "Order Management",
         "POS Audits & Reports",
         "Role-based Login",
-        "Customer Management (CRM)",
+        "CRM & Customer Management",
         "Discounts & Promotions",
         "Sales Analytics Dashboard",
         "Stock Alerts & Notifications",
         "Multi-Store Support",
         "Secure Payment Integration",
-        "Mobile Responsive Design"
+        "Mobile Responsive Design",
+        "Shopify Integration for Order Sync"
       ],
       "liveUrl": "",
       "githubUrl": "",
@@ -76,89 +191,59 @@
         "Multi-store support improved scalability for franchise expansion",
         "Real-time analytics improved decision-making efficiency by 50%"
       ],
-      "tags": ["Retail", "POS", "E-commerce", "Analytics"]
-    },{
-      "title": "Sanjivani Care",
-      "slug": "sanjivani-care",
-      "category": "Healthcare / Management",
-      "description": "A hospital management platform with patient records, insurance handling, and role-based access for doctors, admins, and staff.",
-      "images": [
-        "/projects/sanjivani-care/1.png",
-        "/projects/sanjivani-care/2.png",
-        "/projects/sanjivani-care/3.png"
-      ],
-      "technologies": [
-        { "name": "MongoDB" },
-        { "name": "Express.js" },
-        { "name": "React.js" },
-        { "name": "Node.js" },
-        { "name": "Tailwind CSS" },
-        { "name": "Framer Motion" }
-      ],
-      "features": [
-        "Patient Management",
-        "Insurance Handling",
-        "Role-based Access",
-        "Animated UI"
-      ],
-      "liveUrl": "https://sanjivanicare.in/",
-      "githubUrl": "",
-      "results": [
-        "Improved hospital record management",
-        "Enabled insurance workflow automation",
-        "Enhanced patient experience with modern UI"
-      ],
-      "tags": ["Healthcare", "Management", "Web App"]
+      "tags": [
+        "Retail",
+        "POS",
+        "E-commerce",
+        "Analytics",
+        "CRM"
+      ]
     },
     {
-      "title": "Cestt Limited",
+      "title": "CESTT Limited",
       "slug": "cestt-limited",
       "category": "Construction / Training",
-      "description": "CESTT helps customers across the UK quickly book CSCS Cards, CITB Tests, NVQ Courses, and Construction Training. With fast, reliable service, customers can advance their career in construction.",
+      "description": "CESTT helps customers across the UK quickly book CSCS Cards, CITB Tests, NVQ Courses, and Construction Training with fast, reliable service.",
       "images": [
-        "/projects/cestt-limited/1.png",
-        "/projects/cestt-limited/2.png",
-        "/projects/cestt-limited/3.png"
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307018/cestt_mvv932.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307018/cestt2_iginen.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307017/cestt3_woq0ur.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307018/cestt4_xenhhq.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307017/cestt5_bd45fb.png"
       ],
       "technologies": [
-        { "name": "Next.js" },
-        { "name": "React.js" },
-        { "name": "Tailwind CSS" },
-        { "name": "TypeScript" },
-        { "name": "Framer Motion" },
-        { "name": "Vercel Hosting" }
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "React.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "TypeScript"
+        },
+        {
+          "name": "Framer Motion"
+        },
+        {
+          "name": "Vercel Hosting"
+        }
       ],
       "features": [
-        "Quick booking of CSCS Cards, CITB Tests, and NVQ Courses",
-        "Comprehensive construction training options",
-        "Fast and reliable online service",
-        "Detailed course & card information",
-        "Responsive design for all devices",
-        "SEO optimized and user-friendly"
+        "Quick booking for CSCS Cards & CITB Tests",
+        "Construction training programs",
+        "Detailed course & card info",
+        "Responsive design",
+        "SEO optimized"
       ],
       "services": [
         "CSCS Cards",
-        "Green Labour Card",
-        "Red Supervisor or Manager",
-        "Red Apprentice Card",
-        "Red Experienced Worker",
-        "Red Trainee Card",
-        "Black Manager",
-        "White AQP Card",
-        "Red Provisional Card",
-        "Blue Skilled Worker",
-        "White PQP Card",
-        "Gold Supervisory Card",
-        "Gold Skilled Worker",
-        "CITB Test",
-        "CPCS",
+        "CITB Tests",
+        "NVQ Courses",
         "Construction Qualifications",
-        "SMSTS Course",
-        "Health Safety and Awareness Course",
-        "L1 Award Health & Safety in Construction",
-        "SMSTS Refresher Course",
-        "SSSTS Course",
-        "SSSTS Refresher Course"
+        "Health & Safety Courses"
       ],
       "contact": {
         "email": "info@cestt.co.uk",
@@ -169,46 +254,64 @@
       "liveUrl": "https://cesttlimited.co.uk/",
       "githubUrl": "",
       "results": [
-        "Improved career advancement opportunities for customers",
-        "Fast and reliable service across the UK",
-        "Streamlined booking and training process for construction professionals"
+        "Improved career advancement opportunities",
+        "Fast & reliable service across the UK",
+        "Streamlined booking & training process"
       ],
-      "tags": ["Construction", "Training", "CSCS", "CITB", "NVQ", "Web App"]
+      "tags": [
+        "Construction",
+        "Training",
+        "CSCS",
+        "CITB",
+        "NVQ",
+        "Web App"
+      ]
     },
     {
       "title": "College Website",
       "slug": "college-website",
       "category": "Education / Website",
-      "description": "A responsive and modern college website showcasing courses, departments, faculty, events, and student resources. Built to provide an intuitive user experience for students, staff, and visitors.",
+      "description": "A responsive and modern college website showcasing courses, departments, faculty, events, and student resources.",
       "images": [
-        "/projects/college-website/1.png",
-        "/projects/college-website/2.png",
-        "/projects/college-website/3.png"
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307253/college_v9jhbc.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307253/college2_sxwo0l.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307261/college4_o002md.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307252/college3_j1di2r.png"
       ],
       "technologies": [
-        { "name": "Next.js" },
-        { "name": "React.js" },
-        { "name": "Tailwind CSS" },
-        { "name": "TypeScript" },
-        { "name": "Framer Motion" },
-        { "name": "Vercel Hosting" }
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "React.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "TypeScript"
+        },
+        {
+          "name": "Framer Motion"
+        },
+        {
+          "name": "Vercel Hosting"
+        }
       ],
       "features": [
-        "Responsive design for desktop, tablet, and mobile",
-        "Course listings with detailed curriculum",
-        "Faculty and staff profiles",
-        "Event calendar and notifications",
-        "Student resources and downloads",
-        "Modern UI with animations and interactive elements",
-        "SEO optimized"
+        "Responsive Design",
+        "Course Listings",
+        "Faculty & Staff Profiles",
+        "Event Calendar & Notifications",
+        "Student Resources",
+        "SEO Optimized"
       ],
       "services": [
-        "College Course Display",
-        "Department Information",
+        "Courses & Departments",
         "Faculty Profiles",
         "Events & News",
-        "Student Resources",
-        "Admissions Information"
+        "Admissions Info",
+        "Student Resources"
       ],
       "contact": {
         "email": "info@college-website.com",
@@ -218,43 +321,59 @@
       "liveUrl": "https://collage-website-kappa.vercel.app/",
       "githubUrl": "",
       "results": [
-        "Enhanced user experience for students and visitors",
-        "Improved accessibility to college information",
-        "Responsive and visually appealing design"
+        "Enhanced user experience",
+        "Improved accessibility to college info",
+        "Modern responsive design"
       ],
-      "tags": ["Education", "College", "Website", "Next.js", "React", "Tailwind CSS"]
+      "tags": [
+        "Education",
+        "College",
+        "Website",
+        "Next.js",
+        "React",
+        "Tailwind CSS"
+      ]
     },
     {
       "title": "Job Course Portal",
       "slug": "job-course-portal",
       "category": "Career Development / Web App",
-      "description": "A comprehensive platform offering job listings and professional courses to help individuals advance their careers. Features include job search, course enrollment, community engagement, and career advice.",
+      "description": "A platform offering job listings and professional courses with career advice, alerts, and community engagement.",
       "images": [
-        "/projects/job-course-portal/1.png",
-        "/projects/job-course-portal/2.png",
-        "/projects/job-course-portal/3.png"
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307356/job3_zh6itv.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307356/job_d51hvr.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307356/job2_ebdkyg.png"
       ],
       "technologies": [
-        { "name": "Next.js" },
-        { "name": "React.js" },
-        { "name": "Tailwind CSS" },
-        { "name": "TypeScript" },
-        { "name": "Vercel Hosting" }
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "React.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "TypeScript"
+        },
+        {
+          "name": "Vercel Hosting"
+        }
       ],
       "features": [
-        "Browse and apply for jobs in various industries",
-        "Enroll in professional development courses",
-        "Join communities for job seekers and learners",
-        "Receive career advice and job alerts",
-        "Responsive design for all devices",
-        "User-friendly interface with smooth navigation"
+        "Job Listings & Search",
+        "Course Enrollment",
+        "Career Advice & Alerts",
+        "Community Engagement",
+        "Responsive Design"
       ],
       "services": [
         "Job Listings",
-        "Course Enrollment",
+        "Professional Courses",
         "Career Advice",
-        "Community Engagement",
-        "Job Alerts"
+        "Job Alerts",
+        "Community Platform"
       ],
       "contact": {
         "email": "contact@jobcourseportal.com",
@@ -264,57 +383,72 @@
       "liveUrl": "https://job-course-portal.vercel.app/",
       "githubUrl": "",
       "results": [
-        "Over 1,000 active job listings",
-        "500+ professional courses available",
+        "1,000+ active job listings",
+        "500+ professional courses",
         "10,000+ registered users",
         "98% user satisfaction rate"
       ],
-      "tags": ["Career Development", "Job Portal", "Online Courses", "Web App"]
+      "tags": [
+        "Career Development",
+        "Job Portal",
+        "Online Courses",
+        "Web App"
+      ]
     },
     {
       "title": "Astro Guide",
       "slug": "astro-guide",
       "category": "Astrology / Web App",
-      "description": "Astro Guide offers personalized Vedic astrology services, including birth chart readings, transit analysis, compatibility assessments, and career guidance. With over 15 years of experience, the astrologer combines traditional wisdom with modern psychological insights to provide practical advice for personal growth and transformation.",
+      "description": "Astro Guide offers personalized Vedic astrology services including birth chart readings, compatibility analysis, and career guidance.",
       "images": [
-        "/projects/astro-guide/1.png",
-        "/projects/astro-guide/2.png",
-        "/projects/astro-guide/3.png"
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307470/astro_xqjj1k.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307471/astro2_s69xri.png",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307471/astro3_vexgp5.png"
       ],
       "technologies": [
-        { "name": "Astro" },
-        { "name": "Tailwind CSS" },
-        { "name": "Vercel Hosting" }
+        {
+          "name": "Astro"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "Vercel Hosting"
+        }
       ],
       "features": [
-        "Personalized Vedic astrology readings",
-        "Detailed birth chart and transit analysis",
-        "Compatibility assessments for relationships",
-        "Career guidance based on astrological insights",
-        "Remedial measures including gemstone and ritual recommendations",
-        "Responsive design optimized for mobile and desktop"
+        "Personalized Astrology Readings",
+        "Birth Chart & Transit Analysis",
+        "Compatibility Assessments",
+        "Career Guidance",
+        "Remedial Measures",
+        "Responsive Design"
       ],
       "services": [
         "Birth Chart Reading",
         "Transit Analysis",
         "Compatibility Analysis",
         "Career Guidance",
-        "Remedial Measures"
+        "Remedies & Gemstone Suggestions"
       ],
       "contact": {
         "email": "contact@astroguide.com",
         "phone": "+91 98765 43210",
-        "address": "123 Astrology Lane, Mumbai, Maharashtra 400001, India"
+        "address": "123 Astrology Lane, Mumbai, Maharashtra, India"
       },
       "liveUrl": "https://astroguide-livid.vercel.app/",
       "githubUrl": "",
       "results": [
-        "Over 5,000 successful consultations",
-        "15+ years of experience in Vedic astrology",
-        "High client satisfaction with personalized guidance"
+        "5,000+ successful consultations",
+        "15+ years of Vedic astrology experience",
+        "High client satisfaction"
       ],
-      "tags": ["Astrology", "Vedic", "Web App", "Personalized Readings"]
+      "tags": [
+        "Astrology",
+        "Vedic",
+        "Web App",
+        "Personalized Readings"
+      ]
     }
- 
   ]
 }
