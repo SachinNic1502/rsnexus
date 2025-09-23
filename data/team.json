@@ -29,7 +29,7 @@
     {
       "name": "Anand Tiwari",
       "role": "COO",
-      "image": "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756665044/IMG-20250621-WA0005_fjdxlw.jpg",
+      "image": "https://res.cloudinary.com/dl2xsc49w/image/upload/v1757241035/Anand_f5z9yn.jpg",
       "bio": "Backend and Frontend Developer specializing in scalable, high-performance applications using Node.js and modern frameworks. Passionate about designing efficient APIs, secure architectures, and reliable backend systems to support growing businesses.",
       "linkedin": "https://www.linkedin.com/in/anand-tiwari-773a99233/",
       "email": "anandtiwari4009@gmail.com",
@@ -43,6 +43,15 @@
       "linkedin": "",
       "email": "lukmanalam00786@gmail.com",
       "phone": "+91 90976 05363"
+    },
+    {
+      "name":"Vikas Bundhe",
+      "role":"Android Developer and UI/UX Designer",
+      "image":"https://res.cloudinary.com/dn7a3a8ej/image/upload/v1756666011/WhatsApp_Image_2025-09-01_at_12.40.26_AM_hxqz4m.jpg",
+      "bio":"Android Developer and UI/UX Designer crafting intuitive mobile experiences. Skilled in Java, Kotlin, and design tools to create user-friendly apps that engage and delight users.",
+      "linkedin":"",
+      "email":"bundhevikas4@gmail",
+      "phone":"+91 97304 07370"
     }
   ]
   

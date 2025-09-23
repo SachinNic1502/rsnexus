@@ -46,9 +46,9 @@ export function GlobeShowcase() {
             Serving the World from India
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our global reach extends across continents, delivering world-class software solutions 
-            while maintaining the cost-effectiveness and quality that Indian technology is known for.
+            We deliver world-class software solutions across the globe, combining international standards with India’s renowned technology expertise.
           </p>
+
         </div>
 
         {/* Globe and Stats Grid */}
@@ -56,7 +56,7 @@ export function GlobeShowcase() {
           {/* Globe Section */}
           <div className="flex justify-center">
             <div className="relative">
-              
+
               {/* Floating Elements */}
               <div className="absolute -top-8 -left-8 w-16 h-16 bg-blue-500/20 rounded-full blur-xl animate-pulse" />
               <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-1000" />
@@ -67,10 +67,10 @@ export function GlobeShowcase() {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">Our Global Impact</h3>
-              <p className="text-muted-foreground mb-8">
-                From our headquarters in Mumbai, we've built a network that spans the globe, 
-                bringing Indian innovation and expertise to businesses worldwide.
-              </p>
+             <p className="text-muted-foreground mb-8">
+  We work entirely remotely, connecting with clients worldwide and delivering innovative solutions powered by India’s technology expertise.
+</p>
+
             </div>
 
             <div className="grid grid-cols-2 gap-6">

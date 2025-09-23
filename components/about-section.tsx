@@ -35,7 +35,7 @@ export function AboutSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
-            About RSNexus India
+            About RSNexus
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Driven by Innovation, Powered by Passion</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -60,16 +60,12 @@ export function AboutSection() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-6">Our Mission in India</h3>
+            <h3 className="text-2xl font-bold mb-6">Our Mission</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              We believe in the transformative power of technology to drive India's digital revolution. Our mission is
-              to help Indian businesses and global companies leverage cutting-edge software solutions that are not just
-              functional, but exceptional in every aspect.
+             We believe in the transformative power of technology to drive the global digital revolution. Our mission is to help businesses and organizations around the world leverage cutting-edge software solutions that are not just functional, but exceptional in every aspect.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From Mumbai startups to Delhi enterprises, from Bangalore tech companies to international corporations, we
-              partner with our clients to understand their unique challenges and deliver tailored solutions that drive
-              growth, efficiency, and success in the Indian market and beyond.
+              From startups to large enterprises, from tech innovators to international corporations, we partner with our clients to understand their unique challenges and deliver tailored solutions that drive growth, efficiency, and success across the globe.
             </p>
           </div>
 
@@ -78,9 +74,10 @@ export function AboutSection() {
               <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0" />
               <div>
                 <h4 className="font-semibold mb-2">Innovation First</h4>
-                <p className="text-muted-foreground">
-                  We stay ahead of global technology trends while understanding local Indian market needs.
-                </p>
+               <p className="text-muted-foreground">
+  We stay ahead of global technology trends while addressing the unique needs of diverse markets.
+</p>
+
               </div>
             </div>
 

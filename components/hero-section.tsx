@@ -63,11 +63,10 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-                We’re a growing software development team helping startups and
-                businesses turn their ideas into powerful digital products—
-                serving clients across India and around the world
-              </p>
+             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+  We’re a growing software development team turning ideas into powerful digital products, delivering innovative solutions to clients around the world.
+</p>
+
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

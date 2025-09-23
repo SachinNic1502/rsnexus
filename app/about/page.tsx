@@ -191,11 +191,9 @@ export default function AboutPage() {
                   <Avatar className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 overflow-hidden">
                     <AvatarImage className="object-cover w-full h-full" src={member.image} alt={member.name} />
                     <AvatarFallback>
-                      {member.name
-                        .split(" ")
-                        .map((n: string) => n[0])
-                        .join("")}
-                    </AvatarFallback>
+  {member.name?.split(" ").map((n: string) => n[0]).join("") || ""}
+</AvatarFallback>
+
                   </Avatar>
                   <h3 className="font-semibold mb-1 text-base md:text-lg">{member.name}</h3>
                   <p className="text-primary text-xs md:text-sm mb-3">{member.role}</p>

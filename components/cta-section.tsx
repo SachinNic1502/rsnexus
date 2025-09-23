@@ -21,10 +21,9 @@ export function CTASection() {
       <div className="container mx-auto px-4">
         <Card className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-primary/80 text-primary-foreground border-0 shadow-2xl">
           <CardContent className="p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business in India?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Let's discuss your project and explore how RSNexus can help you achieve your goals with innovative
-              software solutions tailored for the Indian market.
+              Let's discuss your project and explore how RSNexus can help you achieve your goals with innovative software solutions tailored for success across the globe.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -49,7 +48,10 @@ export function CTASection() {
             </div>
 
             <div className="mt-8 text-sm opacity-75">
-              <p>✓ Free consultation • ✓ No commitment • ✓ Expert advice • ✓ India-focused solutions</p>
+              <p className="text-sm text-white text-bold mt-4">
+                ✓ Free consultation • ✓ Custom quotes available • ✓ Flexible payment terms • ✓ Market-focused solutions
+              </p>
+
             </div>
           </CardContent>
         </Card>

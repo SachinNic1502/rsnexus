@@ -2,7 +2,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, Star, Zap, Crown, X } from "lucide-react"
+import { Check, Star, Zap, Crown } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/hooks/use-toast"
 import { useState, useEffect } from "react"
@@ -14,7 +14,7 @@ const pricingPlans = [
     icon: Zap,
     price: "₹49,999",
     period: "per project",
-    description: "Perfect for small businesses and startups looking to establish their digital presence in India.",
+    description: "Perfect for small businesses and startups looking to establish their digital presence worldwide.",
     features: [
       "Responsive Website (up to 5 pages)",
       "Basic SEO Optimization",
@@ -33,7 +33,7 @@ const pricingPlans = [
     icon: Star,
     price: "₹1,25,999",
     period: "per project",
-    description: "Comprehensive solution for growing Indian businesses needing advanced functionality.",
+    description: "Comprehensive solution for growing businesses needing advanced functionality worldwide.",
     features: [
       "Custom Web Application",
       "Advanced SEO & Performance",
@@ -42,7 +42,7 @@ const pricingPlans = [
       "API Development",
       "6 Months Support",
       "Advanced Analytics",
-      "Payment Gateway Integration (Razorpay/PayU)",
+      "Payment Gateway Integration (Stripe/PayPal)",
       "Admin Dashboard",
       "5 Revision Rounds",
       "Content Management System",
@@ -56,7 +56,7 @@ const pricingPlans = [
     icon: Crown,
     price: "₹3,99,999",
     period: "per project",
-    description: "Full-scale solution for large Indian organizations requiring complex systems.",
+    description: "Full-scale solution for large organizations requiring complex systems globally.",
     features: [
       "Full Stack Application",
       "Microservices Architecture",
@@ -82,12 +82,12 @@ const addOnServices = [
   {
     name: "Mobile App Development",
     price: "₹49,999",
-    description: "iOS and Android app development for Indian market",
+    description: "iOS and Android app development for global users",
   },
   {
     name: "AI Integration",
     price: "₹49,999",
-    description: "Custom AI features and chatbots in Hindi/English",
+    description: "Custom AI features and chatbots for multiple languages",
   },
   {
     name: "Advanced Analytics",
@@ -97,7 +97,7 @@ const addOnServices = [
   {
     name: "E-commerce Setup",
     price: "₹39,999",
-    description: "Full online store with Indian payment gateways",
+    description: "Full online store with global payment gateways",
   },
   {
     name: "Maintenance Package",
@@ -116,7 +116,7 @@ const monthlyPackages = [
     name: "Development Retainer",
     price: "₹79,999",
     period: "per month",
-    description: "Ongoing development support for your growing Indian business.",
+    description: "Ongoing development support for your growing global business.",
     features: [
       "40 hours of development time",
       "Priority support",
@@ -130,7 +130,7 @@ const monthlyPackages = [
     name: "Full-Service Package",
     price: "₹1,49,999",
     period: "per month",
-    description: "Complete digital solution with dedicated team support in India.",
+    description: "Complete digital solution with dedicated team support worldwide.",
     features: [
       "80 hours of development time",
       "Dedicated project manager",
@@ -142,7 +142,6 @@ const monthlyPackages = [
     ],
   },
 ]
-
 export default function PricingPage() {
   const router = useRouter()
   const { toast } = useToast()
@@ -268,14 +267,13 @@ export default function PricingPage() {
           {/* Header */}
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
-              Pricing Plans - India
+              Pricing Plans
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
               Choose Your Perfect Plan
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Transparent pricing for every business size in India. No hidden fees, no surprises. Get exactly what you
-              need to succeed in the Indian market.
+              Transparent pricing for every business size worldwide. No hidden fees, no surprises. Get exactly what you need to succeed in the global market.
             </p>
           </div>
 
@@ -402,7 +400,7 @@ export default function PricingPage() {
           <div className="mb-20">
             <h2 className="text-3xl font-bold text-center mb-4">Monthly Retainer Packages</h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              For Indian businesses that need ongoing development support and want to build long-term partnerships.
+              For businesses worldwide that need ongoing development support and want to build long-term partnerships.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -444,7 +442,7 @@ export default function PricingPage() {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-4">Add-On Services</h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Enhance your project with additional features and services tailored to Indian market needs.
+              Enhance your project with additional features and services tailored to diverse market needs.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -470,8 +468,7 @@ export default function PricingPage() {
           <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-12">
             <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Not sure which plan is right for your Indian business? Let's discuss your project requirements and find the
-              perfect solution.
+              Choosing the right plan can be tricky — let’s connect to understand your project and deliver the perfect solution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="px-8" onClick={handleConsultation}>
@@ -482,8 +479,9 @@ export default function PricingPage() {
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-4">
-              ✓ Free consultation • ✓ Custom quotes available • ✓ Flexible payment terms • ✓ India-focused solutions
-            </p>
+  ✓ Free consultation • ✓ Custom quotes available • ✓ Flexible payment terms • ✓ Market-focused solutions
+</p>
+
           </div>
         </div>
       </div>

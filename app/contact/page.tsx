@@ -18,7 +18,7 @@ const contactInfo = [
     icon: MapPin,
     title: "Office Locations",
     details: [
-      "At present, we work entirely remotely without a physical office.",
+      "We currently operate remotely, serving clients worldwide.",
     ],
   },
   {
@@ -156,10 +156,10 @@ export default function ContactPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
             Let's Build Something Amazing Together
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to transform your ideas into reality? Get in touch with our team of experts in India and let's discuss
-            how we can help your business succeed.
-          </p>
+         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+  Ready to transform your ideas into reality? Get in touch with our team of experts and let's discuss how we can help your business succeed worldwide.
+</p>
+
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -262,7 +262,7 @@ export default function ContactPage() {
                     id="message"
                     value={formData.message}
                     onChange={(e) => handleChange("message", e.target.value)}
-                    placeholder="Tell us about your project, goals, and any specific requirements for the Indian market..."
+                    placeholder="Share details about your project, objectives, and any special requirements to help us craft the perfect solution..."
                     rows={5}
                     required
                   />
@@ -324,44 +324,45 @@ export default function ContactPage() {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Quick answers to common questions about our services and process in India.
-            </p>
-          </div>
+       <div className="mt-20">
+  <div className="text-center mb-12">
+    <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+    <p className="text-muted-foreground max-w-2xl mx-auto">
+      Quick answers to common questions about our services and development process.
+    </p>
+  </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              {
-                question: "How long does a typical project take in India?",
-                answer:
-                  "Project timelines vary based on complexity, but most projects are completed within 4-12 weeks with our Indian development team.",
-              },
-              {
-                question: "Do you provide ongoing support for Indian businesses?",
-                answer:
-                  "Yes, we offer various support packages including maintenance, updates, and feature enhancements specifically for Indian market needs.",
-              },
-              {
-                question: "Can you work with our existing Indian team?",
-                answer:
-                  "We can integrate with your existing team or work as an independent development partner across India.",
-              },
-              {
-                question: "What's your development process for Indian clients?",
-                answer:
-                  "We follow an agile methodology with regular check-ins, transparent communication, and iterative development, all aligned with Indian business hours.",
-              },
-            ].map((faq, index) => (
-              <Card key={index} className="p-6">
-                <h3 className="font-semibold mb-2">{faq.question}</h3>
-                <p className="text-muted-foreground text-sm">{faq.answer}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    {[
+      {
+        question: "How long does a typical project take?",
+        answer:
+          "Project timelines vary based on complexity, but most projects are completed within 4-12 weeks with our experienced development team.",
+      },
+      {
+        question: "Do you provide ongoing support for businesses?",
+        answer:
+          "Yes, we offer various support packages including maintenance, updates, and feature enhancements tailored to your needs.",
+      },
+      {
+        question: "Can you work with our existing team?",
+        answer:
+          "We can integrate with your existing team or work as an independent development partner for your project.",
+      },
+      {
+        question: "What's your development process for clients?",
+        answer:
+          "We follow an agile methodology with regular check-ins, transparent communication, and iterative development, aligned with your time zone and requirements.",
+      },
+    ].map((faq, index) => (
+      <Card key={index} className="p-6">
+        <h3 className="font-semibold mb-2">{faq.question}</h3>
+        <p className="text-muted-foreground text-sm">{faq.answer}</p>
+      </Card>
+    ))}
+  </div>
+</div>
+
       </div>
     </div>
   )

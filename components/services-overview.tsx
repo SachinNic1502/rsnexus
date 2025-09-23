@@ -11,37 +11,37 @@ const services = [
     icon: Code,
     title: "Website Development",
     description:
-      "Custom, responsive websites built with modern technologies for optimal performance in the Indian market.",
+      "Custom, responsive websites built with modern technologies for optimal performance worldwide.",
     features: ["Responsive Design", "SEO Optimized", "Fast Loading"],
   },
   {
     icon: Layers,
     title: "Full Stack Development",
-    description: "End-to-end application development from database to user interface, tailored for Indian businesses.",
+    description: "End-to-end application development from database to user interface, tailored for global businesses.",
     features: ["API Development", "Database Design", "Scalable Architecture"],
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
-    description: "Native and cross-platform mobile applications for iOS and Android, optimized for Indian users.",
+    description: "Native and cross-platform mobile applications for iOS and Android, optimized for worldwide users.",
     features: ["Cross-platform", "Native Performance", "App Store Ready"],
   },
   {
     icon: Palette,
     title: "UI/UX Design",
-    description: "User-centered design solutions that combine aesthetics with functionality for Indian audiences.",
+    description: "User-centered design solutions that combine aesthetics with functionality for global audiences.",
     features: ["User Research", "Prototyping", "Design Systems"],
   },
   {
     icon: Cloud,
     title: "Cloud Solutions",
-    description: "Scalable cloud infrastructure and deployment solutions optimized for Indian data regulations.",
+    description: "Scalable cloud infrastructure and deployment solutions meeting global standards and regulations.",
     features: ["Auto-scaling", "DevOps", "Security & Compliance"],
   },
   {
     icon: Brain,
     title: "AI & Machine Learning",
-    description: "Intelligent solutions powered by artificial intelligence, customized for Indian market needs.",
+    description: "Intelligent solutions powered by artificial intelligence, customized for global market needs.",
     features: ["Custom AI Models", "NLP", "Predictive Analytics"],
   },
 ]
@@ -58,12 +58,12 @@ export function ServicesOverview() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
-            Our Services in India
+            Our Services Worldwide
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Comprehensive Software Solutions</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             From web development to AI integration, we offer a full spectrum of services to meet all your software
-            development needs in India and globally.
+            development needs across the globe.
           </p>
         </div>
 
