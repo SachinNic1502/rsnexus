@@ -139,7 +139,7 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#ffffff" />
-        <meta name="color-scheme" content="light dark" />
+        <meta name="color-scheme" content="dark" />
         <link rel="dns-prefetch" href="https://rsnexus.in" />
         <link rel="preconnect" href="https://rsnexus.in" crossOrigin="anonymous" />
         <script
@@ -153,7 +153,6 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
           disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col">
@@ -167,3 +166,4 @@ export default function RootLayout({
     </html>
   );
 }
+
