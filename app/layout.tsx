@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rsnexus.in"),
   title: {
     default: "RSNexus - Leading Software Development Company in India",
     template: "%s | RSNexus",
@@ -139,7 +140,7 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#ffffff" />
-        <meta name="color-scheme" content="dark" />
+        <meta name="color-scheme" content="dark light" />
         <link rel="dns-prefetch" href="https://rsnexus.in" />
         <link rel="preconnect" href="https://rsnexus.in" crossOrigin="anonymous" />
         <script
