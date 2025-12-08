@@ -145,6 +145,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark light" />
         <link rel="dns-prefetch" href="https://rsnexus.in" />
         <link rel="preconnect" href="https://rsnexus.in" crossOrigin="anonymous" />
+        <meta name="google-site-verification" content="googleca875dd608b6a676"></meta>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
