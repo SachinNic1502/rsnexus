@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
@@ -162,6 +163,7 @@ export default function RootLayout({
           <div className="min-h-screen flex flex-col">
             <Navigation />
             <main className="flex-1">{children}</main>
+            <Analytics />
             <Footer />
           </div>
           <Toaster />
