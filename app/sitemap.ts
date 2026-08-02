@@ -36,7 +36,7 @@
 import type { MetadataRoute } from "next";
 import projectsData from "@/data/projects.json";
 
-const baseUrl = "https://www.rsnexus.in";
+const baseUrl = "https://rsnexus.in";
 
 function slugify(title: string): string {
   return title
