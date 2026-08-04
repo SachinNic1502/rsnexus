@@ -81,6 +81,26 @@ export function HeroSection() {
               </Button>
             </div>
 
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+              {[
+                "Founder-led Development",
+                "Modern React & Next.js",
+                "Transparent Communication",
+                "Free Consultation",
+                "Scalable Solutions",
+                "Clean & Maintainable Code",
+              ].map((badge) => (
+                <Badge
+                  key={badge}
+                  variant="outline"
+                  className="bg-background/10 backdrop-blur-sm border-primary/20 text-xs sm:text-sm font-normal"
+                >
+                  ✓ {badge}
+                </Badge>
+              ))}
+            </div>
+
             {/* Feature highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 !mb-5">
               <div className="flex items-center gap-3 text-sm">
@@ -104,7 +124,7 @@ export function HeroSection() {
                   <Globe className="h-4 w-4 text-primary-glow" />
                 </div>
                 <span className="text-foreground font-medium">
-                  Global Client Base
+                  Direct Communication
                 </span>
               </div>
             </div>

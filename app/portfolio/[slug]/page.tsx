@@ -102,9 +102,16 @@ export default function ProjectView() {
 
           {/* Info Tabs */}
           <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
-            <Badge variant="secondary" className="w-fit mb-4 text-sm px-3 py-1 rounded-full">
-              {project.category}
-            </Badge>
+            <div className="flex items-center gap-2 mb-4">
+              <Badge variant="secondary" className="w-fit text-sm px-3 py-1 rounded-full">
+                {project.category}
+              </Badge>
+              {(project as any).label && (
+                <Badge variant="outline" className="w-fit text-sm px-3 py-1 rounded-full">
+                  {(project as any).label}
+                </Badge>
+              )}
+            </div>
 
             {/* Title + Live button */}
             <div className="flex items-center justify-between mb-4">
@@ -128,6 +135,7 @@ export default function ProjectView() {
                 <TabsTrigger value="tech">Technologies</TabsTrigger>
                 <TabsTrigger value="features">Features</TabsTrigger>
                 <TabsTrigger value="results">Results</TabsTrigger>
+                {(project as any).caseStudy && <TabsTrigger value="case-study">Case Study</TabsTrigger>}
               </TabsList>
 
               <TabsContent value="tech">
@@ -170,6 +178,35 @@ export default function ProjectView() {
                   </CardContent>
                 </Card>
               </TabsContent>
+
+              {(project as any).caseStudy && (
+                <TabsContent value="case-study">
+                  <Card>
+                    <CardContent className="p-4 space-y-4">
+                      <div>
+                        <h4 className="text-lg font-semibold mb-1">Overview</h4>
+                        <p className="text-muted-foreground">{(project as any).caseStudy.overview}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold mb-1">Challenge</h4>
+                        <p className="text-muted-foreground">{(project as any).caseStudy.challenge}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold mb-1">Solution</h4>
+                        <p className="text-muted-foreground">{(project as any).caseStudy.solution}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold mb-1">Architecture</h4>
+                        <p className="text-muted-foreground">{(project as any).caseStudy.architecture}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold mb-1">Outcome</h4>
+                        <p className="text-muted-foreground">{(project as any).caseStudy.outcome}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              )}
             </Tabs>
 
             {/* GitHub Button only */}

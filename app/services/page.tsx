@@ -6,7 +6,7 @@ const services = [
   {
     icon: Code,
     title: "Website Development",
-    description: "Custom websites built with modern technologies for optimal performance and user experience.",
+    description: "For businesses without a fast, credible web presence. We build performance-focused sites tailored to your content and goals — not templated ones. Ideal for founders and small teams who need a site that loads fast and ranks well.",
     features: [
       "Responsive Design",
       "SEO Optimization",
@@ -19,7 +19,7 @@ const services = [
   {
     icon: Layers,
     title: "Full Stack Development",
-    description: "End-to-end application development from database design to user interface implementation.",
+    description: "For products that need a real backend, not just a frontend. We build the API, database, and auth layer to actually support your business logic. Ideal for startups building their first product from scratch.",
     features: [
       "API Development",
       "Database Design",
@@ -32,7 +32,7 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobile App Development",
-    description: "Native and cross-platform mobile applications for iOS and Android platforms.",
+    description: "For businesses that need a native-feeling app without maintaining two separate codebases. Ideal for teams that want to ship to iOS and Android from one codebase without compromising on performance.",
     features: [
       "Cross-platform Development",
       "Native Performance",
@@ -45,14 +45,14 @@ const services = [
   {
     icon: Palette,
     title: "UI/UX Design",
-    description: "User-centered design solutions that combine aesthetics with functionality.",
+    description: "For products where usability, not visuals, is the real blocker. We design and validate flows with real users before development starts. Ideal for teams that have an idea but no tested interface yet.",
     features: ["User Research", "Wireframing & Prototyping", "Visual Design", "Usability Testing", "Design Systems"],
     technologies: ["Figma", "Adobe XD", "Sketch", "Principle"],
   },
   {
     icon: Cloud,
     title: "Cloud Solutions",
-    description: "Scalable cloud infrastructure and deployment solutions for modern applications.",
+    description: "For applications outgrowing a single server or manual deployments. We set up infrastructure that scales, deploys, and recovers automatically. Ideal for growing products that can't afford downtime.",
     features: [
       "Cloud Migration",
       "Auto-scaling Infrastructure",
@@ -65,7 +65,7 @@ const services = [
   {
     icon: Brain,
     title: "AI & Machine Learning",
-    description: "Intelligent solutions powered by artificial intelligence and machine learning algorithms.",
+    description: "For workflows that are still manual and repetitive. We scope automation and AI features to a specific, measurable problem instead of bolting on AI for its own sake. Ideal for teams with a clear, well-defined use case.",
     features: [
       "Custom AI Models",
       "Natural Language Processing",

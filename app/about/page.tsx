@@ -2,11 +2,12 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ShieldCheck, Lock, CircleCheck, Activity } from "lucide-react";
 import { motion } from "framer-motion"
 import Tilt from "react-parallax-tilt"
-import { Users, Target, Lightbulb, Award, MapPin, Phone, Mail, Globe } from "lucide-react"
+import { Users, Target, Lightbulb, Award, MapPin, Phone, Mail, Globe, UserCheck, GitBranch, MessageSquare, Code2 } from "lucide-react"
 import team from "@/data/team.json"
+import { WhyChooseUs } from "@/components/why-choose-us"
+import { TrustSignals } from "@/components/trust-signals"
 
 const values = [
   {
@@ -33,28 +34,28 @@ const values = [
 
 const stats = [
   {
-    icon: ShieldCheck,
-    number: "99.9%",
-    label: "System Uptime",
-    description: "Highly reliable infrastructure with near-zero downtime"
+    icon: UserCheck,
+    number: "Founder-Led",
+    label: "Direct Involvement",
+    description: "The founder is hands-on in every project — no account managers, no relayed requirements"
   },
   {
-    icon: Lock,
-    number: "100%",
-    label: "Data Security Compliance",
-    description: "Adheres to global standards like GDPR & ISO 27001"
+    icon: Code2,
+    number: "Modern Stack",
+    label: "Current Technology",
+    description: "React, Next.js, TypeScript, and cloud-native tooling — not legacy frameworks"
   },
   {
-    icon: CircleCheck,
-    number: "97%",
-    label: "Successful Deliveries",
-    description: "On-time, within scope, and budget-aligned project outcomes"
+    icon: MessageSquare,
+    number: "Transparent",
+    label: "Open Communication",
+    description: "Direct updates throughout the project, not filtered through account managers"
   },
   {
-    icon: Activity,
-    number: "92%",
-    label: "Performance Optimization",
-    description: "Projects launched with high-speed & scalable architecture"
+    icon: GitBranch,
+    number: "Clean Code",
+    label: "Engineering Discipline",
+    description: "Version-controlled, reviewed, and tested — built to be maintained, not just shipped"
   },
 ];
 
@@ -71,7 +72,7 @@ export default function AboutPage() {
             Driven by Innovation, Powered by Passion
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            RSNexus is a fast-growing team of passionate engineers and creative technologists. With over 4 years of experience and a portfolio of high-impact solutions, we help startups and enterprises worldwide bring digital products to life—scalable, reliable, and future-ready.
+            RSNexus is a fast-growing team of passionate engineers and creative technologists. With over 3+ years of experience and a portfolio of high-impact solutions, we help startups and enterprises worldwide bring digital products to life—scalable, reliable, and future-ready.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
@@ -84,7 +85,7 @@ export default function AboutPage() {
             </div>
             <div className="flex items-center gap-2">
               <Globe className="h-4 w-4" />
-              <span>Building for 15+ Industries</span>
+              <span>Founder-Led Development</span>
             </div>
           </div>
         </div>
@@ -130,7 +131,7 @@ export default function AboutPage() {
                 RSNexus was founded to transform digital ideas into reality through modern, efficient technology. Starting in Mumbai, we’ve built a reputation for delivering reliable software solutions, with a focus on realistic demo projects that drive innovation across industries.
               </p>
               <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
-                Our 4+ years of experience reflect a commitment to precision and a growth mindset. We collaborate with businesses worldwide, forging lasting partnerships to create scalable, impactful solutions.
+                Our 3+ years of experience reflect a commitment to precision and a growth mindset. We collaborate with businesses worldwide, forging lasting partnerships to create scalable, impactful solutions.
               </p>
               <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                 At RSNexus, we’re on a journey to build better—empowering clients with technology that shapes the future.
@@ -140,6 +141,8 @@ export default function AboutPage() {
               <img
                 src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757105423/ourjourney_i9mjsu.png"
                 alt="RSNexus team collaborating on innovative projects"
+                loading="lazy"
+                decoding="async"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-lg"
               />
 
@@ -147,6 +150,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <WhyChooseUs />
+
+      <TrustSignals />
 
       {/* Our Values */}
       <section className="py-10 md:py-16 bg-slate-50 dark:bg-slate-800/50">

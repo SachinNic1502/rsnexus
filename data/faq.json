@@ -1,0 +1,34 @@
+[
+  {
+    "question": "How long does development take?",
+    "answer": "Project timelines vary based on complexity, but most projects are completed within 4-12 weeks with our experienced development team."
+  },
+  {
+    "question": "How is pricing determined?",
+    "answer": "Pricing depends on scope, complexity, and timeline. We share a clear estimate after understanding your requirements — no hidden costs added later."
+  },
+  {
+    "question": "Do you sign an NDA?",
+    "answer": "Yes, we're happy to sign an NDA before discussing project details if confidentiality is important to you."
+  },
+  {
+    "question": "Do you redesign existing software?",
+    "answer": "Yes, we work with existing codebases — whether that means a redesign, a rebuild, or adding new features to what you already have."
+  },
+  {
+    "question": "What technologies do you use?",
+    "answer": "Primarily React, Next.js, TypeScript, Node.js, and modern cloud infrastructure — chosen based on what fits your project best, not a one-size-fits-all stack."
+  },
+  {
+    "question": "Do you provide maintenance?",
+    "answer": "Yes, we offer maintenance and support packages after launch, including updates, bug fixes, and feature enhancements tailored to your needs."
+  },
+  {
+    "question": "Can you work with our existing team?",
+    "answer": "We can integrate with your existing team or work as an independent development partner for your project."
+  },
+  {
+    "question": "What's your development process?",
+    "answer": "We follow an agile methodology with regular check-ins, transparent communication, and iterative development, aligned with your time zone and requirements."
+  }
+]

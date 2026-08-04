@@ -78,8 +78,9 @@ export default function PortfolioPage() {
                     height={300}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex gap-2">
                     <Badge variant="secondary">{project.category}</Badge>
+                    {(project as any).label && <Badge variant="outline">{(project as any).label}</Badge>}
                   </div>
                 </div>
 

@@ -59,6 +59,31 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function PortfolioSlugLayout({ children }: PortfolioLayoutProps) {
-  return children;
+export default function PortfolioSlugLayout({ children, params }: PortfolioLayoutProps) {
+  const project = projectsData.projects.find((p: any) => slugify(p.title) === params.slug);
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://rsnexus.in" },
+      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://rsnexus.in/portfolio" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project?.title ?? params.slug,
+        item: `https://rsnexus.in/portfolio/${params.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      {children}
+    </>
+  );
 }

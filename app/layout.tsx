@@ -285,6 +285,17 @@ export default function RootLayout({
   const structuredData = [
     {
       "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "RSNexus",
+      url: "https://rsnexus.in",
+      inLanguage: "en",
+      publisher: {
+        "@type": "Organization",
+        name: "RSNexus",
+      },
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Organization",
       name: "RSNexus",
       url: "https://rsnexus.in",

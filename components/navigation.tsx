@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -31,7 +32,14 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <img src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png" alt="RSNexus" className="h-8 w-8" />
+              <Image
+                src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png"
+                alt="RSNexus"
+                width={32}
+                height={32}
+                priority
+                className="h-8 w-8"
+              />
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 RSNexus
               </span>

@@ -35,6 +35,7 @@
 
 import type { MetadataRoute } from "next";
 import projectsData from "@/data/projects.json";
+import blogData from "@/data/blog.json";
 
 const baseUrl = "https://rsnexus.in";
 
@@ -55,6 +56,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/team",
     "/portfolio",
     "/contact",
+    "/faq",
+    "/blog",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = routes.map((path) => ({
@@ -72,5 +75,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  return [...staticRoutes, ...portfolioRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = blogData.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedDate),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...portfolioRoutes, ...blogRoutes];
 }

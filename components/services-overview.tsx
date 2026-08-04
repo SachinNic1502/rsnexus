@@ -11,37 +11,37 @@ const services = [
     icon: Code,
     title: "Website Development",
     description:
-      "Custom, responsive websites built with modern technologies for optimal performance worldwide.",
+      "For businesses without a fast, credible web presence — we build performance-focused sites instead of templated ones.",
     features: ["Responsive Design", "SEO Optimized", "Fast Loading"],
   },
   {
     icon: Layers,
     title: "Full Stack Development",
-    description: "End-to-end application development from database to user interface, tailored for global businesses.",
+    description: "For products that need a real backend, not just a frontend — API, database, and auth built to scale with usage.",
     features: ["API Development", "Database Design", "Scalable Architecture"],
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
-    description: "Native and cross-platform mobile applications for iOS and Android, optimized for worldwide users.",
+    description: "For businesses that need a native-feeling app without maintaining two separate codebases.",
     features: ["Cross-platform", "Native Performance", "App Store Ready"],
   },
   {
     icon: Palette,
     title: "UI/UX Design",
-    description: "User-centered design solutions that combine aesthetics with functionality for global audiences.",
+    description: "For products where usability is the blocker — design that's tested with real users, not just visually polished.",
     features: ["User Research", "Prototyping", "Design Systems"],
   },
   {
     icon: Cloud,
     title: "Cloud Solutions",
-    description: "Scalable cloud infrastructure and deployment solutions meeting global standards and regulations.",
+    description: "For applications outgrowing a single server — infrastructure that scales, deploys, and recovers automatically.",
     features: ["Auto-scaling", "DevOps", "Security & Compliance"],
   },
   {
     icon: Brain,
     title: "AI & Machine Learning",
-    description: "Intelligent solutions powered by artificial intelligence, customized for global market needs.",
+    description: "For workflows that are still manual — automation and AI features scoped to a specific, measurable problem.",
     features: ["Custom AI Models", "NLP", "Predictive Analytics"],
   },
 ]

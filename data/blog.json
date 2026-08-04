@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "react-vs-nextjs",
+    "title": "React vs Next.js: Which One Actually Fits Your Project",
+    "excerpt": "React and Next.js aren't competitors — Next.js is built on React. Here's how to decide which one you actually need.",
+    "category": "Web Development",
+    "readTime": "6 min read",
+    "publishedDate": "2026-01-12",
+    "author": "Sachin Rathod",
+    "content": [
+      "A question we hear often is \"should we use React or Next.js?\" — but that framing is slightly off. Next.js is a framework built on top of React, not a separate alternative. The real question is whether you need what Next.js adds on top of plain React.",
+      "Plain React (usually bootstrapped with Vite) gives you a client-side rendered single-page app. You write components, manage state, and the browser does the rendering after the JavaScript loads. It's a solid choice for internal dashboards, admin panels, or authenticated apps where SEO doesn't matter and the user is already logged in before they see anything meaningful.",
+      "Next.js adds server-side rendering, static site generation, file-based routing, built-in image optimization, and API routes. If your product is public-facing — a marketing site, an e-commerce storefront, a content platform — these matter a lot. Server-rendered pages load faster on first visit and are far easier for search engines to index, which is why we build most client-facing products on Next.js.",
+      "The tradeoff is complexity. Next.js has more concepts to learn — the App Router, server vs client components, caching behavior — and that learning curve is real. For a simple internal tool, a plain React app can be faster to ship and easier to reason about.",
+      "Our rule of thumb: if the product needs to be discoverable on Google, load fast for first-time visitors, or serve dynamic content per URL (like product pages or blog posts), we reach for Next.js. If it's a logged-in-only internal tool where SEO is irrelevant, plain React is often simpler and just as effective. There isn't a universally 'better' answer — it depends on who's visiting the page and why."
+    ]
+  },
+  {
+    "slug": "how-much-does-software-development-cost",
+    "title": "How Much Does Software Development Actually Cost?",
+    "excerpt": "There's no single number — but there are real ranges, and real reasons prices vary as much as they do.",
+    "category": "Business",
+    "readTime": "7 min read",
+    "publishedDate": "2026-01-20",
+    "author": "Sachin Rathod",
+    "content": [
+      "This is the question we get asked first, and the honest answer is: it depends on scope, not on some fixed rate card. A landing page and a multi-tenant SaaS platform are both 'software,' but they're not remotely comparable in cost or timeline.",
+      "The biggest cost driver isn't the visual design — it's the backend complexity. A site with static content and a contact form is cheap to build because there's little logic involved. The moment you add user accounts, payments, real-time data, or integrations with third-party services (payment gateways, CRMs, shipping APIs), the engineering effort — and the cost — goes up significantly.",
+      "A second driver is how many revisions and iterations the project needs. Fixed-scope projects with a clear spec upfront are more predictable to price. Projects that evolve as you go (which is common, and not a bad thing) are better suited to hourly or retainer-based pricing, because the scope itself is moving.",
+      "A third, less obvious cost driver is what happens after launch. Software isn't a one-time purchase — dependencies need updating, bugs surface under real usage, and businesses usually want new features once they see the product working. Budgeting only for the initial build and ignoring ongoing maintenance is one of the most common mistakes we see.",
+      "Rather than quote a generic range that doesn't mean much out of context, we price every project after understanding the actual requirements — what needs to be built, what integrations are involved, and what 'done' looks like for your specific case. If you want a real number, the fastest way to get one is to tell us what you're trying to build."
+    ]
+  },
+  {
+    "slug": "ai-for-businesses",
+    "title": "AI for Businesses: Where It Actually Helps (and Where It Doesn't)",
+    "excerpt": "AI isn't a feature you bolt onto a product for its own sake. Here's how to tell if it solves a real problem for your business.",
+    "category": "AI & Automation",
+    "readTime": "6 min read",
+    "publishedDate": "2026-02-02",
+    "author": "Sachin Rathod",
+    "content": [
+      "Every business is being told they need 'AI' right now, but very few of the pitches explain what problem it's actually solving. Before adding AI to a product, it's worth being specific about what task is currently manual, slow, or error-prone — because that's the only place AI reliably adds value.",
+      "The strongest use cases we've seen are narrow and well-defined: automatically categorizing support tickets, summarizing long documents, extracting structured data from unstructured text, or answering FAQ-style customer questions from a known knowledge base. These work well because the input and expected output are both fairly constrained.",
+      "The weakest use cases are the opposite — open-ended chatbots with no clear scope, AI features added because a competitor has one, or automation applied to a process nobody has actually measured or documented yet. If you don't know how long a task takes a human today, you can't tell whether AI is actually saving time.",
+      "There's also a reliability question. AI models can be wrong confidently, so any AI feature that makes decisions (approving refunds, filtering applications, generating content that goes out under your brand) needs a human review step somewhere, at least until you've built enough confidence in its accuracy for your specific use case.",
+      "Our approach is to treat AI as a tool scoped to a specific, measurable problem — not a feature we add because it's trendy. If a workflow is manual and repetitive today, we'll tell you honestly whether AI is a good fit for it, and what accuracy tradeoffs come with it, before writing any code."
+    ]
+  },
+  {
+    "slug": "startup-mvp-guide",
+    "title": "The Startup MVP Guide: What to Build First (and What to Skip)",
+    "excerpt": "An MVP isn't a smaller version of your final product — it's the smallest thing that tests your actual assumption.",
+    "category": "Startups",
+    "readTime": "8 min read",
+    "publishedDate": "2026-02-15",
+    "author": "Kushagra Ranjan",
+    "content": [
+      "The most common MVP mistake is treating it as 'version 1 of the full product, but with fewer features.' That's not what an MVP is for. An MVP exists to test the riskiest assumption in your business as cheaply and quickly as possible — usually 'will people actually use/pay for this' — before you invest in scale, polish, or edge cases nobody has asked for yet.",
+      "Start by identifying the single core action your product needs to prove out. If you're building a marketplace, that's a buyer finding and paying a seller — not a polished seller dashboard, not admin analytics, not a referral program. Everything that isn't the core loop is a distraction at MVP stage.",
+      "Authentication is a good example of where founders over-invest early. A simple email/password or magic-link login is enough to validate a product. Social login, role-based permissions, and enterprise SSO can all wait until you have users asking for them.",
+      "Similarly, resist the urge to build for scale you don't have yet. A database that comfortably handles a few thousand users doesn't need to be architected for a million on day one. Premature scaling work is time spent solving a problem you don't have instead of the problem you do have — proving people want what you're building.",
+      "What should ship in an MVP: the core user flow, basic error handling so it doesn't feel broken, and just enough design polish that early users trust it. What can wait: admin tooling, advanced settings, integrations beyond the first one you need, and anything 'nice to have' that a user hasn't explicitly asked for. We help founders scope this line honestly, because the goal of an MVP is speed to real feedback, not a smaller version of everything."
+    ]
+  },
+  {
+    "slug": "modern-web-development",
+    "title": "What 'Modern Web Development' Actually Means in 2026",
+    "excerpt": "Not every new tool is worth adopting. Here's what's actually changed the way we build websites, and what's just noise.",
+    "category": "Web Development",
+    "readTime": "5 min read",
+    "publishedDate": "2026-03-01",
+    "author": "Anubhav Trivedi",
+    "content": [
+      "'Modern' gets used as a marketing word a lot, so it's worth being specific about what it actually means for how a website is built and how it performs for the people using it.",
+      "The first real shift is rendering strategy. Instead of choosing purely client-side or purely server-side rendering, frameworks like Next.js let you mix approaches per page — statically generating pages that rarely change, server-rendering pages that need fresh data, and hydrating only the interactive parts on the client. This directly improves load times and Core Web Vitals scores, which affect both user experience and SEO ranking.",
+      "The second is component-driven design systems. Building UI out of small, reusable, typed components (rather than one-off page templates) makes a codebase easier to maintain and keeps the visual language consistent as a product grows. This is less visible to end users but has a real effect on how quickly bugs get fixed and features get added later.",
+      "The third is treating performance as a first-class requirement, not an afterthought. Lazy loading images and heavy components, code-splitting so users only download the JavaScript a page actually needs, and optimizing images are no longer 'nice to have' — they're expected, and Google's ranking algorithm factors them in directly.",
+      "What's mostly noise: chasing every new framework release, adding tools because they're trending on social media, or over-engineering architecture for traffic you don't have. Modern web development, done well, is less about using the newest tool and more about making deliberate choices that keep a site fast, accessible, and maintainable as it grows."
+    ]
+  }
+]

@@ -4,8 +4,12 @@ import { AboutSection } from "@/components/about-section"
 import { ServicesOverview } from "@/components/services-overview"
 import { GlobeShowcase } from "@/components/globe-showcase"
 import { CTASection } from "@/components/cta-section"
-import { SparklesCore } from "@/components/ui/sparkles";
-import { Testimonial } from "@/components/testomonial"
+// import { SparklesCore } from "@/components/ui/sparkles"; // Unused: never rendered in this page's JSX
+// import { Testimonial } from "@/components/testomonial" // Removed: relied on fabricated client testimonials, replaced by FeaturedProjects
+import { FeaturedProjects } from "@/components/featured-projects"
+import { FounderSection } from "@/components/founder-section"
+import { ProcessTimeline } from "@/components/process-timeline"
+import { WhatsappFloatButton } from "@/components/whatsapp-float-button"
 
 export const metadata: Metadata = {
   title: "Software Development Company in India | RSNexus",
@@ -23,9 +27,12 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       {/* <GlobeShowcase /> */}
-      <Testimonial />
+      <FounderSection />
+      <FeaturedProjects />
+      <ProcessTimeline />
       <ServicesOverview />
       <CTASection />
+      <WhatsappFloatButton />
     </div>
   )
 }
