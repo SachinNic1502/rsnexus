@@ -4,6 +4,7 @@
       "title": "MyLapKart",
       "slug": "mylapkart",
       "category": "E-commerce",
+      "label": "Featured Project",
       "description": "A customer-facing online marketplace for laptops and accessories with secure payments, responsive UI, and seamless shopping experience.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758132673/lapkart_eui9qo.png",
@@ -68,12 +69,20 @@
         "Web App",
         "Mobile App",
         "PWA"
-      ]
+      ],
+      "caseStudy": {
+        "overview": "MyLapKart is a live online marketplace for laptops and accessories, built end-to-end from product catalog to checkout.",
+        "challenge": "Laptop buyers needed a trustworthy, mobile-friendly place to compare and buy laptops online with secure payments.",
+        "solution": "We built a full MERN-stack marketplace with seller dashboards, Razorpay payments, and a PWA-enabled storefront for fast mobile browsing.",
+        "architecture": "React + Tailwind CSS frontend, Node.js/Express backend, MongoDB for data, Cloudinary for image storage, Razorpay for payments.",
+        "outcome": "A live, functioning marketplace with real transactions, product reviews, and an admin/seller dashboard."
+      }
     },
     {
       "title": "MyLapKart ERP",
       "slug": "mylapkart-erp",
       "category": "E-commerce / ERP",
+      "label": "Internal Project",
       "description": "An enterprise resource planning (ERP) system built for MyLapKart to manage orders, inventory, customer support, and multi-store operations.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758133595/erp_xo7aig.png",
@@ -134,12 +143,20 @@
         "ERP",
         "Inventory",
         "Management System"
-      ]
+      ],
+      "caseStudy": {
+        "overview": "An internal ERP system built alongside MyLapKart to manage inventory, orders, and multi-store operations.",
+        "challenge": "The MyLapKart operations team needed a centralized way to manage inventory, POS sales, and customer support without juggling spreadsheets.",
+        "solution": "We built a role-based ERP dashboard covering inventory, POS invoicing, order management, and analytics.",
+        "architecture": "Same MERN stack as MyLapKart, sharing data models, with a separate admin-only interface and role-based access control.",
+        "outcome": "An internal tool that consolidated MyLapKart's day-to-day operations into one dashboard."
+      }
     },
     {
       "title": "Step Up Style",
       "slug": "step-up-style",
       "category": "Retail / Footwear",
+      "label": "Technical Showcase",
       "description": "A footwear e-commerce and POS platform with robust inventory, order management, and reporting features tailored for retail businesses.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135036/wear_xxncnf.png",
@@ -185,11 +202,11 @@
       "liveUrl": "",
       "githubUrl": "",
       "results": [
-        "35% faster checkout process with POS optimization",
-        "40% reduction in inventory mismatches using stock alerts",
-        "25% increase in repeat customers with CRM and loyalty features",
-        "Multi-store support improved scalability for franchise expansion",
-        "Real-time analytics improved decision-making efficiency by 50%"
+        "Built POS optimization to speed up in-store checkout",
+        "Designed stock alerts to reduce inventory mismatches",
+        "Built CRM and loyalty features to support repeat-customer retention",
+        "Architected multi-store support for franchise-style scalability",
+        "Built a real-time analytics dashboard for faster decision-making"
       ],
       "tags": [
         "Retail",
@@ -197,12 +214,20 @@
         "E-commerce",
         "Analytics",
         "CRM"
-      ]
+      ],
+      "caseStudy": {
+        "overview": "A footwear e-commerce and POS technical showcase designed for multi-store retail operations.",
+        "challenge": "Retail footwear businesses often manage inventory and orders separately across stores, causing mismatches and slow reporting.",
+        "solution": "We designed a POS and inventory system with stock alerts, CRM, and Shopify integration for order sync.",
+        "architecture": "MERN stack with Shopify API integration for product management and order synchronization.",
+        "outcome": "A technical showcase demonstrating multi-store POS, CRM, and analytics capabilities."
+      }
     },
     {
       "title": "CESTT Limited",
       "slug": "cestt-limited",
       "category": "Construction / Training",
+      "label": "Featured Project",
       "description": "CESTT helps customers across the UK quickly book CSCS Cards, CITB Tests, NVQ Courses, and Construction Training with fast, reliable service.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307018/cestt_mvv932.png",
@@ -265,12 +290,20 @@
         "CITB",
         "NVQ",
         "Web App"
-      ]
+      ],
+      "caseStudy": {
+        "overview": "CESTT Limited's site helps construction workers across the UK book CSCS cards, CITB tests, and training courses.",
+        "challenge": "CESTT needed a fast, credible website where customers could quickly find and book compliance training without confusion.",
+        "solution": "We built a responsive, SEO-optimized Next.js site with clear course and card information and streamlined booking flows.",
+        "architecture": "Next.js, TypeScript, and Tailwind CSS, deployed on Vercel with Framer Motion for interaction polish.",
+        "outcome": "A live, in-production site currently used by CESTT Limited to serve customers across the UK."
+      }
     },
     {
       "title": "College Website",
       "slug": "college-website",
       "category": "Education / Website",
+      "label": "Concept Project",
       "description": "A responsive and modern college website showcasing courses, departments, faculty, events, and student resources.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307253/college_v9jhbc.png",
@@ -332,12 +365,20 @@
         "Next.js",
         "React",
         "Tailwind CSS"
-      ]
+      ],
+      "caseStudy": {
+        "overview": "A concept college website showcasing how a modern, responsive institutional site could look and function.",
+        "challenge": "Many college websites are outdated, hard to navigate, and poorly optimized for mobile or search.",
+        "solution": "We designed a responsive site with course listings, faculty profiles, and an event calendar.",
+        "architecture": "Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.",
+        "outcome": "A concept project demonstrating how we'd approach an education-sector website build."
+      }
     },
     {
       "title": "Job Course Portal",
       "slug": "job-course-portal",
       "category": "Career Development / Web App",
+      "label": "Concept Project",
       "description": "A platform offering job listings and professional courses with career advice, alerts, and community engagement.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307356/job3_zh6itv.png",
@@ -383,22 +424,30 @@
       "liveUrl": "https://job-course-portal.vercel.app/",
       "githubUrl": "",
       "results": [
-        "1,000+ active job listings",
-        "500+ professional courses",
-        "10,000+ registered users",
-        "98% user satisfaction rate"
+        "Built job listing and search functionality end to end",
+        "Designed course enrollment flow for professional courses",
+        "Built career alerts and community engagement features",
+        "Concept project — designed to demonstrate a full career-platform build"
       ],
       "tags": [
         "Career Development",
         "Job Portal",
         "Online Courses",
         "Web App"
-      ]
+      ],
+      "caseStudy": {
+        "overview": "A concept job and course platform combining listings, enrollment, and career guidance in one place.",
+        "challenge": "Job seekers often have to juggle multiple platforms for listings, courses, and career advice.",
+        "solution": "We built a unified platform with job search, course enrollment, and community engagement features.",
+        "architecture": "Next.js, TypeScript, and Tailwind CSS, deployed on Vercel.",
+        "outcome": "A concept project built to demonstrate a full career-platform build end to end."
+      }
     },
     {
       "title": "Astro Guide",
       "slug": "astro-guide",
       "category": "Astrology / Web App",
+      "label": "Concept Project",
       "description": "Astro Guide offers personalized Vedic astrology services including birth chart readings, compatibility analysis, and career guidance.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307470/astro_xqjj1k.png",
@@ -439,16 +488,23 @@
       "liveUrl": "https://astroguide-livid.vercel.app/",
       "githubUrl": "",
       "results": [
-        "5,000+ successful consultations",
-        "15+ years of Vedic astrology experience",
-        "High client satisfaction"
+        "Built personalized birth chart and transit analysis tools",
+        "Designed compatibility and career guidance modules",
+        "Concept project — designed to demonstrate a full booking and content platform"
       ],
       "tags": [
         "Astrology",
         "Vedic",
         "Web App",
         "Personalized Readings"
-      ]
+      ],
+      "caseStudy": {
+        "overview": "A concept astrology platform offering personalized Vedic astrology readings and guidance.",
+        "challenge": "Astrology services are often delivered inconsistently online, without a structured, easy-to-use booking experience.",
+        "solution": "We built birth chart analysis, compatibility assessment, and career guidance tools in a clean, responsive interface.",
+        "architecture": "Astro framework with Tailwind CSS, deployed on Vercel.",
+        "outcome": "A concept project demonstrating a content- and booking-driven platform build."
+      }
     }
   ]
 }

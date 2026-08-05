@@ -1,5 +1,8 @@
 "use client";
 
+// Unused: not imported anywhere. The live route app/portfolio/[slug]/page.tsx
+// implements this same detail view directly. Retained for reference rather than deleted.
+
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";

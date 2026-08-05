@@ -10,8 +10,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Linkedin } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import Link from "next/link"
+import faqData from "@/data/faq.json"
 
 const contactInfo = [
   {
@@ -23,8 +25,8 @@ const contactInfo = [
   },
   {
     icon: Phone,
-    title: "Phone Numbers",
-    details: ["+91 8218821466", "+91 9852731566", "+91 9309931886"],
+    title: "Phone Numbers / Whatsapp",
+    details: ["+91 9852731566", "+91 9309931886"],
   },
   {
     icon: Mail,
@@ -289,6 +291,25 @@ export default function ContactPage() {
               </Button>
             </div>
 
+            {/* Get in Touch Faster */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <Button asChild className="h-16 flex-col gap-2 bg-transparent" variant="outline">
+                <a href="https://wa.me/917992322713" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="h-5 w-5" />
+                  <span>WhatsApp Us</span>
+                </a>
+              </Button>
+              <Button asChild className="h-16 flex-col gap-2 bg-transparent" variant="outline">
+                <a href="https://www.linkedin.com/in/sachin-rathod-b20b83175/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-5 w-5" />
+                  <span>Connect on LinkedIn</span>
+                </a>
+              </Button>
+            </div>
+            <p className="text-sm text-muted-foreground text-center sm:text-left -mt-4 mb-8">
+              Expected response time: within 24 hours (usually faster on WhatsApp).
+            </p>
+
             {/* Contact Details */}
             {contactInfo.map((info, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -333,33 +354,17 @@ export default function ContactPage() {
   </div>
 
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-    {[
-      {
-        question: "How long does a typical project take?",
-        answer:
-          "Project timelines vary based on complexity, but most projects are completed within 4-12 weeks with our experienced development team.",
-      },
-      {
-        question: "Do you provide ongoing support for businesses?",
-        answer:
-          "Yes, we offer various support packages including maintenance, updates, and feature enhancements tailored to your needs.",
-      },
-      {
-        question: "Can you work with our existing team?",
-        answer:
-          "We can integrate with your existing team or work as an independent development partner for your project.",
-      },
-      {
-        question: "What's your development process for clients?",
-        answer:
-          "We follow an agile methodology with regular check-ins, transparent communication, and iterative development, aligned with your time zone and requirements.",
-      },
-    ].map((faq, index) => (
+    {faqData.slice(0, 4).map((faq, index) => (
       <Card key={index} className="p-6">
         <h3 className="font-semibold mb-2">{faq.question}</h3>
         <p className="text-muted-foreground text-sm">{faq.answer}</p>
       </Card>
     ))}
+  </div>
+  <div className="text-center mt-8">
+    <Link href="/faq" className="text-primary hover:underline text-sm font-medium">
+      View Full FAQ →
+    </Link>
   </div>
 </div>
 

@@ -12,13 +12,13 @@ const stats = [
   {
     icon: Award,
     // value: "🧪",
-    label: "10+ In-House Projects Launched",
-    description: "Realistic simulations for diverse industries",
+    label: "10+ Products Designed & Built",
+    description: "Including internal products, concept applications, and technical showcases",
   },
   {
     icon: Clock,
     // value: "⏳",
-    label: "4+ Years Development Experience",
+    label: "3+ Years Development Experience",
     description: "Deep technical expertise in building scalable software",
   },
   {

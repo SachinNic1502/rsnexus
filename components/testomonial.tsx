@@ -1,5 +1,9 @@
 "use client"
 
+// Unused: this component rendered fabricated client testimonials (data/testimonial.json)
+// and has been replaced on the homepage by components/featured-projects.tsx.
+// Retained for reference rather than deleted.
+
 import { useState } from "react"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import TestimonialData from "@/data/testimonial.json"

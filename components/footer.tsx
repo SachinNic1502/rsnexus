@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Code2, Mail, Phone, MapPin, Github,Instagram, Facebook,  Twitter, Linkedin } from "lucide-react"
 import { IconAddressBook } from "@tabler/icons-react"
 
@@ -14,12 +15,12 @@ const navigation = {
   company: [
     { name: "About Us", href: "/about" },
     { name: "Our Team", href: "/team" },
+    { name: "Blog", href: "/blog" },
     // { name: "Careers", href: "/careers" },
-    // { name: "Blog", href: "/blog" },
   ],
   support: [
     { name: "Contact", href: "/contact" },
-    // { name: "FAQ", href: "/faq" },
+    { name: "FAQ", href: "/faq" },
     // { name: "Privacy Policy", href: "/privacy" },
     // { name: "Terms of Service", href: "/terms" },
   ],
@@ -38,7 +39,13 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-            <img src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png" alt="RSNexus" className="h-8 w-8" />
+            <Image
+              src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png"
+              alt="RSNexus"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
               <span className="text-2xl font-bold text-white">RSNexus</span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-md">
