@@ -9,6 +9,7 @@ import { ArrowLeft, ExternalLink, Github, ChevronLeft, ChevronRight } from "luci
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
+import { ImageLightbox } from "@/components/image-lightbox"
 import projectsData from "../../../data/projects.json"
 
 function slugify(title: string): string {
@@ -21,6 +22,7 @@ export default function ProjectView() {
   const project = projectsData.projects.find((p: any) => slugify(p.title) === slug)
 
   const [currentImg, setCurrentImg] = useState(0)
+  const [previewOpen, setPreviewOpen] = useState(false)
 
   if (!project) {
     return (
@@ -75,7 +77,8 @@ export default function ProjectView() {
                     alt={project.title}
                     width={800}
                     height={500}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-zoom-in"
+                    onClick={() => setPreviewOpen(true)}
                   />
                 </motion.div>
               </AnimatePresence>
@@ -223,6 +226,15 @@ export default function ProjectView() {
           </motion.div>
         </div>
       </div>
+
+      {/* Full-image preview */}
+      <ImageLightbox
+        images={project.images}
+        title={project.title}
+        open={previewOpen}
+        startIndex={currentImg}
+        onOpenChange={setPreviewOpen}
+      />
     </div>
   )
 }

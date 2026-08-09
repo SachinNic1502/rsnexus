@@ -4,13 +4,14 @@ import blogData from "@/data/blog.json";
 
 interface BlogLayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = blogData.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogData.find((p) => p.slug === slug);
 
   if (!post) {
     return {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const url = `https://rsnexus.in/blog/${params.slug}`;
+  const url = `https://rsnexus.in/blog/${slug}`;
 
   return {
     title: `${post.title} | RSNexus Blog`,
@@ -42,8 +43,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogSlugLayout({ children, params }: BlogLayoutProps) {
-  const post = blogData.find((p) => p.slug === params.slug);
+export default async function BlogSlugLayout({ children, params }: BlogLayoutProps) {
+  const { slug } = await params;
+  const post = blogData.find((p) => p.slug === slug);
 
   const structuredData = [
     ...(post
@@ -75,8 +77,8 @@ export default function BlogSlugLayout({ children, params }: BlogLayoutProps) {
         {
           "@type": "ListItem",
           position: 3,
-          name: post?.title ?? params.slug,
-          item: `https://rsnexus.in/blog/${params.slug}`,
+          name: post?.title ?? slug,
+          item: `https://rsnexus.in/blog/${slug}`,
         },
       ],
     },

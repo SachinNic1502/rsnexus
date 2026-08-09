@@ -8,14 +8,15 @@ function slugify(title: string): string {
 
 interface PortfolioLayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
   const project = projectsData.projects.find(
-    (p: any) => slugify(p.title) === params.slug,
+    (p: any) => slugify(p.title) === slug,
   );
 
   if (!project) {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
-  const url = `https://rsnexus.in/portfolio/${params.slug}`;
+  const url = `https://rsnexus.in/portfolio/${slug}`;
   const ogImage = project.images?.[0];
 
   return {
@@ -59,8 +60,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function PortfolioSlugLayout({ children, params }: PortfolioLayoutProps) {
-  const project = projectsData.projects.find((p: any) => slugify(p.title) === params.slug);
+export default async function PortfolioSlugLayout({ children, params }: PortfolioLayoutProps) {
+  const { slug } = await params;
+  const project = projectsData.projects.find((p: any) => slugify(p.title) === slug);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -71,8 +73,8 @@ export default function PortfolioSlugLayout({ children, params }: PortfolioLayou
       {
         "@type": "ListItem",
         position: 3,
-        name: project?.title ?? params.slug,
-        item: `https://rsnexus.in/portfolio/${params.slug}`,
+        name: project?.title ?? slug,
+        item: `https://rsnexus.in/portfolio/${slug}`,
       },
     ],
   };

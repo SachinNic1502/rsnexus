@@ -153,77 +153,6 @@
       }
     },
     {
-      "title": "Step Up Style",
-      "slug": "step-up-style",
-      "category": "Retail / Footwear",
-      "label": "Technical Showcase",
-      "description": "A footwear e-commerce and POS platform with robust inventory, order management, and reporting features tailored for retail businesses.",
-      "images": [
-        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135036/wear_xxncnf.png",
-        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135056/wear4_goenqo.png",
-        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135036/wear3_yegubo.png",
-        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758135036/wear2_gamdzg.png"
-      ],
-      "technologies": [
-        {
-          "name": "MongoDB"
-        },
-        {
-          "name": "Express.js"
-        },
-        {
-          "name": "React.js"
-        },
-        {
-          "name": "Node.js"
-        },
-        {
-          "name": "Tailwind CSS"
-        },
-        {
-          "name": "Shopify API",
-          "description": "Integrated for product management"
-        }
-      ],
-      "features": [
-        "Product & Inventory Management",
-        "Order Management",
-        "POS Audits & Reports",
-        "Role-based Login",
-        "CRM & Customer Management",
-        "Discounts & Promotions",
-        "Sales Analytics Dashboard",
-        "Stock Alerts & Notifications",
-        "Multi-Store Support",
-        "Secure Payment Integration",
-        "Mobile Responsive Design",
-        "Shopify Integration for Order Sync"
-      ],
-      "liveUrl": "",
-      "githubUrl": "",
-      "results": [
-        "Built POS optimization to speed up in-store checkout",
-        "Designed stock alerts to reduce inventory mismatches",
-        "Built CRM and loyalty features to support repeat-customer retention",
-        "Architected multi-store support for franchise-style scalability",
-        "Built a real-time analytics dashboard for faster decision-making"
-      ],
-      "tags": [
-        "Retail",
-        "POS",
-        "E-commerce",
-        "Analytics",
-        "CRM"
-      ],
-      "caseStudy": {
-        "overview": "A footwear e-commerce and POS technical showcase designed for multi-store retail operations.",
-        "challenge": "Retail footwear businesses often manage inventory and orders separately across stores, causing mismatches and slow reporting.",
-        "solution": "We designed a POS and inventory system with stock alerts, CRM, and Shopify integration for order sync.",
-        "architecture": "MERN stack with Shopify API integration for product management and order synchronization.",
-        "outcome": "A technical showcase demonstrating multi-store POS, CRM, and analytics capabilities."
-      }
-    },
-    {
       "title": "CESTT Limited",
       "slug": "cestt-limited",
       "category": "Construction / Training",
@@ -303,7 +232,7 @@
       "title": "College Website",
       "slug": "college-website",
       "category": "Education / Website",
-      "label": "Concept Project",
+      "label": "Client Project",
       "description": "A responsive and modern college website showcasing courses, departments, faculty, events, and student resources.",
       "images": [
         "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758307253/college_v9jhbc.png",
@@ -504,6 +433,83 @@
         "solution": "We built birth chart analysis, compatibility assessment, and career guidance tools in a clean, responsive interface.",
         "architecture": "Astro framework with Tailwind CSS, deployed on Vercel.",
         "outcome": "A concept project demonstrating a content- and booking-driven platform build."
+      }
+    },
+    {
+      "title": "Viatrip Holidays",
+      "slug": "viatrip-holidays",
+      "category": "Travel / Web App",
+      "label": "Concept Project",
+      "description": "A luxury travel curation platform featuring destination discovery, style-based holiday packages, and a custom itinerary builder backed by concierge support.",
+      "images": [
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1786295378/travel1_kwyxft.webp",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1786295379/travel2_iyjqgb.webp",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1786295379/travel3_ssrbmg.webp",
+        "https://res.cloudinary.com/dl2xsc49w/image/upload/v1786295379/travel4_kefmfl.webp"
+      ],
+      "technologies": [
+        {
+          "name": "Next.js"
+        },
+        {
+          "name": "React.js"
+        },
+        {
+          "name": "Tailwind CSS"
+        },
+        {
+          "name": "TypeScript"
+        },
+        {
+          "name": "Vercel Hosting"
+        }
+      ],
+      "features": [
+        "Destination Discovery Grid",
+        "Curated Holiday Packages",
+        "Travel Style Filtering",
+        "Custom Itinerary Builder",
+        "WhatsApp Concierge Support",
+        "Traveller Testimonials",
+        "Travel Journal & Guides",
+        "FAQ & Booking Policies",
+        "Responsive Design",
+        "SEO Optimized"
+      ],
+      "services": [
+        "Destination Listings",
+        "Curated Travel Packages",
+        "Custom Trip Planning",
+        "Honeymoon & Luxury Journeys",
+        "Group & Corporate Travel"
+      ],
+      "contact": {
+        "email": "hello@viatripholidays.com",
+        "phone": "+91 99999 99999",
+        "address": "Bengaluru • Mumbai • New Delhi, India"
+      },
+      "liveUrl": "https://travel-website-five-rouge.vercel.app/",
+      "githubUrl": "",
+      "results": [
+        "Built destination discovery across 60+ locations with pricing and rating signals",
+        "Designed a multi-step custom itinerary builder capturing destination, dates, party size, and budget",
+        "Implemented travel-style segmentation across six journey categories",
+        "Delivered a content layer with travel journal, testimonials, and FAQ to support conversion",
+        "Concept project — built to demonstrate a full travel-commerce experience end to end"
+      ],
+      "tags": [
+        "Travel",
+        "Tourism",
+        "Holiday Packages",
+        "Itinerary Planner",
+        "Web App"
+      ],
+      "caseStudy": {
+        "overview": "Viatrip Holidays is a concept luxury travel platform that replaces generic booking listings with curated, style-led journeys and an enquiry-driven itinerary builder.",
+        "challenge": "High-value travel rarely converts through a standard search-and-book funnel. Buyers compare destinations emotionally, then need a human conversation before committing — yet most travel sites either dump undifferentiated listings or hide pricing entirely, losing intent on both ends.",
+        "solution": "We structured the experience around intent rather than inventory. Destinations surface with rating, seasonality, and starting price so visitors can self-qualify early; packages are segmented by travel style — honeymoon, luxury, adventure, family, solo, and group — so browsing narrows naturally. A custom itinerary builder captures destination, dates, traveller count, and budget, handing a qualified brief to a WhatsApp concierge instead of forcing a premature checkout. A supporting content layer of destination guides, testimonials, and booking FAQs answers objections in-page.",
+        "architecture": "Next.js App Router with TypeScript for type-safe page and component contracts, Tailwind CSS for a consistent design system across destination cards, package grids, and form steps. Content is modelled as structured data so destinations, packages, and journal entries render from a single source, keeping the catalogue extensible without template changes. Deployed on Vercel with responsive, image-optimized layouts and SEO metadata per section.",
+        "outcome": "A concept build demonstrating how a travel brand can pair discovery-first browsing with a lead-qualifying planner — reducing the gap between inspiration and enquiry while keeping the sales conversation human."
       }
     }
   ]
