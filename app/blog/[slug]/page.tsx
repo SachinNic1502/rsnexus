@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react"
 import { motion } from "framer-motion"
 import blogData from "@/data/blog.json"
+import { ReadTimeCounter } from "@/components/read-time-counter"
 
 export default function BlogPostPage() {
   const { slug } = useParams() as { slug: string }
@@ -62,7 +63,7 @@ export default function BlogPostPage() {
             </span>
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
-              {post.readTime}
+              <ReadTimeCounter slug={post.slug} fallback={post.readTime} />
             </span>
           </div>
 

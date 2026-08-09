@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar, Clock } from "lucide-react"
+import { ReadTimeCounter } from "@/components/read-time-counter"
 
 interface BlogCardProps {
   post: {
@@ -40,7 +41,7 @@ export function BlogCard({ post }: BlogCardProps) {
             </span>
             <span className="flex items-center gap-1">
               <Clock className="h-3.5 w-3.5" />
-              {post.readTime}
+              <ReadTimeCounter slug={post.slug} fallback={post.readTime} />
             </span>
           </div>
         </CardContent>
