@@ -1,169 +1,56 @@
 "use client"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, Star, Zap, Crown } from "lucide-react"
+import { Crown, Star, Zap, type LucideIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/hooks/use-toast"
-import { useState, useEffect } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { useEffect, useState } from "react"
+import { usePricing } from "@/hooks/use-pricing"
+import { AddOnCard } from "@/components/pricing/add-on-card"
+import { BasicPackageCard } from "@/components/pricing/basic-package-card"
+import { ProjectPlanCard } from "@/components/pricing/project-plan-card"
+import { RetainerCard } from "@/components/pricing/retainer-card"
+import { SpecialOfferDialog } from "@/components/pricing/special-offer-dialog"
+import { PricingAddOnSkeleton, PricingCardSkeleton, PricingStateCard } from "@/components/pricing/pricing-states"
+import type { PricingCardView } from "@/lib/pricing/pricing.types"
 
-const pricingPlans = [
-  {
-    name: "Starter",
-    icon: Zap,
-    price: "₹49,999",
-    period: "per project",
-    description: "Perfect for small businesses and startups looking to establish their digital presence worldwide.",
-    features: [
-      "Responsive Website (up to 5 pages)",
-      "Basic SEO Optimization",
-      "Contact Form Integration",
-      "Mobile-First Design",
-      "3 Months Support",
-      "Basic Analytics Setup",
-      "SSL Certificate",
-      "2 Revision Rounds",
-    ],
-    popular: false,
-    cta: "Get Started",
-  },
-  {
-    name: "Professional",
-    icon: Star,
-    price: "₹1,25,999",
-    period: "per project",
-    description: "Comprehensive solution for growing businesses needing advanced functionality worldwide.",
-    features: [
-      "Custom Web Application",
-      "Advanced SEO & Performance",
-      "User Authentication System",
-      "Database Integration",
-      "API Development",
-      "6 Months Support",
-      "Advanced Analytics",
-      "Payment Gateway Integration (Stripe/PayPal)",
-      "Admin Dashboard",
-      "5 Revision Rounds",
-      "Content Management System",
-      "Email Marketing Integration",
-    ],
-    popular: true,
-    cta: "Most Popular",
-  },
-  {
-    name: "Enterprise",
-    icon: Crown,
-    price: "₹3,99,999",
-    period: "per project",
-    description: "Full-scale solution for large organizations requiring complex systems globally.",
-    features: [
-      "Full Stack Application",
-      "Microservices Architecture",
-      "Cloud Infrastructure Setup (AWS/Azure)",
-      "Advanced Security Features",
-      "Third-party Integrations",
-      "12 Months Support",
-      "Performance Monitoring",
-      "Load Balancing",
-      "Automated Testing",
-      "DevOps Pipeline",
-      "Unlimited Revisions",
-      "24/7 Priority Support",
-      "Training & Documentation",
-      "Scalability Planning",
-    ],
-    popular: false,
-    cta: "Contact Sales",
-  },
-]
+/** Card icons are presentation only — the API carries no icon field. */
+const PROJECT_PLAN_ICONS: LucideIcon[] = [Zap, Star, Crown]
 
-const addOnServices = [
-  {
-    name: "Mobile App Development",
-    price: "₹49,999",
-    description: "iOS and Android app development for global users",
-  },
-  {
-    name: "AI Integration",
-    price: "₹49,999",
-    description: "Custom AI features and chatbots for multiple languages",
-  },
-  {
-    name: "Advanced Analytics",
-    price: "₹29,999",
-    description: "Custom dashboards and reporting",
-  },
-  {
-    name: "E-commerce Setup",
-    price: "₹39,999",
-    description: "Full online store with global payment gateways",
-  },
-  {
-    name: "Maintenance Package",
-    price: "₹9,999/month",
-    description: "Ongoing updates and support",
-  },
-  {
-    name: "Performance Optimization",
-    price: "₹19,999",
-    description: "Speed and SEO improvements",
-  },
-]
+const PROMO_MODAL_DELAY_MS = 2000
+const REDIRECT_DELAY_MS = 1500
 
-const monthlyPackages = [
-  {
-    name: "Development Retainer",
-    price: "₹79,999",
-    period: "per month",
-    description: "Ongoing development support for your growing global business.",
-    features: [
-      "40 hours of development time",
-      "Priority support",
-      "Monthly strategy calls",
-      "Performance monitoring",
-      "Security updates",
-      "Feature enhancements",
-    ],
-  },
-  {
-    name: "Full-Service Package",
-    price: "₹1,49,999",
-    period: "per month",
-    description: "Complete digital solution with dedicated team support worldwide.",
-    features: [
-      "80 hours of development time",
-      "Dedicated project manager",
-      "Weekly progress reports",
-      "Advanced analytics",
-      "24/7 monitoring",
-      "Unlimited minor updates",
-      "Marketing automation",
-    ],
-  },
-]
 export default function PricingPage() {
   const router = useRouter()
   const { toast } = useToast()
+  const { content, isLoading, error, refetch } = usePricing()
   const [showModal, setShowModal] = useState(false)
 
+  const basicPlan = content.basic
+
   useEffect(() => {
-    // Show modal after 2 seconds when page loads
+    // Show the offer once the package it promotes is available.
+    if (!basicPlan) return
+
     const timer = setTimeout(() => {
       setShowModal(true)
-    }, 2000)
+    }, PROMO_MODAL_DELAY_MS)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [basicPlan])
 
-  const handlePlanSelect = (planName: string) => {
+  const goToContact = (plan: PricingCardView) => {
+    router.push(plan.ctaUrl ?? `/contact?plan=${plan.slug}`)
+  }
+
+  const handlePlanSelect = (plan: PricingCardView) => {
     toast({
       title: "Plan Selected!",
-      description: `You've selected the ${planName} plan. Redirecting to contact form...`,
+      description: `You've selected the ${plan.name} plan. Redirecting to contact form...`,
     })
     setTimeout(() => {
-      router.push(`/contact?plan=${planName.toLowerCase()}`)
-    }, 1500)
+      goToContact(plan)
+    }, REDIRECT_DELAY_MS)
   }
 
   const handleConsultation = () => {
@@ -174,93 +61,35 @@ export default function PricingPage() {
     router.push("/contact?type=sales")
   }
 
-  const handleBasicWebsite = () => {
+  const handleBasicWebsite = (plan: PricingCardView) => {
     setShowModal(false)
     toast({
-      title: "Basic Website Selected!",
-      description: "Redirecting to contact form for your 5-6 page website...",
+      title: `${plan.name} Selected!`,
+      description: "Redirecting to contact form for your website...",
     })
     setTimeout(() => {
-      router.push("/contact?plan=basic-website&budget=6k-10k")
-    }, 1500)
+      goToContact(plan)
+    }, REDIRECT_DELAY_MS)
   }
+
+  // A section stays mounted while loading so its skeletons hold the layout, then
+  // drops out of the page entirely once the API returns nothing for it.
+  const showBasic = isLoading || Boolean(basicPlan)
+  const showProjects = isLoading || content.projects.length > 0
+  const showRetainers = isLoading || content.retainers.length > 0
+  const showAddOns = isLoading || content.addOns.length > 0
 
   return (
     <>
       {/* Special Offer Modal */}
-      <Dialog open={showModal} onOpenChange={setShowModal}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="flex items-center gap-2">
-              <Zap className="h-5 w-5 text-yellow-500" />
-              Special Startup Offer
-            </DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <div className="text-center">
-              <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg p-4 mb-4">
-                <h3 className="text-xl font-bold mb-2">Basic Website Package</h3>
-                <div className="text-3xl font-bold">₹6,000 - ₹10,000</div>
-                <p className="text-sm opacity-90">Perfect for startups & small businesses</p>
-              </div>
-            </div>
-            
-            <div className="space-y-3">
-              <h4 className="font-semibold text-center">What's Included:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">5-6 Page Responsive Website</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Mobile-First Design</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Contact Form Integration</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">Basic SEO Setup</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">SSL Certificate</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">1 Month Support</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                  <span className="text-sm">2 Revision Rounds</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <Button 
-                onClick={handleBasicWebsite}
-                className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600"
-              >
-                Get This Offer - ₹6,000
-              </Button>
-              <Button 
-                variant="outline" 
-                onClick={() => setShowModal(false)}
-                className="w-full"
-              >
-                View All Plans
-              </Button>
-            </div>
-
-            <p className="text-xs text-center text-muted-foreground">
-              * Price varies based on specific requirements. Contact us for exact quote.
-            </p>
-          </div>
-        </DialogContent>
-      </Dialog>
+      {basicPlan && (
+        <SpecialOfferDialog
+          open={showModal}
+          onOpenChange={setShowModal}
+          plan={basicPlan}
+          onAccept={handleBasicWebsite}
+        />
+      )}
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -277,192 +106,109 @@ export default function PricingPage() {
             </p>
           </div>
 
+          {!isLoading && error && (
+            <div className="max-w-md mx-auto mb-20">
+              <PricingStateCard message={error} onRetry={refetch} />
+            </div>
+          )}
+
           {/* Special Basic Website Card */}
-          <div className="mb-20">
-            <div className="text-center mb-8">
-              <Badge className="bg-gradient-to-r from-green-500 to-blue-500 text-white mb-4">
-                Most Popular for Startups
-              </Badge>
-              <h2 className="text-3xl font-bold mb-4">Basic Website Package</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Perfect for startups and small businesses who need a professional online presence quickly and affordably.
-              </p>
-            </div>
-            
-            <div className="max-w-md mx-auto">
-              <Card className="border-2 border-green-500 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardHeader className="text-center pb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500/10 rounded-lg mb-4 mx-auto">
-                    <Zap className="h-6 w-6 text-green-500" />
-                  </div>
-                  <CardTitle className="text-2xl">Basic Website</CardTitle>
-                  <div className="mt-4">
-                    <span className="text-4xl font-bold text-green-600">₹6,000</span>
-                    <span className="text-muted-foreground ml-2">- ₹10,000</span>
-                  </div>
-                  <p className="text-muted-foreground mt-2">5-6 page responsive website for startups</p>
-                </CardHeader>
+          {showBasic && (
+            <div className="mb-20">
+              <div className="text-center mb-8">
+                <Badge className="bg-gradient-to-r from-green-500 to-blue-500 text-white mb-4">
+                  Most Popular for Startups
+                </Badge>
+                <h2 className="text-3xl font-bold mb-4">Basic Website Package</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Perfect for startups and small businesses who need a professional online presence quickly and affordably.
+                </p>
+              </div>
 
-                <CardContent>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">5-6 Page Responsive Website</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">Mobile-First Design</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">Contact Form Integration</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">Basic SEO Setup</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">SSL Certificate</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">1 Month Support</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">2 Revision Rounds</span>
-                    </li>
-                  </ul>
-
-                  <Button
-                    className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600"
-                    onClick={handleBasicWebsite}
-                  >
-                    Get Started - ₹6,000
-                  </Button>
-                </CardContent>
-              </Card>
+              <div className="max-w-md mx-auto">
+                {isLoading ? (
+                  <PricingCardSkeleton featureCount={7} />
+                ) : basicPlan ? (
+                  <BasicPackageCard plan={basicPlan} onSelect={handleBasicWebsite} />
+                ) : null}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Project-Based Pricing */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center mb-12">Advanced Project Solutions</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {pricingPlans.map((plan, index) => (
-                <Card
-                  key={index}
-                  className={`relative ${plan.popular ? "border-primary shadow-lg scale-105" : ""} hover:shadow-xl transition-all duration-300`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground px-4 py-1">Most Popular</Badge>
-                    </div>
-                  )}
-
-                  <CardHeader className="text-center pb-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4 mx-auto">
-                      <plan.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                    <div className="mt-4">
-                      <span className="text-4xl font-bold">{plan.price}</span>
-                      <span className="text-muted-foreground ml-2">{plan.period}</span>
-                    </div>
-                    <p className="text-muted-foreground mt-2">{plan.description}</p>
-                  </CardHeader>
-
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
-                      {plan.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-3">
-                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      className={`w-full ${plan.popular ? "bg-primary hover:bg-primary/90" : ""}`}
-                      variant={plan.popular ? "default" : "outline"}
-                      onClick={() => handlePlanSelect(plan.name)}
-                    >
-                      {plan.cta}
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+          {showProjects && (
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-center mb-12">Advanced Project Solutions</h2>
+              {isLoading ? (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <PricingCardSkeleton key={index} featureCount={8} />
+                  ))}
+                </div>
+              ) : content.projects.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {content.projects.map((plan, index) => (
+                    <ProjectPlanCard
+                      key={plan.id}
+                      plan={plan}
+                      icon={PROJECT_PLAN_ICONS[index % PROJECT_PLAN_ICONS.length]}
+                      onSelect={handlePlanSelect}
+                    />
+                  ))}
+                </div>
+              ) : null}
             </div>
-          </div>
+          )}
 
           {/* Monthly Retainer Packages */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center mb-4">Monthly Retainer Packages</h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              For businesses worldwide that need ongoing development support and want to build long-term partnerships.
-            </p>
+          {showRetainers && (
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-center mb-4">Monthly Retainer Packages</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                For businesses worldwide that need ongoing development support and want to build long-term partnerships.
+              </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {monthlyPackages.map((pkg, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardHeader className="text-center">
-                    <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                    <div className="mt-4">
-                      <span className="text-3xl font-bold">{pkg.price}</span>
-                      <span className="text-muted-foreground ml-2">{pkg.period}</span>
-                    </div>
-                    <p className="text-muted-foreground mt-2">{pkg.description}</p>
-                  </CardHeader>
-
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
-                      {pkg.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-3">
-                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      className="w-full bg-transparent"
-                      variant="outline"
-                      onClick={() => handlePlanSelect(pkg.name)}
-                    >
-                      Start Retainer
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+              <div className="max-w-4xl mx-auto">
+                {isLoading ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {Array.from({ length: 2 }).map((_, index) => (
+                      <PricingCardSkeleton key={index} featureCount={6} />
+                    ))}
+                  </div>
+                ) : content.retainers.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {content.retainers.map((plan) => (
+                      <RetainerCard key={plan.id} plan={plan} onSelect={handlePlanSelect} />
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Add-On Services */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center mb-4">Add-On Services</h2>
-            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Enhance your project with additional features and services tailored to diverse market needs.
-            </p>
+          {showAddOns && (
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-center mb-4">Add-On Services</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Enhance your project with additional features and services tailored to diverse market needs.
+              </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {addOnServices.map((addon, index) => (
-                <Card
-                  key={index}
-                  className="hover:shadow-lg transition-shadow cursor-pointer"
-                  onClick={() => handlePlanSelect(addon.name)}
-                >
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="font-semibold">{addon.name}</h3>
-                      <span className="font-bold text-primary">{addon.price}</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">{addon.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+              {isLoading ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {Array.from({ length: 6 }).map((_, index) => (
+                    <PricingAddOnSkeleton key={index} />
+                  ))}
+                </div>
+              ) : content.addOns.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {content.addOns.map((plan) => (
+                    <AddOnCard key={plan.id} plan={plan} onSelect={handlePlanSelect} />
+                  ))}
+                </div>
+              ) : null}
             </div>
-          </div>
+          )}
 
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-12">
