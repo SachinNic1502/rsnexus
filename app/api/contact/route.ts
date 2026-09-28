@@ -69,7 +69,7 @@ export async function POST(request: Request) {
             </tr>
             <tr>
               <td style="background: #f1f5f9; padding: 15px; text-align: center; font-size: 13px; color: #555;">
-                © ${new Date().getFullYear()} Your Company. All rights reserved.
+                © ${new Date().getFullYear()} RSNexus. All rights reserved.
               </td>
             </tr>
           </table>

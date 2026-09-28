@@ -4,7 +4,7 @@ import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import countries from "@/data/globe.json";
+
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: ThreeElements["mesh"] & {
@@ -64,8 +64,26 @@ let numbersOfRings = [0];
 
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
-  const groupRef = useRef();
+  const groupRef = useRef<any>(null);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [geoFeatures, setGeoFeatures] = useState<any[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/data/globe.json")
+      .then((res) => res.json())
+      .then((json) => {
+        if (active && json?.features) {
+          setGeoFeatures(json.features);
+        }
+      })
+      .catch((err) => {
+        console.warn("Unable to load /data/globe.json, falling back:", err);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const defaultProps = {
     pointSize: 1,
@@ -115,6 +133,20 @@ export function Globe({ globeConfig, data }: WorldProps) {
     globeConfig.shininess,
   ]);
 
+  // Update polygon data when geoFeatures load
+  useEffect(() => {
+    if (!globeRef.current || !isInitialized || geoFeatures.length === 0) return;
+
+    globeRef.current
+      .hexPolygonsData(geoFeatures)
+      .hexPolygonResolution(3)
+      .hexPolygonMargin(0.7)
+      .showAtmosphere(defaultProps.showAtmosphere)
+      .atmosphereColor(defaultProps.atmosphereColor)
+      .atmosphereAltitude(defaultProps.atmosphereAltitude)
+      .hexPolygonColor(() => defaultProps.polygonColor);
+  }, [isInitialized, geoFeatures, defaultProps.showAtmosphere, defaultProps.atmosphereColor, defaultProps.atmosphereAltitude, defaultProps.polygonColor]);
+
   // Build data when globe is initialized or when data changes
   useEffect(() => {
     if (!globeRef.current || !isInitialized || !data) return;
@@ -151,15 +183,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
     );
 
     globeRef.current
-      .hexPolygonsData(countries.features)
-      .hexPolygonResolution(3)
-      .hexPolygonMargin(0.7)
-      .showAtmosphere(defaultProps.showAtmosphere)
-      .atmosphereColor(defaultProps.atmosphereColor)
-      .atmosphereAltitude(defaultProps.atmosphereAltitude)
-      .hexPolygonColor(() => defaultProps.polygonColor);
-
-    globeRef.current
       .arcsData(data)
       .arcStartLat((d) => (d as { startLat: number }).startLat * 1)
       .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
@@ -192,14 +215,11 @@ export function Globe({ globeConfig, data }: WorldProps) {
     isInitialized,
     data,
     defaultProps.pointSize,
-    defaultProps.showAtmosphere,
-    defaultProps.atmosphereColor,
-    defaultProps.atmosphereAltitude,
-    defaultProps.polygonColor,
     defaultProps.arcLength,
     defaultProps.arcTime,
     defaultProps.rings,
     defaultProps.maxRings,
+    defaultProps.polygonColor,
   ]);
 
   // Handle rings animation with cleanup

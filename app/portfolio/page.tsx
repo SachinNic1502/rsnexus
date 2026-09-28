@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, ArrowRight, Eye, Search, X } from "lucide-react"
+import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { ImageLightbox } from "@/components/image-lightbox"
@@ -31,19 +32,34 @@ function slugify(title: string): string {
 
 export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
+  const [searchQuery, setSearchQuery] = useState("")
   const [preview, setPreview] = useState<{ images: string[]; title: string } | null>(null)
   const router = useRouter()
 
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory)
+  const query = searchQuery.trim().toLowerCase()
+
+  const filteredProjects = projects.filter((project: any) => {
+    const matchesCategory =
+      selectedCategory === "All" || project.category === selectedCategory
+    if (!matchesCategory) return false
+
+    if (!query) return true
+
+    const titleMatch = project.title.toLowerCase().includes(query)
+    const descMatch = project.description.toLowerCase().includes(query)
+    const techMatch = project.technologies?.some((t: any) =>
+      t.name.toLowerCase().includes(query)
+    )
+    const featureMatch = project.features?.some((f: string) =>
+      f.toLowerCase().includes(query)
+    )
+
+    return titleMatch || descMatch || techMatch || featureMatch
+  })
 
   const clientProjects = filteredProjects.filter((project) => isClientProject(project))
   const conceptProjects = filteredProjects.filter((project) => !isClientProject(project))
 
-  const handleViewLive = (url: string) => url && window.open(url, "_blank", "noopener,noreferrer")
-  const handleViewGithub = (url: string) => url && window.open(url, "_blank", "noopener,noreferrer")
   const handleStartProject = () => router.push("/contact?type=project")
   const handleRequestQuote = () => router.push("/contact?type=quote")
 
@@ -55,42 +71,48 @@ export default function PortfolioPage() {
     setPreview({ images, title: project.title })
   }
 
-  const renderProjectCard = (project: any, index: number) => (
-    <Link key={index} href={`/portfolio/${slugify(project.title)}`}>
-      <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
-        <div className="relative overflow-hidden">
-          <button
-            type="button"
-            aria-label={`Preview images for ${project.title}`}
-            className="block w-full cursor-zoom-in focus:outline-none"
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              handleOpenPreview(project)
-            }}
-          >
-            <Image
-              src={project.images?.[0] || project.image || "/placeholder.svg"}
-              alt={project.title}
-              width={500}
-              height={300}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          </button>
-          <div className="absolute top-4 left-4 flex gap-2 pointer-events-none">
-            <Badge variant="secondary">{project.category}</Badge>
-            {(project as any).label && !isClientProject(project) && (
-              <Badge variant="secondary">{(project as any).label}</Badge>
-            )}
+  const renderProjectCard = (project: any, index: number) => {
+    const projectSlug = `/portfolio/${slugify(project.title)}`
+    return (
+      <Card key={index} className="group hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
+        <div>
+          <div className="relative overflow-hidden">
+            <button
+              type="button"
+              aria-label={`Preview images for ${project.title}`}
+              className="block w-full cursor-zoom-in focus:outline-none relative group/img"
+              onClick={() => handleOpenPreview(project)}
+            >
+              <Image
+                src={project.images?.[0] || project.image || "/placeholder.svg"}
+                alt={project.title}
+                width={500}
+                height={300}
+                className="w-full h-48 object-cover group-hover/img:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="bg-black/60 text-white text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
+                  <Eye className="w-3.5 h-3.5" /> Preview Images
+                </span>
+              </div>
+            </button>
+            <div className="absolute top-4 left-4 flex gap-2 pointer-events-none">
+              <Badge variant="secondary">{project.category}</Badge>
+              {(project as any).label && !isClientProject(project) && (
+                <Badge variant="secondary">{(project as any).label}</Badge>
+              )}
+            </div>
           </div>
-        </div>
 
-        <CardHeader>
-          <CardTitle className="text-xl group-hover:text-primary transition-colors">
-            {project.title}
-          </CardTitle>
-          <p className="text-muted-foreground text-sm">{project.description}</p>
-        </CardHeader>
+          <CardHeader>
+            <CardTitle className="text-xl">
+              <Link href={projectSlug} className="hover:text-primary transition-colors">
+                {project.title}
+              </Link>
+            </CardTitle>
+            <p className="text-muted-foreground text-sm">{project.description}</p>
+          </CardHeader>
+        </div>
 
         <CardContent className="space-y-4">
           {/* Technologies */}
@@ -133,7 +155,7 @@ export default function PortfolioPage() {
               <h4 className="font-semibold mb-2 text-sm">Results Achieved</h4>
               <div className="space-y-1 text-xs">
                 {project.results.map((metric: string, metricIndex: number) => (
-                  <div key={metricIndex} className="text-green-600">
+                  <div key={metricIndex} className="text-green-600 dark:text-green-400">
                     ✓ {metric}
                   </div>
                 ))}
@@ -142,37 +164,33 @@ export default function PortfolioPage() {
           )}
 
           {/* Action Buttons */}
-          <div className="flex gap-2 pt-2">
+          <div className="flex items-center gap-2 pt-2">
+            <Button asChild size="sm" variant="default" className="flex-1">
+              <Link href={projectSlug}>
+                Case Study
+                <ArrowRight className="h-4 w-4 ml-1.5" />
+              </Link>
+            </Button>
             {project.liveUrl && (
-              <Button
-                size="sm"
-                className="flex-1"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleViewLive(project.liveUrl)
-                }}
-              >
-                <ExternalLink className="h-4 w-4 mr-2" />
-                View Live
+              <Button asChild size="sm" variant="outline">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4 mr-1.5" />
+                  Live
+                </a>
               </Button>
             )}
             {project.githubUrl && (
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleViewGithub(project.githubUrl)
-                }}
-              >
-                <Github className="h-4 w-4" />
+              <Button asChild size="sm" variant="outline">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                  <Github className="h-4 w-4" />
+                </a>
               </Button>
             )}
           </div>
         </CardContent>
       </Card>
-    </Link>
-  )
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
@@ -190,6 +208,35 @@ export default function PortfolioPage() {
           </p>
         </div>
 
+        {/* Live Search Bar */}
+        <div className="max-w-md mx-auto mb-8 relative">
+          <div className="relative">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search by tech, keyword (React, AI, Payment)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 pr-9 py-5 bg-background/70 backdrop-blur-md rounded-full border-border focus-visible:ring-primary shadow-sm text-sm"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
+                aria-label="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+          {searchQuery && (
+            <p className="text-center text-xs text-muted-foreground mt-2">
+              Found {filteredProjects.length} {filteredProjects.length === 1 ? "project" : "projects"} matching &ldquo;{searchQuery}&rdquo;
+            </p>
+          )}
+        </div>
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map((category, index) => (
@@ -197,7 +244,7 @@ export default function PortfolioPage() {
               key={index}
               variant={selectedCategory === category ? "default" : "outline"}
               size="sm"
-              className="mb-2"
+              className="mb-2 rounded-full px-4"
               onClick={() => setSelectedCategory(category)}
             >
               {category}

@@ -7,12 +7,12 @@ import teamMembers from "@/data/team.json"
 export default function TeamPage() {
     return (
         <main className="container mx-auto px-4 py-16">
-            <h1 className="text-4xl font-bold mb-8 text-center dark:text-white transition-colors">Meet Our Teams</h1>
+            <h1 className="text-4xl font-bold mb-8 text-center dark:text-white transition-colors">Meet Our Team</h1>
             <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto transition-colors">
                 RSNexus is a driven startup founded by experienced professionals, committed to helping businesses thrive with innovative technology and tailored solutions across the globe.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 justify-center max-w-7xl mx-auto">
                 {teamMembers.map((member, idx) => (
                     <motion.div
                         key={member.name}

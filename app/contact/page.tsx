@@ -80,6 +80,30 @@ export default function ContactPage() {
         message: "I would like to speak with your sales team about enterprise solutions.",
       }))
     }
+
+    if (type === "estimate") {
+      const platformParam = searchParams.get("platform") || ""
+      const scopeParam = searchParams.get("scope") || ""
+      const budgetParam = searchParams.get("budget") || ""
+      const addonsParam = searchParams.get("addons") || ""
+
+      let budgetSelection = ""
+      const minVal = parseInt(budgetParam.split("-")[0] || "0", 10)
+      if (minVal > 0) {
+        if (minVal < 50000) budgetSelection = "under-50k"
+        else if (minVal <= 100000) budgetSelection = "50k-1l"
+        else if (minVal <= 200000) budgetSelection = "1l-2l"
+        else if (minVal <= 500000) budgetSelection = "2l-5l"
+        else budgetSelection = "over-5l"
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        service: platformParam || prev.service,
+        budget: budgetSelection || prev.budget,
+        message: `I would like to discuss building a ${platformParam.toUpperCase()} project (${scopeParam} scope). Modules: ${addonsParam.replace(/,/g, ", ") || "Core architecture"}. Estimated ballpark: ₹${budgetParam}.`,
+      }))
+    }
   }, [searchParams])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -294,7 +318,7 @@ export default function ContactPage() {
             {/* Get in Touch Faster */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <Button asChild className="h-16 flex-col gap-2 bg-transparent" variant="outline">
-                <a href="https://wa.me/917992322713" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/919309931886" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
                   <span>WhatsApp Us</span>
                 </a>

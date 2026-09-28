@@ -31,21 +31,23 @@ const stats = [
 
 export function AboutSection() {
   return (
-    <section className="py-24 bg-white dark:bg-slate-900">
+    <section className="py-24 bg-slate-50/30 dark:bg-slate-950/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 bg-background/50 border-primary/30">
             About RSNexus
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Driven by Innovation, Powered by Passion</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          At RSNexus, we’re a passionate team of developers focused on delivering innovative and scalable software solutions. With a growing portfolio of demo projects and 3+ years of hands-on experience, we help businesses worldwide turn digital ideas into reality through modern, efficient, and reliable technology.
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-5">
+            Driven by Innovation, Powered by Passion
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            At RSNexus, we’re a passionate team of developers focused on delivering innovative and scalable software solutions. With a growing portfolio of demo projects and 3+ years of hands-on experience, we help businesses worldwide turn digital ideas into reality through modern, efficient, and reliable technology.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
+            <Card key={index} className="text-center p-6 glass-card hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <CardContent className="p-0">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4">
                   <stat.icon className="h-6 w-6 text-primary" />

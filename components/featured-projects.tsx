@@ -51,28 +51,33 @@ export function FeaturedProjects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {featured.map((project: any, index: number) => (
-            <Link key={index} href={`/portfolio/${slugify(project.title)}`}>
-              <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer h-full">
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={project.images?.[0] || "/placeholder.svg"}
-                    alt={project.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 left-4 flex gap-2">
-                    <Badge variant="secondary">{project.label}</Badge>
-                  </div>
-                </div>
+          {featured.map((project: any, index: number) => {
+            const projectSlug = `/portfolio/${slugify(project.title)}`
+            return (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col justify-between">
+                <div>
+                  <Link href={projectSlug} className="block relative overflow-hidden">
+                    <Image
+                      src={project.images?.[0] || "/placeholder.svg"}
+                      alt={project.title}
+                      width={500}
+                      height={300}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4 flex gap-2">
+                      <Badge variant="secondary">{project.label}</Badge>
+                    </div>
+                  </Link>
 
-                <CardHeader>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <p className="text-muted-foreground text-sm">{project.description}</p>
-                </CardHeader>
+                  <CardHeader>
+                    <CardTitle className="text-xl">
+                      <Link href={projectSlug} className="hover:text-primary transition-colors">
+                        {project.title}
+                      </Link>
+                    </CardTitle>
+                    <p className="text-muted-foreground text-sm">{project.description}</p>
+                  </CardHeader>
+                </div>
 
                 <CardContent className="space-y-4">
                   {project.technologies?.length > 0 && (
@@ -85,23 +90,33 @@ export function FeaturedProjects() {
                     </div>
                   )}
 
-                  <div className="flex gap-2 pt-2">
+                  <div className="flex items-center gap-2 pt-2">
+                    <Button asChild size="sm" variant="default" className="flex-1">
+                      <Link href={projectSlug}>
+                        Case Study
+                        <ArrowRight className="h-4 w-4 ml-1.5" />
+                      </Link>
+                    </Button>
                     {project.liveUrl && (
-                      <Button size="sm" className="flex-1" onClick={(e) => handleViewLive(e, project.liveUrl)}>
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        View Live
+                      <Button asChild size="sm" variant="outline">
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 mr-1.5" />
+                          Live
+                        </a>
                       </Button>
                     )}
                     {project.githubUrl && (
-                      <Button size="sm" variant="outline" onClick={(e) => handleViewGithub(e, project.githubUrl)}>
-                        <Github className="h-4 w-4" />
+                      <Button asChild size="sm" variant="outline">
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+                          <Github className="h-4 w-4" />
+                        </a>
                       </Button>
                     )}
                   </div>
                 </CardContent>
               </Card>
-            </Link>
-          ))}
+            )
+          })}
         </div>
 
         <div className="text-center">

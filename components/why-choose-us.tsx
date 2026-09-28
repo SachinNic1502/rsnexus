@@ -61,7 +61,7 @@ export function WhyChooseUs() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {reasons.map((reason, index) => (
-            <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
+            <Card key={index} className="text-center p-5 glass-card hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <CardContent className="p-0">
                 <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg mb-4">
                   <reason.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />

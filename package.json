@@ -80,6 +80,7 @@
   },
   "devDependencies": {
     "@types/node": "^22",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "postcss": "^8.5",

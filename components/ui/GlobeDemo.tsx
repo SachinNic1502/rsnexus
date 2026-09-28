@@ -5,6 +5,13 @@ import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-56 h-56 rounded-full border border-primary/30 bg-primary/5 animate-pulse flex items-center justify-center">
+        <div className="w-36 h-36 rounded-full border border-cyan-400/30 bg-cyan-400/5 animate-spin" />
+      </div>
+    </div>
+  ),
 });
 
 export function GlobeDemo() {

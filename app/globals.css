@@ -69,6 +69,75 @@
     linear-gradient(to bottom, rgb(51 65 85 / 0.3) 1px, transparent 1px);
 }
 
+/* Background Gradients & Grid Patterns */
+.bg-hero-gradient {
+  background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.07) 0%, transparent 65%),
+    linear-gradient(to bottom, #ffffff, #f8fafc);
+}
+
+.dark .bg-hero-gradient {
+  background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 85% 75%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    #090d16;
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Text Gradients */
+.text-gradient-hero {
+  background-image: linear-gradient(to right, #0f172a, #334155);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .text-gradient-hero {
+  background-image: linear-gradient(to right, #ffffff, #cbd5e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-primary {
+  background-image: linear-gradient(135deg, #2563eb, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .text-gradient-primary {
+  background-image: linear-gradient(135deg, #60a5fa, #818cf8, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-primary-glow {
+  color: #38bdf8;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

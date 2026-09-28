@@ -63,7 +63,7 @@ export default function BlogPostPage() {
             </span>
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
-              <ReadTimeCounter slug={post.slug} fallback={post.readTime} />
+              <ReadTimeCounter slug={post.slug} fallback={post.readTime} content={post.content} />
             </span>
           </div>
 

@@ -1,36 +1,61 @@
 "use client";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code, Zap, Globe } from "lucide-react";
 import { GlobeDemo } from "@/components/ui/GlobeDemo";
 
+const SparklesCore = dynamic(
+  () => import("@/components/ui/sparkles").then((mod) => mod.SparklesCore),
+  { ssr: false }
+);
+
 export function HeroSection() {
+  const router = useRouter();
+
   const handleStartProject = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/contact");
     }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
+    <section className="relative min-h-[92vh] flex items-center justify-center bg-hero-gradient overflow-hidden">
       {/* Animated background pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+
+      {/* Ambient subtle sparkles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <SparklesCore
+          id="hero-ambient-sparkles"
+          background="transparent"
+          minSize={0.4}
+          maxSize={1.2}
+          particleDensity={20}
+          className="w-full h-full"
+          particleColor="#38bdf8"
+        />
+      </div>
 
       {/* Floating background elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-float" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-float-delay" />
       <div className="absolute top-40 right-20 w-24 h-24 bg-primary-glow/10 rounded-full blur-xl animate-float" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 mt-5 items-center">
+      <div className="container mx-auto px-4 relative z-10 py-12 md:py-16">
+        <div className="grid lg:grid-cols-2 mt-2 items-center gap-8 lg:gap-12">
           {/* Mobile-only badge above Globe */}
-          <div className="order-1 lg:hidden text-center mb-4">
+          <div className="order-1 lg:hidden text-center mb-2">
             <Badge
               variant="outline"
-              className="inline-flex items-center gap-2 bg-background/10 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-colors"
+              className="inline-flex items-center gap-2 bg-background/50 backdrop-blur-md border-primary/30"
             >
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               Elite Software Development Team
@@ -44,11 +69,11 @@ export function HeroSection() {
 
           {/* Content (mobile: bottom, desktop: left) */}
           <div className="order-3 lg:order-1 text-center lg:text-left space-y-8">
-            {/* Desktop-only badge (normal place) */}
+            {/* Desktop-only badge */}
             <div className="hidden lg:block">
               <Badge
                 variant="outline"
-                className="inline-flex items-center gap-2 bg-background/10 backdrop-blur-sm border-primary/30 hover:border-primary/50 transition-colors"
+                className="inline-flex items-center gap-2 bg-background/50 backdrop-blur-md border-primary/30 px-3.5 py-1.5"
               >
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 Elite Software Development Team
@@ -56,28 +81,37 @@ export function HeroSection() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
                 <span className="text-gradient-hero block">Transform Ideas</span>
                 <span className="text-gradient-primary block">
                   Into Digital Excellence
                 </span>
               </h1>
 
-             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
-  We’re a growing software development team turning ideas into powerful digital products, delivering innovative solutions to clients around the world.
-</p>
-
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+                We're a growing software development team turning ideas into powerful digital products, delivering innovative solutions to clients around the world.
+              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 variant="default"
                 size="lg"
-                className="text-lg px-8 py-6 group"
+                className="text-base sm:text-lg px-8 py-6 group shadow-lg shadow-primary/20 hover:shadow-primary/35 transition-all"
                 onClick={handleStartProject}
               >
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="text-base sm:text-lg px-8 py-6 bg-background/60 backdrop-blur-md hover:bg-accent/40"
+              >
+                <Link href="/portfolio">
+                  View Our Work
+                </Link>
               </Button>
             </div>
 

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation"
 import { useToast } from "@/hooks/use-toast"
 import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { PricingCalculator } from "@/components/pricing-calculator"
 
 const pricingPlans = [
   {
@@ -148,12 +149,19 @@ export default function PricingPage() {
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
-    // Show modal after 2 seconds when page loads
-    const timer = setTimeout(() => {
-      setShowModal(true)
-    }, 2000)
-
-    return () => clearTimeout(timer)
+    // Only prompt offer once per browser session
+    try {
+      const seen = sessionStorage.getItem("rsnexus_offer_seen")
+      if (!seen) {
+        const timer = setTimeout(() => {
+          setShowModal(true)
+          sessionStorage.setItem("rsnexus_offer_seen", "true")
+        }, 3500)
+        return () => clearTimeout(timer)
+      }
+    } catch (e) {
+      // Ignore if sessionStorage is restricted
+    }
   }, [])
 
   const handlePlanSelect = (planName: string) => {
@@ -395,6 +403,9 @@ export default function PricingPage() {
               ))}
             </div>
           </div>
+
+          {/* Interactive Scope & Price Estimator */}
+          <PricingCalculator />
 
           {/* Monthly Retainer Packages */}
           <div className="mb-20">
