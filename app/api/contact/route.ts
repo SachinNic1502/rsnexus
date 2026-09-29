@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { siteConfig } from "@/config/site";
 
 export async function POST(request: Request) {
   try {
@@ -17,9 +18,9 @@ export async function POST(request: Request) {
 
     // Professional HTML template
     const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`, // always your email account
-      to: process.env.EMAIL_USER, // your inbox, not the customer's
-      replyTo: email, // customer's email (this makes reply go to them)
+      from: `"${name}" <${process.env.EMAIL_USER || siteConfig.contact.email}>`,
+      to: process.env.EMAIL_USER || siteConfig.contact.email,
+      replyTo: email,
       subject: `📩 New Contact Form Submission - ${name} (${email})`,
       html: `
         <div style="font-family: Arial, sans-serif; background: #f8f9fc; padding: 20px; color: #333;">

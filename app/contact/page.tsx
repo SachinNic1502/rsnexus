@@ -14,29 +14,29 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Linkedin } from "l
 import { useToast } from "@/hooks/use-toast"
 import Link from "next/link"
 import faqData from "@/data/faq.json"
+import { siteConfig } from "@/config/site"
+import { getServices } from "@/lib/services"
 
 const contactInfo = [
   {
     icon: MapPin,
-    title: "Office Locations",
-    details: [
-      "We currently operate remotely, serving clients worldwide.",
-    ],
+    title: "Office Location",
+    details: [siteConfig.contact.address.display],
   },
   {
     icon: Phone,
-    title: "Phone Numbers / Whatsapp",
-    details: ["+91 9852731566", "+91 9309931886"],
+    title: "Phone & WhatsApp",
+    details: [siteConfig.contact.phone],
   },
   {
     icon: Mail,
     title: "Email Addresses",
-    details: ["sr.nexus.it@gmail.com"],
+    details: [siteConfig.contact.email, siteConfig.contact.supportEmail],
   },
   {
     icon: Clock,
     title: "Business Hours",
-    details: ["Monday - Friday: 10AM - 8PM IST", "Saturday: 10AM - 6PM IST", "Sunday: Closed"],
+    details: [siteConfig.contact.workingHours],
   },
 ]
 
@@ -252,16 +252,14 @@ export default function ContactPage() {
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="website">Website Development</SelectItem>
-                        <SelectItem value="fullstack">Full Stack Development</SelectItem>
-                        <SelectItem value="mobile">Mobile App Development</SelectItem>
-                        <SelectItem value="design">UI/UX Design</SelectItem>
-                        <SelectItem value="cloud">Cloud Solutions</SelectItem>
-                        <SelectItem value="ai">AI & Machine Learning</SelectItem>
-                        <SelectItem value="consultation">Consultation</SelectItem>
-                        <SelectItem value="starter">Starter Plan</SelectItem>
-                        <SelectItem value="professional">Professional Plan</SelectItem>
-                        <SelectItem value="enterprise">Enterprise Plan</SelectItem>
+                        {getServices().map((s) => (
+                          <SelectItem key={s.id} value={s.id}>
+                            {s.title}
+                          </SelectItem>
+                        ))}
+                        <SelectItem value="consultation">Technical Consultation</SelectItem>
+                        <SelectItem value="starter">Starter MVP Package</SelectItem>
+                        <SelectItem value="enterprise">Custom Enterprise Solution</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -318,7 +316,7 @@ export default function ContactPage() {
             {/* Get in Touch Faster */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <Button asChild className="h-16 flex-col gap-2 bg-transparent" variant="outline">
-                <a href="https://wa.me/919309931886" target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.contact.whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
                   <span>WhatsApp Us</span>
                 </a>

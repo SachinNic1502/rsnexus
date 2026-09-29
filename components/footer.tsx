@@ -1,37 +1,19 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Code2, Mail, Phone, MapPin, Github,Instagram, Facebook,  Twitter, Linkedin } from "lucide-react"
-import { IconAddressBook } from "@tabler/icons-react"
+import { Mail, Phone, MapPin, Instagram, Facebook, Github, Linkedin, Twitter } from "lucide-react"
+import { siteConfig } from "@/config/site"
 
-const navigation = {
-  services: [
-    { name: "Website Development", href: "/services#website" },
-    { name: "Full Stack Development", href: "/services#fullstack" },
-    { name: "Mobile App Development", href: "/services#mobile" },
-    { name: "UI/UX Design", href: "/services#design" },
-    { name: "Cloud Solutions", href: "/services#cloud" },
-    { name: "AI & Machine Learning", href: "/services#ai" },
-  ],
-  company: [
-    { name: "About Us", href: "/about" },
-    { name: "Our Team", href: "/team" },
-    { name: "Blog", href: "/blog" },
-    // { name: "Careers", href: "/careers" },
-  ],
-  support: [
-    { name: "Contact", href: "/contact" },
-    { name: "FAQ", href: "/faq" },
-    // { name: "Privacy Policy", href: "/privacy" },
-    // { name: "Terms of Service", href: "/terms" },
-  ],
-  social: [
-    // { name: "GitHub", href: "https://github.com/RSNexus", icon: Github },
-    { name: "Instagram", href: "https://www.instagram.com/rs.nexus/", icon: Instagram },
-    { name: "Facebook", href: "https://www.facebook.com/profile.php?id=61580499203785", icon: Facebook },
-  ],
-}
+const socialIcons = [
+  { name: "GitHub", href: siteConfig.social.github, icon: Github },
+  { name: "LinkedIn", href: siteConfig.social.linkedin, icon: Linkedin },
+  { name: "Instagram", href: siteConfig.social.instagram, icon: Instagram },
+  { name: "Facebook", href: siteConfig.social.facebook, icon: Facebook },
+  { name: "Twitter", href: siteConfig.social.twitter, icon: Twitter },
+].filter((s) => Boolean(s.href));
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-slate-900 text-slate-300">
       <div className="container mx-auto px-4 py-16">
@@ -39,45 +21,44 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-            <Image
-              src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png"
-              alt="RSNexus"
-              width={32}
-              height={32}
-              className="h-8 w-8"
-            />
-              <span className="text-2xl font-bold text-white">RSNexus</span>
+              <Image
+                src={siteConfig.logoSecondary}
+                alt={siteConfig.name}
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
+              <span className="text-2xl font-bold text-white">{siteConfig.name}</span>
             </Link>
-            <p className="text-slate-400 mb-6 max-w-md">
-  RSNexus is a forward-thinking software development company crafting scalable, innovative digital solutions for businesses worldwide. We turn ideas into powerful, user-centric products with a focus on quality and efficiency.
-</p>
+            <p className="text-slate-400 mb-6 max-w-md leading-relaxed text-sm">
+              {siteConfig.description}
+            </p>
 
-
-            <div className="space-y-3">
+            <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-primary" />
-                <span>sr.nexus.it@gmail.com</span>
+                <Mail className="h-4 w-4 text-primary shrink-0" />
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-primary transition-colors">
+                  {siteConfig.contact.email}
+                </a>
               </div>
-              {/* <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>+91 98765 43210</span>
-              </div> */}
               <div className="flex items-center gap-3">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>At present, we work entirely remotely without a physical office.</span>
+                <Phone className="h-4 w-4 text-primary shrink-0" />
+                <a href={`tel:${siteConfig.contact.phoneRaw}`} className="hover:text-primary transition-colors">
+                  {siteConfig.contact.phone}
+                </a>
               </div>
-              {/* <div className="flex items-center gap-3">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>Mumbai, Maharashtra, India</span>
-              </div> */}
+              <div className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-primary shrink-0" />
+                <span>{siteConfig.contact.address.display}</span>
+              </div>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Services</h3>
             <ul className="space-y-3">
-              {navigation.services.map((item) => (
+              {siteConfig.footerNav.services.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:text-primary transition-colors text-sm">
                     {item.name}
@@ -89,9 +70,9 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Company</h3>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Company</h3>
             <ul className="space-y-3">
-              {navigation.company.map((item) => (
+              {siteConfig.footerNav.company.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="hover:text-primary transition-colors text-sm">
                     {item.name}
@@ -101,13 +82,18 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Support & Quick Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Support</h3>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact & Support</h3>
             <ul className="space-y-3">
-              {navigation.support.map((item) => (
+              {siteConfig.footerNav.support.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="hover:text-primary transition-colors text-sm">
+                  <Link
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="hover:text-primary transition-colors text-sm"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -117,14 +103,16 @@ export function Footer() {
         </div>
 
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400 text-sm">© 2025 RSNexus India. All rights reserved.</p>
+          <p className="text-slate-400 text-sm">
+            © {currentYear} {siteConfig.legalName}. All rights reserved.
+          </p>
 
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            {navigation.social.map((item) => (
+          <div className="flex space-x-5 mt-4 md:mt-0">
+            {socialIcons.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-slate-400 hover:text-primary transition-colors"
+                className="text-slate-400 hover:text-primary transition-colors p-1"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -8,15 +8,11 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { siteConfig } from "@/config/site"
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "About", href: "/about" },
-  { name: "Team", href: "/team" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "/contact" },
+  ...siteConfig.nav,
 ]
 
 export function Navigation() {
@@ -35,15 +31,15 @@ export function Navigation() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2.5">
               <Image
-                src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png"
-                alt="RSNexus"
+                src={siteConfig.logoSecondary}
+                alt={siteConfig.name}
                 width={32}
                 height={32}
                 priority
                 className="h-8 w-8"
               />
               <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                RSNexus
+                {siteConfig.name}
               </span>
             </Link>
           </div>

@@ -2,90 +2,12 @@ import { ServiceCard } from "@/components/service-card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Code, Layers, Smartphone, Palette, Cloud, Brain, ArrowRight } from "lucide-react"
-
-const services = [
-  {
-    id: "website",
-    icon: Code,
-    title: "Website Development",
-    description: "For businesses without a fast, credible web presence. We build performance-focused sites tailored to your content and goals — not templated ones. Ideal for founders and small teams who need a site that loads fast and ranks well.",
-    features: [
-      "Responsive Design",
-      "SEO Optimization",
-      "Performance Optimization",
-      "Content Management Systems",
-      "E-commerce Solutions",
-    ],
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-  },
-  {
-    id: "fullstack",
-    icon: Layers,
-    title: "Full Stack Development",
-    description: "For products that need a real backend, not just a frontend. We build the API, database, and auth layer to actually support your business logic. Ideal for startups building their first product from scratch.",
-    features: [
-      "API Development",
-      "Database Design",
-      "Authentication Systems",
-      "Real-time Features",
-      "Scalable Architecture",
-    ],
-    technologies: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Redis"],
-  },
-  {
-    id: "mobile",
-    icon: Smartphone,
-    title: "Mobile App Development",
-    description: "For businesses that need a native-feeling app without maintaining two separate codebases. Ideal for teams that want to ship to iOS and Android from one codebase without compromising on performance.",
-    features: [
-      "Cross-platform Development",
-      "Native Performance",
-      "Push Notifications",
-      "Offline Functionality",
-      "App Store Deployment",
-    ],
-    technologies: ["React Native", "Flutter", "Swift", "Kotlin"],
-  },
-  {
-    id: "design",
-    icon: Palette,
-    title: "UI/UX Design",
-    description: "For products where usability, not visuals, is the real blocker. We design and validate flows with real users before development starts. Ideal for teams that have an idea but no tested interface yet.",
-    features: ["User Research", "Wireframing & Prototyping", "Visual Design", "Usability Testing", "Design Systems"],
-    technologies: ["Figma", "Adobe XD", "Sketch", "Principle"],
-  },
-  {
-    id: "cloud",
-    icon: Cloud,
-    title: "Cloud Solutions",
-    description: "For applications outgrowing a single server or manual deployments. We set up infrastructure that scales, deploys, and recovers automatically. Ideal for growing products that can't afford downtime.",
-    features: [
-      "Cloud Migration",
-      "Auto-scaling Infrastructure",
-      "DevOps & CI/CD",
-      "Monitoring & Analytics",
-      "Security & Compliance",
-    ],
-    technologies: ["AWS", "Google Cloud", "Azure", "Docker", "Kubernetes"],
-  },
-  {
-    id: "ai",
-    icon: Brain,
-    title: "AI & Machine Learning",
-    description: "For workflows that are still manual and repetitive. We scope automation and AI features to a specific, measurable problem instead of bolting on AI for its own sake. Ideal for teams with a clear, well-defined use case.",
-    features: [
-      "Custom AI Models",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Predictive Analytics",
-      "AI Integration",
-    ],
-    technologies: ["TensorFlow", "PyTorch", "OpenAI", "Hugging Face"],
-  },
-]
+import { ArrowRight } from "lucide-react"
+import { getServices, getServiceIcon } from "@/lib/services"
 
 export default function ServicesPage() {
+  const services = getServices()
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
       <div className="container mx-auto px-4 py-16">
@@ -103,11 +25,14 @@ export default function ServicesPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div key={index} id={service.id} className="scroll-mt-24">
-              <ServiceCard service={service} />
-            </div>
-          ))}
+          {services.map((service) => {
+            const Icon = getServiceIcon(service.iconName)
+            return (
+              <div key={service.id} id={service.id} className="scroll-mt-24">
+                <ServiceCard service={{ ...service, icon: Icon }} />
+              </div>
+            )
+          })}
         </div>
 
         <div className="mt-16 text-center">

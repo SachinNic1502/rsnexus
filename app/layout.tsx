@@ -8,17 +8,17 @@ import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { siteConfig } from "@/config/site"
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rsnexus.in"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "RSNexus - Leading Software Development Company in India",
-    template: "%s | RSNexus",
+    default: `${siteConfig.name} - Software Engineering & Digital Studio`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "RSNexus is a premier software development company in India, offering expert web development, mobile apps, AI solutions, and cloud services in Mumbai, Delhi, Bangalore, and globally.",
+  description: siteConfig.description,
   keywords: [
   // Brand
   "RSNexus",
@@ -298,28 +298,30 @@ export default function RootLayout({
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "RSNexus",
-      url: "https://rsnexus.in",
-      logo: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
+      name: siteConfig.name,
+      legalName: siteConfig.legalName,
+      url: siteConfig.url,
+      logo: siteConfig.logo,
       sameAs: [
-        "https://www.linkedin.com/company/rsnexus",
-        "https://twitter.com/RSNexus",
-        "https://www.facebook.com/RSNexus",
-      ],
+        siteConfig.social.linkedin,
+        siteConfig.social.github,
+        siteConfig.social.instagram,
+        siteConfig.social.facebook,
+      ].filter(Boolean),
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+91-9309931886",
+        telephone: siteConfig.contact.phoneRaw,
         contactType: "customer support",
-        email: "sachinrathodnic1@gmail.com",
-        areaServed: "IN",
+        email: siteConfig.contact.email,
+        areaServed: "Global",
         availableLanguage: ["English", "Hindi", "Marathi"],
       },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Mumbai",
-        addressRegion: "Maharashtra",
-        postalCode: "400001",
-        addressCountry: "IN",
+        addressLocality: siteConfig.contact.address.city,
+        addressRegion: siteConfig.contact.address.state,
+        postalCode: siteConfig.contact.address.postalCode,
+        addressCountry: siteConfig.contact.address.country,
       },
     },
     {
