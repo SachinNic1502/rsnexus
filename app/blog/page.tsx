@@ -1,8 +1,20 @@
-import { Badge } from "@/components/ui/badge"
-import { BlogCard } from "@/components/blog-card"
-import blogData from "@/data/blog.json"
+import type { Metadata } from "next";
+import { Badge } from "@/components/ui/badge";
+import { BlogCard } from "@/components/blog-card";
+import { getBlogPosts } from "@/lib/data-fetchers";
 
-export default function BlogPage() {
+export const metadata: Metadata = {
+  title: "Blog & Software Engineering Notes | RSNexus",
+  description:
+    "Practical, honest writing on modern web development, Next.js, AI integrations, and building startups without fluff or hype.",
+  alternates: {
+    canonical: "https://rsnexus.in/blog",
+  },
+};
+
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
       <div className="container mx-auto px-4 py-16">
@@ -19,11 +31,11 @@ export default function BlogPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogData.map((post) => (
+          {posts.map((post: any) => (
             <BlogCard key={post.slug} post={post} />
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }

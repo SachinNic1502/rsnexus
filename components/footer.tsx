@@ -1,6 +1,9 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
-import { Mail, Phone, MapPin, Instagram, Facebook, Github, Linkedin, Twitter } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { Mail, Phone, MapPin, Instagram, Facebook, Github, Linkedin, Twitter, Lock } from "lucide-react"
 import { siteConfig } from "@/config/site"
 
 const socialIcons = [
@@ -12,7 +15,13 @@ const socialIcons = [
 ].filter((s) => Boolean(s.href));
 
 export function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  // Do not render public website footer within the dedicated administrative portal
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-slate-900 text-slate-300">
@@ -98,6 +107,15 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-2 border-t border-slate-800/60">
+                <Link
+                  href="/admin/login"
+                  className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-cyan-400 transition-colors"
+                >
+                  <Lock className="w-3 h-3" />
+                  <span>Admin Console</span>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

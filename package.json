@@ -59,6 +59,7 @@
     "gsap": "^3.13.0",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
+    "mongoose": "^9.10.2",
     "motion": "^12.23.9",
     "next": "16.0.7",
     "next-themes": "latest",

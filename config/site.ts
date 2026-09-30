@@ -67,6 +67,7 @@ export const siteConfig = {
     { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
     { name: "Team", href: "/team" },
+    { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
     { name: "FAQ", href: "/faq" },
   ],
@@ -82,6 +83,7 @@ export const siteConfig = {
     company: [
       { name: "About Us", href: "/about" },
       { name: "Our Team", href: "/team" },
+      { name: "Careers", href: "/careers" },
       { name: "Blog", href: "/blog" },
       { name: "Portfolio", href: "/portfolio" },
       { name: "Pricing", href: "/pricing" },

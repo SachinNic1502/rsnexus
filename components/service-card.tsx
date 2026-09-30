@@ -17,11 +17,11 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <Card className="group glass-card hover:border-primary/50 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl flex flex-col justify-between h-full">
+    <Card className="group glass-card rounded-2xl border border-slate-200/90 dark:border-slate-800/90 hover:border-cyan-500/50 dark:hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_35px_-8px_rgba(56,189,248,0.22)] flex flex-col justify-between h-full overflow-hidden">
       <div>
         <CardHeader className="pb-4">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/20 to-cyan-500/10 rounded-2xl mb-4 group-hover:from-primary/30 group-hover:to-cyan-500/20 group-hover:scale-105 transition-all">
-            <service.icon className="h-7 w-7 text-primary" />
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-primary/20 via-cyan-500/10 to-transparent border border-primary/20 rounded-2xl mb-4 group-hover:from-primary/30 group-hover:to-cyan-500/20 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all">
+            <service.icon className="h-7 w-7 text-primary dark:text-cyan-400" />
           </div>
           <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors">{service.title}</CardTitle>
         </CardHeader>

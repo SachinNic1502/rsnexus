@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Linkedin, Github } from "lucide-react"
 import team from "@/data/team.json"
 
-const founders = team.filter((member) => member.role === "Founder" || member.role === "Co-Founder")
+const defaultFounders = team.filter((member) => member.role === "Founder" || member.role === "Co-Founder")
 
 function getInitials(name: string) {
   return name
@@ -16,7 +16,13 @@ function getInitials(name: string) {
     .join("")
 }
 
-export function FounderSection() {
+interface FounderSectionProps {
+  initialFounders?: any[];
+}
+
+export function FounderSection({ initialFounders }: FounderSectionProps = {}) {
+  const founders = initialFounders && initialFounders.length > 0 ? initialFounders : defaultFounders;
+
   return (
     <section className="py-20 md:py-24 bg-slate-50/40 dark:bg-slate-950/40">
       <div className="container mx-auto px-4">

@@ -1,12 +1,23 @@
-import { ServiceCard } from "@/components/service-card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { getServices, getServiceIcon } from "@/lib/services"
+import type { Metadata } from "next";
+import { ServiceCard } from "@/components/service-card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { getServiceIcon } from "@/lib/services";
+import { getServicesData } from "@/lib/data-fetchers";
 
-export default function ServicesPage() {
-  const services = getServices()
+export const metadata: Metadata = {
+  title: "Software Engineering & Development Services | RSNexus",
+  description:
+    "Comprehensive end-to-end software development services including web apps, mobile apps, SaaS systems, AI integrations, and cloud infrastructure.",
+  alternates: {
+    canonical: "https://rsnexus.in/services",
+  },
+};
+
+export default async function ServicesPage() {
+  const services = await getServicesData();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
@@ -25,13 +36,13 @@ export default function ServicesPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service) => {
-            const Icon = getServiceIcon(service.iconName)
+          {services.map((service: any) => {
+            const Icon = getServiceIcon(service.iconName);
             return (
-              <div key={service.id} id={service.id} className="scroll-mt-24">
+              <div key={service.id || service.serviceId} id={service.id || service.serviceId} className="scroll-mt-24">
                 <ServiceCard service={{ ...service, icon: Icon }} />
               </div>
-            )
+            );
           })}
         </div>
 
@@ -58,5 +69,5 @@ export default function ServicesPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

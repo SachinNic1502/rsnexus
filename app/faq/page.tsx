@@ -1,17 +1,21 @@
-"use client"
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { getFaqData } from "@/lib/data-fetchers";
+import { FaqGrid } from "@/components/faq-grid";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
-import faqData from "@/data/faq.json"
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions | RSNexus",
+  description:
+    "Straightforward answers to common questions about our development process, pricing, timeline, tech stack, and post-launch support.",
+  alternates: {
+    canonical: "https://rsnexus.in/faq",
+  },
+};
 
-// The first 4 FAQs already appear as a teaser on /contact — show the rest here to avoid duplication.
-const faqs = faqData.slice(4)
-
-export default function FaqPage() {
-  const router = useRouter()
+export default async function FaqPage() {
+  const allFaqs = await getFaqData();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
@@ -28,32 +32,18 @@ export default function FaqPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="p-6 h-full">
-                <h3 className="font-semibold mb-2">{faq.question}</h3>
-                <p className="text-muted-foreground text-sm">{faq.answer}</p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        <FaqGrid faqs={allFaqs} />
 
-        <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-12 mt-16 max-w-3xl mx-auto">
+        <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-12 mt-16 max-w-3xl mx-auto border border-primary/20">
           <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
           <p className="text-muted-foreground mb-8">
-            Reach out directly — no forms to fill out just to talk to a real person.
+            Reach out directly — no forms to fill out just to talk to a real engineer.
           </p>
-          <Button size="lg" className="px-8" onClick={() => router.push("/contact")}>
-            Contact Us
+          <Button asChild size="lg" className="px-8">
+            <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
