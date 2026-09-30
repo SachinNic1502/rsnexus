@@ -59,6 +59,7 @@
     "gsap": "^3.13.0",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
+    "mongoose": "^9.10.2",
     "motion": "^12.23.9",
     "next": "16.0.7",
     "next-themes": "latest",
@@ -80,6 +81,7 @@
   },
   "devDependencies": {
     "@types/node": "^22",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "postcss": "^8.5",

@@ -1,0 +1,118 @@
+{
+  "services": [
+    {
+      "id": "website",
+      "slug": "website-development",
+      "title": "Website Development",
+      "tagline": "High-Performance Modern Web Apps",
+      "iconName": "Code",
+      "shortDescription": "Performance-focused websites and web apps engineered to convert visitors into loyal clients.",
+      "description": "For businesses that require a fast, credible, and modern web presence. We build custom, performance-focused sites tailored to your brand identity and conversion goals — never templated or bloated. Ideal for founders, brands, and companies seeking top-tier SEO and lightning-fast load speeds.",
+      "features": [
+        "Responsive & Mobile-First Design",
+        "Technical SEO & Core Web Vitals Optimization",
+        "Next.js App Router Architecture",
+        "Headless CMS Integration",
+        "E-commerce & Custom Checkout Flows"
+      ],
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+      "deliverables": "Production-ready website, CMS dashboard, automated deployments, SEO audit",
+      "typicalTimeline": "1 - 3 weeks"
+    },
+    {
+      "id": "fullstack",
+      "slug": "full-stack-development",
+      "title": "Full Stack Development",
+      "tagline": "Scalable SaaS & API Backends",
+      "iconName": "Layers",
+      "shortDescription": "Full-cycle SaaS and web applications built with robust APIs, secure auth, and scalable databases.",
+      "description": "For products that need a real backend, not just a frontend. We design and construct the API, database schema, caching, and auth layer to reliably support your business logic as user traffic expands. Ideal for startups building their MVP from scratch.",
+      "features": [
+        "REST & GraphQL API Development",
+        "Database Architecture & Optimization",
+        "Secure Authentication & Role-Based Access Control",
+        "Payment Gateway & Webhook Integrations",
+        "Real-Time WebSockets & Background Jobs"
+      ],
+      "technologies": ["Node.js", "TypeScript", "PostgreSQL", "MongoDB", "Redis", "Docker"],
+      "deliverables": "Full-stack web application, API documentation, database migrations, CI/CD pipeline",
+      "typicalTimeline": "3 - 8 weeks"
+    },
+    {
+      "id": "mobile",
+      "slug": "mobile-app-development",
+      "title": "Mobile App Development",
+      "tagline": "Cross-Platform iOS & Android Apps",
+      "iconName": "Smartphone",
+      "shortDescription": "High-performance native-feeling mobile applications built for both iOS and Android from one unified codebase.",
+      "description": "For businesses that need a native-feeling app without maintaining two separate codebases. Ideal for teams that want to ship to the App Store and Google Play quickly without compromising on fluid animations, security, or native device capabilities.",
+      "features": [
+        "Cross-Platform iOS & Android Codebase",
+        "Smooth 60 FPS Native-Grade Animations",
+        "Offline-First Caching & Data Sync",
+        "Push Notifications & Deep Linking",
+        "App Store & Google Play Store Submission"
+      ],
+      "technologies": ["React Native", "Expo", "Flutter", "TypeScript", "Firebase"],
+      "deliverables": "Compiled iOS & Android app binaries, source repository, store release support",
+      "typicalTimeline": "4 - 10 weeks"
+    },
+    {
+      "id": "design",
+      "slug": "ui-ux-design",
+      "title": "UI/UX Design",
+      "tagline": "User-Centric Interfaces & Design Systems",
+      "iconName": "Palette",
+      "shortDescription": "Conversion-focused, intuitive product designs and design systems validated with real user feedback.",
+      "description": "For products where usability, intuitive navigation, and high conversion matter most. We design and validate flows before writing code, saving you expensive development pivots. Ideal for teams that have an idea or existing app that needs a professional UX overhaul.",
+      "features": [
+        "User Journey Mapping & Information Architecture",
+        "Interactive Clickable Figma Prototypes",
+        "Production Design Systems & Component Libraries",
+        "Mobile & Desktop Responsive Wireframes",
+        "Usability & Conversion Testing"
+      ],
+      "technologies": ["Figma", "Design Systems", "Prototyping", "Tailwind Design Tokens"],
+      "deliverables": "Full Figma design file, UI component kit, interactive prototype, developer handoff specs",
+      "typicalTimeline": "1 - 3 weeks"
+    },
+    {
+      "id": "cloud",
+      "slug": "cloud-solutions",
+      "title": "Cloud Solutions",
+      "tagline": "Resilient DevOps & Cloud Infrastructure",
+      "iconName": "Cloud",
+      "shortDescription": "Auto-scaling, highly secure cloud infrastructure and continuous deployment pipelines.",
+      "description": "For applications outgrowing single servers or manual deployments. We set up automated deployment pipelines, containerized environments, and cloud architecture that self-heals, scales with spikes, and maintains strict security standards.",
+      "features": [
+        "Automated CI/CD Deployment Pipelines",
+        "Containerization with Docker & Kubernetes",
+        "Cloud Migration & Cost Optimization",
+        "Serverless & Microservices Architecture",
+        "Monitoring, Alerting & SSL/Security Hardening"
+      ],
+      "technologies": ["AWS", "Vercel", "Docker", "GitHub Actions", "Cloudflare", "PostgreSQL"],
+      "deliverables": "Automated deployment pipeline, infrastructure as code, monitoring dashboard, security report",
+      "typicalTimeline": "1 - 3 weeks"
+    },
+    {
+      "id": "ai",
+      "slug": "ai-machine-learning",
+      "title": "AI & Machine Learning",
+      "tagline": "Intelligent Automation & Custom AI",
+      "iconName": "Brain",
+      "shortDescription": "Custom AI chatbots, retrieval-augmented generation (RAG), and intelligent workflow automation.",
+      "description": "For workflows that are manual, repetitive, or data-intensive. We engineer purpose-built AI agents, automated document extractors, custom recommendation systems, and LLM integrations scoped to measurable ROI and business efficiency.",
+      "features": [
+        "Custom LLM & GPT Agents Integration",
+        "Retrieval-Augmented Generation (RAG) with Vector Databases",
+        "Automated Data Extraction & Document Analysis",
+        "Custom Fine-Tuning & Prompt Engineering",
+        "Intelligent Support Chatbots & Workflows"
+      ],
+      "technologies": ["OpenAI", "LangChain", "Pinecone", "Python", "FastAPI", "Next.js"],
+      "deliverables": "Deployed AI microservice, vector search database, API endpoints, testing benchmarks",
+      "typicalTimeline": "2 - 6 weeks"
+    }
+  ]
+}

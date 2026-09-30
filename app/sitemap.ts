@@ -1,41 +1,5 @@
-// import type { MetadataRoute } from "next";
-// import projectsData from "@/data/projects.json";
-
-// const baseUrl = "https://www.rsnexus.in";
-
-// function slugify(title: string): string {
-//   return title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-// }
-
-// export default function sitemap(): MetadataRoute.Sitemap {
-//   const staticRoutes: MetadataRoute.Sitemap = [
-//     "",
-//     "/services",
-//     "/pricing",
-//     "/about",
-//     "/team",
-//     "/portfolio",
-//     "/contact",
-//   ].map((path) => ({
-//     url: `${baseUrl}${path}`,
-//     lastModified: new Date(),
-//     changeFrequency: "monthly",
-//     priority: path === "" ? 1 : 0.8,
-//   }));
-
-//   const portfolioRoutes: MetadataRoute.Sitemap = projectsData.projects.map((project) => ({
-//     url: `${baseUrl}/portfolio/${slugify(project.title)}`,
-//     lastModified: new Date(),
-//     changeFrequency: "yearly",
-//     priority: 0.6,
-//   }));
-
-//   return [...staticRoutes, ...portfolioRoutes];
-// }
-
 import type { MetadataRoute } from "next";
-import projectsData from "@/data/projects.json";
-import blogData from "@/data/blog.json";
+import { getProjects, getBlogPosts, getActiveJobOpenings } from "@/lib/data-fetchers";
 
 const baseUrl = "https://rsnexus.in";
 
@@ -47,13 +11,14 @@ function slugify(title: string): string {
     .replace(/[^\w-]/g, "");
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes = [
     "",
     "/services",
     "/pricing",
     "/about",
     "/team",
+    "/careers",
     "/portfolio",
     "/contact",
     "/faq",
@@ -67,20 +32,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  const portfolioRoutes: MetadataRoute.Sitemap =
-    projectsData.projects.map((project) => ({
-      url: `${baseUrl}/portfolio/${slugify(project.title)}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    }));
+  const [projects, blogPosts, jobs] = await Promise.all([
+    getProjects(),
+    getBlogPosts(),
+    getActiveJobOpenings(),
+  ]);
 
-  const blogRoutes: MetadataRoute.Sitemap = blogData.map((post) => ({
+  const portfolioRoutes: MetadataRoute.Sitemap = projects.map((project: any) => ({
+    url: `${baseUrl}/portfolio/${project.slug || slugify(project.title)}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post: any) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedDate),
+    lastModified: post.publishedDate ? new Date(post.publishedDate) : new Date(),
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...portfolioRoutes, ...blogRoutes];
+  const careerRoutes: MetadataRoute.Sitemap = jobs.map((job: any) => ({
+    url: `${baseUrl}/careers/${job.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...portfolioRoutes, ...blogRoutes, ...careerRoutes];
 }

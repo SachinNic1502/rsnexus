@@ -1,19 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-
-const signals = [
-  "Founder-Led",
-  "Open Source Friendly",
-  "Modern Engineering",
-  "Secure Development Practices",
-  "Responsive Design",
-  "Performance Optimized",
-  "SEO Ready",
-  "Accessibility Focused",
-  "Clean Architecture",
-  "Git Version Control",
-  "Code Review Process",
-  "Testing Workflow",
-]
+import { siteConfig } from "@/config/site"
 
 export function TrustSignals() {
   return (
@@ -26,7 +12,7 @@ export function TrustSignals() {
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-          {signals.map((signal) => (
+          {siteConfig.trustSignals.map((signal) => (
             <Badge
               key={signal}
               variant="secondary"

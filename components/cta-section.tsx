@@ -17,7 +17,7 @@ export function CTASection() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5">
+    <section id="contact" className="py-24 bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 scroll-mt-20">
       <div className="container mx-auto px-4">
         <Card className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-primary/80 text-primary-foreground border-0 shadow-2xl">
           <CardContent className="p-12 text-center">
@@ -48,7 +48,7 @@ export function CTASection() {
             </div>
 
             <div className="mt-8 text-sm opacity-75">
-              <p className="text-sm text-white text-bold mt-4">
+              <p className="text-sm text-white font-bold mt-4">
                 ✓ Free consultation • ✓ Custom quotes available • ✓ Flexible payment terms • ✓ Market-focused solutions
               </p>
 

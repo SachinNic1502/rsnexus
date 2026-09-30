@@ -10,6 +10,7 @@ import { FeaturedProjects } from "@/components/featured-projects"
 import { FounderSection } from "@/components/founder-section"
 import { ProcessTimeline } from "@/components/process-timeline"
 import { WhatsappFloatButton } from "@/components/whatsapp-float-button"
+import { getFeaturedProjects, getFounders } from "@/lib/data-fetchers"
 
 export const metadata: Metadata = {
   title: "Software Development Company in India | RSNexus",
@@ -20,15 +21,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [featuredProjects, founders] = await Promise.all([
+    getFeaturedProjects(4),
+    getFounders(),
+  ]);
+
   return (
     <div className="space-y-0">
-
       <HeroSection />
       <AboutSection />
       {/* <GlobeShowcase /> */}
-      <FounderSection />
-      <FeaturedProjects />
+      <FounderSection initialFounders={founders} />
+      <FeaturedProjects initialProjects={featuredProjects} />
       <ProcessTimeline />
       <ServicesOverview />
       <CTASection />

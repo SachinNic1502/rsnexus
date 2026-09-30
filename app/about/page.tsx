@@ -191,7 +191,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
             {team.map((member, index) => (
               <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">

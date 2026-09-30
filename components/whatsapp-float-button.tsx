@@ -1,13 +1,12 @@
 "use client"
 
 import { IconBrandWhatsappFilled } from "@tabler/icons-react"
-
-const WHATSAPP_NUMBER = "919309931886"
+import { siteConfig } from "@/config/site"
 
 export function WhatsappFloatButton() {
   return (
     <a
-      href={`https://wa.me/${WHATSAPP_NUMBER}`}
+      href={siteConfig.contact.whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
