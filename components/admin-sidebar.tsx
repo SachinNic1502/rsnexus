@@ -57,7 +57,7 @@ export function AdminSidebar() {
               alt={siteConfig.name}
               width={34}
               height={34}
-              className="h-8 w-8 drop-shadow-[0_0_8px_rgba(56,189,248,0.4)]"
+              className="h-8 w-8 drop-shadow-[0_0_8px_rgba(245,158,11,0.4)]"
             />
             <span className="absolute -bottom-1 -right-1 flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>

@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react"
 import { useRouter } from "next/navigation"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Check, Calculator, Sparkles, ArrowRight, Layers, Smartphone, Globe, Brain } from "lucide-react"
@@ -29,7 +29,7 @@ const SCOPE_TIERS = [
 ]
 
 const ADDONS: AddonOption[] = [
-  { id: "auth", label: "Secure User Auth & RBAC", price: 14999 },
+  { id: "auth", label: "User Login & Role Permissions", price: 14999 },
   { id: "payments", label: "Payments (Razorpay / Stripe)", price: 19999 },
   { id: "admin", label: "Admin & Operations Portal", price: 29999 },
   { id: "seo", label: "Advanced SEO & Analytics Suite", price: 9999 },
@@ -78,35 +78,38 @@ export function PricingCalculator() {
   }
 
   return (
-    <Card className="max-w-4xl mx-auto glass-card shadow-2xl border border-primary/20 overflow-hidden my-16">
-      <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-cyan-500/10 p-6 md:p-8 border-b border-border/50">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <Card className="max-w-4xl mx-auto classical-card classical-frame shadow-2xl border border-amber-500/30 overflow-hidden my-16 bg-background/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl">
+      <div className="bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-cyan-500/10 p-6 sm:p-8 border-b border-border/60">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <Badge variant="outline" className="mb-2 bg-background/50 border-primary/30">
-              <Calculator className="w-3.5 h-3.5 mr-1 text-primary" /> Interactive Scope Estimator
-            </Badge>
-            <h3 className="text-2xl md:text-3xl font-bold">Estimate Your Project Investment</h3>
-            <p className="text-muted-foreground text-sm mt-1">
-              Select your specifications for an immediate, transparent ballpark estimate.
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 text-xs font-serif tracking-wider uppercase mb-2">
+              <Calculator className="w-3.5 h-3.5 mr-1" />
+              PROJECT COST ESTIMATOR
+            </div>
+            <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-foreground">Estimate Your Project Cost</h3>
+            <p className="text-muted-foreground text-xs sm:text-sm mt-1 font-sans">
+              Select your options below to get an instant, transparent price estimate.
             </p>
           </div>
-          <div className="text-left md:text-right bg-background/60 backdrop-blur-md p-4 rounded-xl border border-border/60">
-            <span className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Estimated Range</span>
-            <div className="text-2xl md:text-3xl font-extrabold text-primary">
+          <div className="text-left md:text-right bg-background/80 dark:bg-slate-900/80 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-amber-500/30 shadow-md shrink-0">
+            <span className="text-[10px] sm:text-xs font-serif uppercase tracking-widest text-muted-foreground font-bold block mb-1">
+              ESTIMATED COST
+            </span>
+            <div className="text-2xl sm:text-3xl font-serif font-black text-gradient-gold">
               ₹{estimate.min.toLocaleString("en-IN")} - ₹{estimate.max.toLocaleString("en-IN")}
             </div>
-            <span className="text-xs text-muted-foreground">Tailored for {estimate.platformName}</span>
+            <span className="text-xs text-muted-foreground font-mono">Tailored for {estimate.platformName}</span>
           </div>
         </div>
       </div>
 
-      <CardContent className="p-6 md:p-8 space-y-8">
+      <CardContent className="p-6 sm:p-8 md:p-10 space-y-8">
         {/* Step 1: Platform Selection */}
         <div>
-          <label className="block text-sm font-semibold text-foreground mb-3">
-            1. Select Solution Platform
+          <label className="block font-serif text-sm font-bold text-foreground mb-3 uppercase tracking-wider">
+            1. Choose What to Build
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
             {PLATFORMS.map((item) => {
               const Icon = item.icon
               const isSelected = platform === item.id
@@ -115,19 +118,19 @@ export function PricingCalculator() {
                   key={item.id}
                   type="button"
                   onClick={() => setPlatform(item.id)}
-                  className={`p-4 rounded-xl text-left border transition-all duration-200 flex flex-col justify-between ${
+                  className={`p-4 rounded-2xl text-left border transition-all duration-200 flex flex-col justify-between min-h-[110px] ${
                     isSelected
-                      ? "border-primary bg-primary/10 shadow-md shadow-primary/10 ring-1 ring-primary"
-                      : "border-border hover:border-primary/40 bg-card"
+                      ? "border-amber-500 bg-amber-500/10 shadow-lg shadow-amber-500/10 ring-1 ring-amber-500/40"
+                      : "border-border hover:border-amber-400/40 bg-secondary/40 dark:bg-slate-800/40"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <Icon className={`w-5 h-5 ${isSelected ? "text-primary" : "text-muted-foreground"}`} />
-                    {isSelected && <Check className="w-4 h-4 text-primary" />}
+                    <Icon className={`w-5 h-5 ${isSelected ? "text-amber-500" : "text-muted-foreground"}`} />
+                    {isSelected && <Check className="w-4 h-4 text-amber-500" />}
                   </div>
                   <div>
-                    <div className="font-semibold text-sm">{item.name}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{item.desc}</div>
+                    <div className="font-serif font-bold text-sm text-foreground">{item.name}</div>
+                    <div className="text-xs text-muted-foreground mt-1 font-sans leading-tight">{item.desc}</div>
                   </div>
                 </button>
               )
@@ -137,19 +140,19 @@ export function PricingCalculator() {
 
         {/* Step 2: Scope Tier */}
         <div>
-          <label className="block text-sm font-semibold text-foreground mb-3">
-            2. Approximate Project Scope
+          <label className="block font-serif text-sm font-bold text-foreground mb-3 uppercase tracking-wider">
+            2. Project Size
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
             {SCOPE_TIERS.map((tier) => (
               <button
                 key={tier.id}
                 type="button"
                 onClick={() => setScope(tier.id)}
-                className={`p-3.5 rounded-xl text-left border text-sm font-medium transition-all ${
+                className={`p-4 rounded-xl text-left border text-xs sm:text-sm font-medium transition-all ${
                   scope === tier.id
-                    ? "border-primary bg-primary/10 ring-1 ring-primary text-primary"
-                    : "border-border hover:border-primary/40 bg-card text-muted-foreground"
+                    ? "border-amber-500 bg-amber-500/10 ring-1 ring-amber-500 text-foreground font-bold shadow-md"
+                    : "border-border hover:border-amber-400/40 bg-secondary/40 dark:bg-slate-800/40 text-muted-foreground"
                 }`}
               >
                 {tier.label}
@@ -160,8 +163,8 @@ export function PricingCalculator() {
 
         {/* Step 3: Addons */}
         <div>
-          <label className="block text-sm font-semibold text-foreground mb-3">
-            3. Essential Features & Architecture Modules
+          <label className="block font-serif text-sm font-bold text-foreground mb-3 uppercase tracking-wider">
+            3. Add-on Features & Modules
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {ADDONS.map((addon) => {
@@ -171,16 +174,16 @@ export function PricingCalculator() {
                   key={addon.id}
                   type="button"
                   onClick={() => toggleAddon(addon.id)}
-                  className={`p-3 rounded-lg border text-left flex items-center justify-between transition-colors ${
+                  className={`p-3.5 rounded-xl border text-left flex items-center justify-between transition-colors min-h-[50px] ${
                     isChecked
-                      ? "border-primary bg-primary/10 text-foreground"
-                      : "border-border hover:border-primary/30 bg-card text-muted-foreground"
+                      ? "border-amber-500/80 bg-amber-500/10 text-foreground"
+                      : "border-border hover:border-amber-400/40 bg-secondary/40 dark:bg-slate-800/40 text-muted-foreground"
                   }`}
                 >
-                  <span className="text-xs font-medium">{addon.label}</span>
+                  <span className="text-xs font-medium font-sans leading-tight">{addon.label}</span>
                   <div
-                    className={`w-4 h-4 rounded flex items-center justify-center border text-xs ml-2 flex-shrink-0 ${
-                      isChecked ? "bg-primary border-primary text-white" : "border-muted-foreground/40"
+                    className={`w-4 h-4 rounded-md flex items-center justify-center border text-xs ml-2 flex-shrink-0 transition-colors ${
+                      isChecked ? "bg-amber-500 border-amber-500 text-slate-950 font-bold" : "border-muted-foreground/40"
                     }`}
                   >
                     {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
@@ -192,17 +195,17 @@ export function PricingCalculator() {
         </div>
 
         {/* CTA Bar */}
-        <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-muted-foreground flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-cyan-500" />
-            Ballpark includes architecture design, staging sandbox & production deployment.
+        <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-xs text-muted-foreground flex items-center gap-1.5 font-serif">
+            <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+            Includes setup, staging preview, and live production deployment.
           </div>
           <Button
             size="lg"
             onClick={handleConsultation}
-            className="w-full sm:w-auto px-6 py-6 shadow-md shadow-primary/20 hover:shadow-primary/35 text-base group"
+            className="w-full sm:w-auto font-serif text-xs uppercase tracking-wider px-7 py-6 rounded-xl shadow-xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-700 hover:to-amber-500 text-white border-0 group shrink-0"
           >
-            Lock in this Estimate
+            <span>Get Started With This Estimate</span>
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
@@ -210,3 +213,5 @@ export function PricingCalculator() {
     </Card>
   )
 }
+
+export default PricingCalculator;

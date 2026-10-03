@@ -251,10 +251,10 @@ export const metadata: Metadata = {
     siteName: "RSNexus",
     images: [
       {
-        url :"https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
-        width: 512,
-        height: 512,
-        alt: "RSNexus Logo",
+        url: siteConfig.logos.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} - Software Engineering & Digital Studio`,
       },
     ],
     locale: "en_IN",
@@ -265,16 +265,23 @@ export const metadata: Metadata = {
     title: "RSNexus - Software Development Company in India",
     description:
       "Expert software solutions by RSNexus, including web development, mobile apps, AI, and cloud services in Mumbai, Delhi, and Bangalore.",
-    images: ["https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png"],
+    images: [siteConfig.logos.ogImage],
     creator: "@RSNexus",
   },
   verification: {
     google: "googleca875dd608b6a676",
   },
   icons: {
-    icon: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
-    apple: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
-    shortcut: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
 };
 
@@ -363,8 +370,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        <link rel="shortcut icon" href="https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png" type="image/x-icon" />
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className={inter.className}>
         <ThemeProvider

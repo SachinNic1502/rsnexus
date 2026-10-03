@@ -137,6 +137,9 @@ export function JobApplicationForm({ jobId, jobTitle }: JobApplicationFormProps)
                 placeholder="https://drive.google.com/..."
                 required
               />
+              <p className="text-[11px] text-muted-foreground mt-1">
+                Ensure view permissions are set to &apos;Anyone with the link&apos;
+              </p>
             </div>
           </div>
 

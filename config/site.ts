@@ -3,8 +3,49 @@ export const siteConfig = {
   legalName: "RSNexus Technologies",
   domain: "rsnexus.in",
   url: "https://rsnexus.in",
-  logo: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
-  logoSecondary: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png",
+  logo: "/images/logo/logo-gold.png",
+  logoSecondary: "/images/logo/logo-mark-circle.png",
+  logos: {
+    // Logomarks
+    mark: "/images/logo/logo-gold.png",
+    markCircle: "/images/logo/logo-mark-circle.png",
+    markSquare: "/images/logo/logo-mark-square.png",
+    markSvg: "/images/logo/logo-mark.svg",
+    markGoldSvg: "/images/logo/logo-mark-gold.svg",
+    markWhiteSvg: "/images/logo/logo-mark-white.svg",
+    markBlackSvg: "/images/logo/logo-mark-black.svg",
+
+    // Horizontal Lockups (Icon + Typography)
+    horizontalDark: "/images/logo/logo-horizontal-dark.png",
+    horizontalLight: "/images/logo/logo-horizontal-light.png",
+    horizontalDarkSvg: "/images/logo/logo-horizontal-dark.svg",
+    horizontalLightSvg: "/images/logo/logo-horizontal-light.svg",
+
+    // Vertical / Stacked Lockups
+    verticalDark: "/images/logo/logo-vertical-dark.png",
+    verticalLight: "/images/logo/logo-vertical-light.png",
+    verticalDarkSvg: "/images/logo/logo-vertical-dark.svg",
+    verticalLightSvg: "/images/logo/logo-vertical-light.svg",
+
+    // Special Editions
+    gold: "/images/logo/logo-gold.png",
+    monochromeWhite: "/images/logo/logo-monochrome-white.png",
+    monochromeBlack: "/images/logo/logo-monochrome-black.png",
+
+    // Web App & Social Icons
+    favicon: "/favicon.ico",
+    faviconSvg: "/favicon.svg",
+    favicon16: "/favicon-16x16.png",
+    favicon32: "/favicon-32x32.png",
+    appleTouchIcon: "/apple-touch-icon.png",
+    android192: "/android-chrome-192x192.png",
+    android512: "/android-chrome-512x512.png",
+    ogImage: "/images/logo/og-image.png",
+
+    // Cloudinary Backups
+    cloudinaryMark: "https://res.cloudinary.com/dl2xsc49w/image/upload/v1758306621/baby_logo_e55lkq.png",
+    cloudinaryFull: "https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757102616/Logo_z7appo.png",
+  },
   tagline: "Transform Ideas Into Digital Excellence",
   description:
     "RSNexus is a premier software development studio delivering high-performance web applications, mobile apps, SaaS platforms, AI integrations, and cloud solutions worldwide.",
@@ -87,11 +128,19 @@ export const siteConfig = {
       { name: "Blog", href: "/blog" },
       { name: "Portfolio", href: "/portfolio" },
       { name: "Pricing", href: "/pricing" },
+      { name: "Brand & Logos", href: "/brand" },
     ],
     support: [
       { name: "Contact Us", href: "/contact" },
+      { name: "Milestone Tracker", href: "/track" },
+      { name: "Security Overview", href: "/security" },
       { name: "FAQ", href: "/faq" },
       { name: "Direct WhatsApp", href: "https://wa.me/919309931886" },
+    ],
+    legal: [
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms of Service", href: "/terms" },
+      { name: "Security Standards", href: "/security" },
     ],
   },
   trustSignals: [

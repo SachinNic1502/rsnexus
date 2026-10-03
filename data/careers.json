@@ -8,7 +8,7 @@
     "type": "Full-time",
     "experienceLevel": "1 - 3 Years",
     "salaryRange": "₹5,00,000 - ₹9,00,000 / year",
-    "description": "We are looking for a skilled Full-Stack Next.js Developer to engineer fast, resilient web applications and microservices for our growing client base worldwide.",
+    "description": "We are looking for a skilled Full-Stack Next.js Developer to build fast, reliable web applications and APIs for our growing client base worldwide.",
     "responsibilities": [
       "Develop high-performance client portals and SaaS web apps using Next.js 16 and TypeScript",
       "Design scalable REST/GraphQL API backends and integrate MongoDB / PostgreSQL databases",
@@ -24,7 +24,7 @@
     "benefits": [
       "100% Remote-first work culture",
       "Flexible hours with autonomy over your schedule",
-      "Direct collaboration with technical founders without bureaucratic overhead",
+      "Direct collaboration with technical founders without corporate red tape",
       "Milestone bonuses and project equity opportunities"
     ],
     "status": "active",
@@ -39,7 +39,7 @@
     "type": "Full-time",
     "experienceLevel": "1 - 2 Years",
     "salaryRange": "₹4,00,000 - ₹7,00,000 / year",
-    "description": "Join our team to transform high-fidelity Figma prototypes into pixel-perfect, fluid, and interactive web experiences utilizing Framer Motion and modern Tailwind styling.",
+    "description": "Join our team to turn Figma designs into clean, smooth, and interactive web experiences using Framer Motion and modern Tailwind styling.",
     "responsibilities": [
       "Translate Figma designs and wireframes into clean, accessible React components",
       "Implement smooth 60 FPS micro-animations, theme toggles, and responsive layouts",

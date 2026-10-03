@@ -1,233 +1,483 @@
-"use client"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { motion } from "framer-motion"
-import Tilt from "react-parallax-tilt"
-import { Users, Target, Lightbulb, Award, MapPin, Phone, Mail, Globe, UserCheck, GitBranch, MessageSquare, Code2 } from "lucide-react"
-import team from "@/data/team.json"
-import { WhyChooseUs } from "@/components/why-choose-us"
-import { TrustSignals } from "@/components/trust-signals"
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { motion } from "framer-motion";
+import {
+  Users,
+  Target,
+  Lightbulb,
+  Award,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  UserCheck,
+  GitBranch,
+  MessageSquare,
+  Code2,
+  Sparkles,
+  ShieldCheck,
+  Linkedin,
+  ArrowRight,
+  Check,
+} from "lucide-react";
+import team from "@/data/team.json";
+import { WhyChooseUs } from "@/components/why-choose-us";
+import { TrustSignals } from "@/components/trust-signals";
+import { CTASection } from "@/components/cta-section";
 
 const values = [
   {
     icon: Target,
+    roman: "I",
     title: "Excellence",
-    description: "We aim for precision and quality in every line of code.",
+    subtitle: "High Quality Code",
+    description:
+      "We take pride in clean code, fast page loads, and dependable software architecture.",
+    highlight: "Clean Code",
   },
   {
     icon: Users,
+    roman: "II",
     title: "Collaboration",
-    description: "We build lasting partnerships grounded in transparency and trust.",
+    subtitle: "Transparent Partnership",
+    description:
+      "We build open, long-term relationships with direct communication and complete honesty.",
+    highlight: "Direct Access to Founders",
   },
   {
     icon: Lightbulb,
+    roman: "III",
     title: "Innovation",
-    description: "We explore the edge of what's possible—bold ideas, smarter tech.",
+    subtitle: "Modern Technologies",
+    description:
+      "We use modern cloud, mobile, and AI tools that give your business a real competitive edge.",
+    highlight: "Modern Tech Stack",
   },
   {
     icon: Award,
+    roman: "IV",
     title: "Reliability",
-    description: "We deliver consistent, scalable solutions that grow with your business.",
-  },
-]
-
-const stats = [
-  {
-    icon: UserCheck,
-    number: "Founder-Led",
-    label: "Direct Involvement",
-    description: "The founder is hands-on in every project — no account managers, no relayed requirements"
-  },
-  {
-    icon: Code2,
-    number: "Modern Stack",
-    label: "Current Technology",
-    description: "React, Next.js, TypeScript, and cloud-native tooling — not legacy frameworks"
-  },
-  {
-    icon: MessageSquare,
-    number: "Transparent",
-    label: "Open Communication",
-    description: "Direct updates throughout the project, not filtered through account managers"
-  },
-  {
-    icon: GitBranch,
-    number: "Clean Code",
-    label: "Engineering Discipline",
-    description: "Version-controlled, reviewed, and tested — built to be maintained, not just shipped"
+    subtitle: "Built to Scale",
+    description:
+      "We build reliable systems designed to handle high web traffic and grow with your business.",
+    highlight: "99.9% Uptime Focus",
   },
 ];
 
+const pillars = [
+  {
+    icon: UserCheck,
+    roman: "I",
+    number: "Founder-Led",
+    label: "Direct Involvement",
+    description:
+      "Our founders personally plan and build every project — no middlemen, no junior handoffs.",
+  },
+  {
+    icon: Code2,
+    roman: "II",
+    number: "Modern Stack",
+    label: "Current Technology",
+    description:
+      "React 19, Next.js, clean TypeScript, and fast cloud hosting — never outdated tools.",
+  },
+  {
+    icon: MessageSquare,
+    roman: "III",
+    number: "Transparent",
+    label: "Open Communication",
+    description:
+      "Direct WhatsApp and Slack chat with real-time updates and weekly live demos.",
+  },
+  {
+    icon: GitBranch,
+    roman: "IV",
+    number: "Clean Code",
+    label: "Quality Standards",
+    description:
+      "Clean TypeScript, automated testing, and well-organized code that is easy to update for years.",
+  },
+];
+
+const ARCHITECT_ROMAN = ["TEAM I", "TEAM II", "TEAM III", "TEAM IV"];
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("");
+}
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground selection:bg-amber-500/20 selection:text-amber-500">
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
-        <div className="container mx-auto px-4 text-center">
-          <Badge variant="outline" className="mb-4 text-xs md:text-sm">
-            About RSNexus
-          </Badge>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent">
-            Driven by Innovation, Powered by Passion
+      <section className="py-24 md:py-32 bg-slate-50/70 dark:bg-slate-950/80 relative overflow-hidden border-b border-border/60">
+        {/* Ambient background illumination */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-amber-500/10 blur-[150px] pointer-events-none rounded-full" />
+        <div className="absolute bottom-10 left-10 w-[400px] h-[300px] bg-cyan-500/5 blur-[140px] pointer-events-none rounded-full" />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/80 dark:bg-slate-900/80 border border-amber-500/30 mb-6 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <span className="font-serif text-xs uppercase tracking-widest text-foreground/80 font-bold">
+              ABOUT RSNEXUS • WHO WE ARE
+            </span>
+          </div>
+
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-black mb-6 text-foreground tracking-tight leading-tight">
+            Driven by Innovation, <span className="text-gradient-gold">Committed to Quality</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            RSNexus is a fast-growing team of passionate engineers and creative technologists. With over 3+ years of experience and a portfolio of high-impact solutions, we help startups and enterprises worldwide bring digital products to life—scalable, reliable, and future-ready.
+
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 font-sans leading-relaxed">
+            RSNexus is a modern software development studio founded by experienced engineers. We partner with startups and ambitious businesses worldwide to build fast, scalable, and beautifully designed digital products.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              <span>Delivering Solutions Worldwide</span>
+
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-serif text-muted-foreground">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card/60 dark:bg-slate-900/60 border border-border/70 backdrop-blur-md">
+              <MapPin className="h-4 w-4 text-amber-500" />
+              <span>Delivering Worldwide</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Users className="h-4 w-4" />
-              <span>Passionate Developers</span>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card/60 dark:bg-slate-900/60 border border-border/70 backdrop-blur-md">
+              <Users className="h-4 w-4 text-amber-500" />
+              <span>Senior Engineers</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Globe className="h-4 w-4" />
-              <span>Founder-Led Development</span>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card/60 dark:bg-slate-900/60 border border-border/70 backdrop-blur-md">
+              <Globe className="h-4 w-4 text-amber-500" />
+              <span>Founder-Led Architecture</span>
             </div>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card/60 dark:bg-slate-900/60 border border-border/70 backdrop-blur-md">
+              <ShieldCheck className="h-4 w-4 text-amber-500" />
+              <span>100% Code Ownership</span>
+            </div>
+          </div>
+
+          <div className="classical-divider max-w-xs mx-auto mt-12">
+            <span className="text-amber-500 font-serif text-xs">✦ OUR CORE VALUES ✦</span>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-10 md:py-16 bg-primary/5 dark:bg-[#0f172a] transition-colors duration-500">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Tilt glareEnable={true} glareMaxOpacity={0.2} scale={1.05} transitionSpeed={400}>
-                  <Card className="p-4 md:p-6 bg-white/20 dark:bg-slate-800/30 backdrop-blur-md rounded-xl shadow-lg">
-                    <CardContent className="p-0">
-                      <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg mb-4">
-                        <stat.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+      {/* Core Keystone Pillars (Stats / Values Overview) */}
+      <section className="py-20 md:py-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pillars.map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={stat.roman}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: idx * 0.08 }}
+                  className="group relative classical-card classical-frame rounded-3xl p-6 sm:p-7 bg-card/85 dark:bg-slate-900/85 backdrop-blur-xl border border-border/80 dark:border-slate-800/80 hover:border-amber-500/50 dark:hover:border-amber-400/50 transition-all duration-300 shadow-sm hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden"
+                >
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <span className="font-mono text-4xl sm:text-5xl font-black text-slate-200/50 dark:text-slate-800/50 select-none pointer-events-none absolute right-4 top-4 group-hover:text-amber-500/10 transition-colors">
+                    {stat.roman}
+                  </span>
+
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/25 text-amber-500 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors duration-300 shadow-sm">
+                        <Icon className="w-6 h-6" />
                       </div>
-                      <div className="text-2xl md:text-3xl font-bold text-primary mb-2">{stat.number}</div>
-                      <div className="font-semibold mb-1">{stat.label}</div>
-                      <p className="text-xs md:text-sm text-muted-foreground">{stat.description}</p>
-                    </CardContent>
-                  </Card>
-                </Tilt>
-              </motion.div>
-            ))}
+                      <Badge
+                        variant="outline"
+                        className="font-serif text-[11px] font-bold px-2 py-0.5 rounded-md border bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/25"
+                      >
+                        PILLAR {stat.roman}
+                      </Badge>
+                    </div>
+
+                    <h3 className="font-serif text-2xl font-black text-foreground mb-1 group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
+                      {stat.number}
+                    </h3>
+                    <p className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-semibold mb-3">
+                      {stat.label}
+                    </p>
+
+                    <p className="text-xs sm:text-sm text-muted-foreground font-sans leading-relaxed">
+                      {stat.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-10 md:py-16 bg-white dark:bg-slate-900">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">Our Journey</h2>
-              <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
-                RSNexus was founded to transform digital ideas into reality through modern, efficient technology. Starting in Mumbai, we’ve built a reputation for delivering reliable software solutions, with a focus on realistic demo projects that drive innovation across industries.
-              </p>
-              <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
-                Our 3+ years of experience reflect a commitment to precision and a growth mindset. We collaborate with businesses worldwide, forging lasting partnerships to create scalable, impactful solutions.
-              </p>
-              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                At RSNexus, we’re on a journey to build better—empowering clients with technology that shapes the future.
-              </p>
-            </div>
-            <div className="relative">
-              <img
-                src="https://res.cloudinary.com/dn7a3a8ej/image/upload/v1757105423/ourjourney_i9mjsu.png"
-                alt="RSNexus team collaborating on innovative projects"
-                loading="lazy"
-                decoding="async"
-                className="w-full max-w-md mx-auto rounded-2xl shadow-lg"
-              />
+      {/* Our Story / The Chronicle */}
+      <section className="py-24 md:py-32 bg-slate-50/70 dark:bg-slate-950/80 relative overflow-hidden border-t border-border/60">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Story Content */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/80 dark:bg-slate-900/80 border border-amber-500/30 mb-5 shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span className="font-serif text-xs uppercase tracking-widest text-foreground/80 font-bold">
+                  OUR STORY • HOW WE STARTED
+                </span>
+              </div>
 
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black mb-6 text-foreground tracking-tight leading-tight">
+                The Story Behind <span className="text-gradient-gold">RSNexus</span>
+              </h2>
+
+              <div className="space-y-4 text-sm sm:text-base text-muted-foreground font-sans leading-relaxed">
+                <p>
+                  RSNexus was founded to turn great ideas into fast, dependable software. Based in Mumbai and working remotely worldwide, we build high-performing websites and web applications for businesses that want to scale.
+                </p>
+                <p>
+                  With over 3 years of software engineering experience, we focus on speed, clean code, and reliability. We reject traditional agency fluff and endless middlemen—instead, you work directly with our engineering founders to build software that lasts.
+                </p>
+                <p>
+                  From custom web applications to mobile apps and cloud setups, everything we build is designed to handle high traffic and scale smoothly.
+                </p>
+              </div>
+
+              {/* Chronicle Milestones */}
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {[
+                  "Founded by Software Engineers",
+                  "10+ Global Deployments",
+                  "Clean Code Philosophy",
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 p-3 rounded-xl bg-card/80 dark:bg-slate-900/80 border border-border/70 text-xs font-serif font-medium text-foreground"
+                  >
+                    <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Story Showcase Image */}
+            <div className="lg:col-span-5">
+              <div className="classical-card classical-frame relative rounded-3xl p-3 border border-amber-500/30 overflow-hidden shadow-2xl group bg-card/80 dark:bg-slate-900/80">
+                <div className="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden bg-slate-950">
+                  <Image
+                    src="/images/about/atelier-chronicle.jpg"
+                    alt="RSNexus team collaborating on digital platforms"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono">
+                    <span className="px-3 py-1 rounded-md bg-slate-900/80 backdrop-blur-md text-amber-400 font-bold border border-amber-500/30">
+                      MUMBAI STUDIO
+                    </span>
+                    <span className="px-3 py-1 rounded-md bg-slate-900/80 backdrop-blur-md text-slate-200">
+                      GLOBAL DELIVERY
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* The VIII Architectural Pillars */}
       <WhyChooseUs />
 
+      {/* The Verified Proof Matrix */}
       <TrustSignals />
 
-      {/* Our Values */}
-      <section className="py-10 md:py-16 bg-slate-50 dark:bg-slate-800/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Core Values</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-              Our values fuel our passion for innovation and guide our mission to deliver exceptional software solutions.
+      {/* Our Core Values */}
+      <section className="py-24 md:py-32 bg-slate-50/70 dark:bg-slate-950/80 relative overflow-hidden border-t border-border/60">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/80 dark:bg-slate-900/80 border border-amber-500/30 mb-4 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span className="font-serif text-xs uppercase tracking-widest text-foreground/80 font-bold">
+                HOW WE OPERATE • GUIDING PRINCIPLES
+              </span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+              Principles of <span className="text-gradient-gold">Integrity & Quality</span>
+            </h2>
+
+            <p className="text-sm sm:text-base text-muted-foreground mt-4 max-w-2xl mx-auto font-sans leading-relaxed">
+              Our core tenets shape our engineering decisions, client partnerships, and technical rigor.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {values.map((value, index) => (
-              <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="p-0">
-                  <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg mb-4">
-                    <value.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, idx) => {
+              const Icon = value.icon;
+              return (
+                <motion.div
+                  key={value.roman}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: idx * 0.08 }}
+                  className="group relative classical-card classical-frame rounded-3xl p-6 sm:p-7 bg-card/85 dark:bg-slate-900/85 backdrop-blur-xl border border-border/80 dark:border-slate-800/80 hover:border-amber-500/50 dark:hover:border-amber-400/50 transition-all duration-300 shadow-sm hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden"
+                >
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <span className="font-mono text-4xl sm:text-5xl font-black text-slate-200/50 dark:text-slate-800/50 select-none pointer-events-none absolute right-4 top-4 group-hover:text-amber-500/10 transition-colors">
+                    {value.roman}
+                  </span>
+
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/25 text-amber-500 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors duration-300 shadow-sm">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <Badge
+                        variant="outline"
+                        className="font-serif text-[11px] font-bold px-2 py-0.5 rounded-md border bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/25"
+                      >
+                        VALUE {value.roman}
+                      </Badge>
+                    </div>
+
+                    <h3 className="font-serif text-xl font-bold text-foreground mb-1 group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
+                      {value.title}
+                    </h3>
+                    <p className="text-[11px] font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-semibold mb-3">
+                      {value.subtitle}
+                    </p>
+
+                    <p className="text-xs sm:text-sm text-muted-foreground font-sans leading-relaxed mb-6">
+                      {value.description}
+                    </p>
                   </div>
-                  <h3 className="font-semibold mb-2">{value.title}</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">{value.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+
+                  <div className="pt-3 border-t border-border/60">
+                    <div className="flex items-center gap-2 p-2 rounded-xl bg-secondary/60 dark:bg-slate-800/50 border border-border/60 text-xs">
+                      <Check className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                      <span className="text-foreground/90 font-sans font-medium text-[11px]">
+                        {value.highlight}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-10 md:py-16 bg-white dark:bg-slate-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Meet Our Leadership</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base">
-              Our leadership team combines passion and expertise to drive RSNexus’s vision of innovative software solutions.
+      {/* Leadership / The Principal Architects */}
+      <section className="py-24 md:py-32 bg-background relative overflow-hidden border-t border-border/60">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/80 dark:bg-slate-900/80 border border-amber-500/30 mb-4 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+              <span className="font-serif text-xs uppercase tracking-widest text-foreground/80 font-bold">
+                OUR TEAM • LEADERSHIP
+              </span>
+            </div>
+
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+              The Team Behind <span className="text-gradient-gold">RSNexus</span>
+            </h2>
+
+            <p className="text-sm sm:text-base text-muted-foreground mt-4 max-w-2xl mx-auto font-sans leading-relaxed">
+              Our leaders combine deep engineering experience, reliable cloud expertise, and fast-paced startup execution to deliver real results.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
-            {team.map((member, index) => (
-              <Card key={index} className="text-center p-4 md:p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="p-0">
-                  <Avatar className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4 overflow-hidden">
-                    <AvatarImage className="object-cover w-full h-full" src={member.image} alt={member.name} />
-                    <AvatarFallback>
-  {member.name?.split(" ").map((n: string) => n[0]).join("") || ""}
-</AvatarFallback>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {team.map((member, idx) => {
+              const romanTag = ARCHITECT_ROMAN[idx % ARCHITECT_ROMAN.length];
+              return (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: idx * 0.08 }}
+                  className="group relative classical-card classical-frame rounded-3xl p-6 sm:p-7 bg-card/85 dark:bg-slate-900/85 backdrop-blur-xl border border-border/80 dark:border-slate-800/80 hover:border-amber-500/50 dark:hover:border-amber-400/50 transition-all duration-300 shadow-sm hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden text-center"
+                >
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  </Avatar>
-                  <h3 className="font-semibold mb-1 text-base md:text-lg">{member.name}</h3>
-                  <p className="text-primary text-xs md:text-sm mb-3">{member.role}</p>
-                  <p className="text-xs md:text-sm text-muted-foreground mb-4">{member.bio}</p>
-                  <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-3 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Mail className="h-3 w-3" />
-                      <span>{member.email}</span>
+                  <div>
+                    {/* Top Roman Tag */}
+                    <div className="w-full flex items-center justify-between mb-5">
+                      <span className="font-serif text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                        {romanTag}
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-[10px] font-serif text-muted-foreground font-semibold">
+                        <ShieldCheck className="w-3 h-3 text-emerald-500" />
+                        LEADERSHIP
+                      </span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Phone className="h-3 w-3" />
-                      <span>{member.phone}</span>
+
+                    {/* Avatar */}
+                    <div className="relative mx-auto mb-4 w-24 h-24">
+                      <Avatar className="w-24 h-24 ring-4 ring-amber-500/20 dark:ring-amber-400/20 overflow-hidden shadow-xl group-hover:scale-105 group-hover:ring-amber-400 transition-all duration-300">
+                        <AvatarImage className="object-cover w-full h-full" src={member.image} alt={member.name} />
+                        <AvatarFallback className="font-serif text-lg font-bold bg-secondary">
+                          {getInitials(member.name)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="absolute bottom-0 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-background" />
+                    </div>
+
+                    <h3 className="font-serif text-xl font-bold text-foreground mb-1">
+                      {member.name}
+                    </h3>
+                    <p className="font-serif text-xs font-semibold text-amber-600 dark:text-amber-400 mb-3 tracking-wide">
+                      {member.role}
+                    </p>
+
+                    <p className="text-xs text-muted-foreground font-sans leading-relaxed mb-5">
+                      {member.bio}
+                    </p>
+                  </div>
+
+                  {/* Actions / Channels */}
+                  <div className="pt-4 border-t border-border/60 space-y-2">
+                    {member.linkedin && (
+                      <Button asChild size="sm" variant="outline" className="w-full font-serif text-xs rounded-xl border-border hover:border-amber-400/40">
+                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                          <Linkedin className="h-3.5 w-3.5 mr-1.5 text-[#0A66C2]" />
+                          Connect on LinkedIn
+                        </a>
+                      </Button>
+                    )}
+                    <div className="flex items-center justify-center gap-3 text-[11px] text-muted-foreground font-mono">
+                      {member.email && (
+                        <a href={`mailto:${member.email}`} className="hover:text-amber-500 transition-colors flex items-center gap-1" title={member.email}>
+                          <Mail className="h-3 w-3 text-amber-500" />
+                          <span>Email</span>
+                        </a>
+                      )}
+                      {member.phone && (
+                        <a href={`tel:${member.phone}`} className="hover:text-amber-500 transition-colors flex items-center gap-1" title={member.phone}>
+                          <Phone className="h-3 w-3 text-amber-500" />
+                          <span>Direct</span>
+                        </a>
+                      )}
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
-      <section className="py-8 md:py-12 bg-primary text-white text-center">
-        <h3 className="text-xl md:text-2xl font-semibold mb-2">Ready to Build With Us?</h3>
-        <p className="mb-6 text-sm md:text-base">Let’s turn your digital vision into a scalable product.</p>
-        <a href="/contact" className="bg-white text-primary px-4 md:px-6 py-2 md:py-3 rounded-full font-medium hover:bg-slate-100 transition">
-          Get in Touch
-        </a>
-      </section>
+
+      {/* Global Conversion CTA Section */}
+      <CTASection />
     </div>
-  )
-}
+  );
+}
