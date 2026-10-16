@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+  <!-- Mark Symbol (220x220) -->
+  <g transform="translate(30, 30) scale(0.44)">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gradR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="45%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="gradS" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <linearGradient id="gradRExt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="gradSExt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e7490" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0284c7" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <!-- Top 'R' Isometric Arch (Extrusion & Front) -->
+    <!-- Extrusion left & bottom of R -->
+    <path d="M125 155 L165 130 L165 315 L125 340 Z" fill="url(#gradRExt)" opacity="0.95"/>
+    <path d="M165 315 L205 340 L205 230 L165 205 Z" fill="url(#gradRExt)" opacity="0.85"/>
+    <path d="M260 90 L395 170 L395 210 L260 130 Z" fill="url(#gradRExt)" opacity="0.9"/>
+    <path d="M285 195 L345 230 L345 260 L285 225 Z" fill="url(#gradRExt)" opacity="0.75"/>
+
+    <!-- Front Face of Top R -->
+    <path d="M260 50 L395 130 L395 170 L260 90 L165 150 L165 320 L125 345 L125 125 Z" fill="url(#gradR)"/>
+    <path d="M260 90 L345 140 L345 195 L260 145 Z" fill="url(#gradR)" opacity="0.95"/>
+
+    <!-- Bottom 'S' Chevron (Extrusion & Front) -->
+    <!-- Extrusions of S -->
+    <path d="M210 200 L395 310 L395 350 L210 240 Z" fill="url(#gradSExt)" opacity="0.9"/>
+    <path d="M210 390 L265 425 L395 350 L340 315 Z" fill="url(#gradSExt)" opacity="0.8"/>
+    <path d="M210 240 L210 390 L180 370 L180 220 Z" fill="url(#gradSExt)" opacity="0.95"/>
+
+    <!-- Front Face of S -->
+    <path d="M210 200 L395 310 L395 350 L265 425 L210 390 Z" fill="url(#gradS)"/>
+    <!-- Highlight facet edge on S -->
+    <path d="M210 200 L265 232 L265 370 L210 338 Z" fill="#ffffff" opacity="0.18"/>
+  </g>
+</svg>
+  </g>
+  <!-- Text Lockup -->
+  <text x="280" y="145" font-family="system-ui, -apple-system, 'Cinzel', 'Playfair Display', serif" font-weight="900" font-size="92" letter-spacing="-1.5" fill="#ffffff">
+    RS<tspan fill="url(#goldText)">Nexus</tspan>
+  </text>
+  <text x="285" y="195" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" letter-spacing="7" fill="#94a3b8">
+    SOFTWARE STUDIO
+  </text>
+</svg>

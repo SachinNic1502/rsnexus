@@ -50,7 +50,7 @@ export function ProjectViewClient({ project }: { project: any }) {
                 className="rounded-xl px-5 py-2 bg-gradient-to-r from-primary to-cyan-500 hover:from-primary/90 hover:to-cyan-400 text-white font-medium shadow-md shadow-primary/20 flex items-center gap-1.5"
               >
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <span>Visit Production</span>
+                  <span>Live Demo</span>
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </Button>
@@ -127,7 +127,7 @@ export function ProjectViewClient({ project }: { project: any }) {
                 <CardContent className="p-6">
                   <h3 className="text-base font-bold mb-4 font-mono text-slate-900 dark:text-white flex items-center gap-2">
                     <Layers className="w-4 h-4 text-cyan-400" />
-                    ENGINEERING & TECHNOLOGIES
+                    TECH STACK & TOOLS
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies?.map((tech: any, idx: number) => {
@@ -152,7 +152,7 @@ export function ProjectViewClient({ project }: { project: any }) {
                 <CardContent className="p-6">
                   <h3 className="text-base font-bold mb-4 font-mono text-slate-900 dark:text-white flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-cyan-400" />
-                    CORE CAPABILITIES & HIGHLIGHTS
+                    KEY FEATURES & HIGHLIGHTS
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-3">
                     {project.features?.map((f: string, idx: number) => (
@@ -175,7 +175,7 @@ export function ProjectViewClient({ project }: { project: any }) {
                 <CardContent className="p-6">
                   <h3 className="text-base font-bold mb-4 font-mono text-slate-900 dark:text-white flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    RESULTS & BENCHMARKS
+                    RESULTS & IMPACT
                   </h3>
                   <div className="space-y-2.5">
                     {project.results?.map((r: string, idx: number) => (
@@ -220,7 +220,7 @@ export function ProjectViewClient({ project }: { project: any }) {
                     {project.caseStudy.solution && (
                       <div>
                         <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-500 dark:text-emerald-400 font-semibold mb-1">
-                          The Architectural Solution
+                          The Solution
                         </h4>
                         <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                           {project.caseStudy.solution}

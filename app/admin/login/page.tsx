@@ -88,7 +88,7 @@ export default function AdminLoginPage() {
       {/* Top Bar Header */}
       <header className="relative z-10 w-full px-6 py-6 lg:px-12 flex items-center justify-between border-b border-slate-800/40 bg-slate-950/40 backdrop-blur-md">
         <Link href="/" className="flex items-center space-x-3 group">
-          <div className="relative p-1.5 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-500/50 transition-colors">
+          <div className="relative p-1.5 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-amber-500/50 transition-colors">
             <Image
               src={siteConfig.logoSecondary}
               alt={siteConfig.name}
@@ -98,7 +98,7 @@ export default function AdminLoginPage() {
             />
           </div>
           <div>
-            <span className="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">
+            <span className="font-bold text-lg text-white group-hover:text-amber-400 transition-colors">
               {siteConfig.name}
             </span>
             <span className="text-[10px] text-slate-400 block font-mono -mt-1 tracking-wider uppercase">
@@ -128,7 +128,7 @@ export default function AdminLoginPage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
-                SECURE ACCESS CLEARANCE • TIER 4
+                SECURE ADMIN PORTAL
               </div>
 
               <h1 className="text-4xl xl:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -139,20 +139,20 @@ export default function AdminLoginPage() {
               </h1>
 
               <p className="text-slate-400 text-base leading-relaxed max-w-lg">
-                Manage global portfolio showcases, review incoming candidate dossiers, publish studio insights, and orchestrate client inquiries in real time.
+                Manage your portfolio projects, review job applications, publish blog articles, and respond to client inquiries in real time.
               </p>
             </div>
 
-            {/* Live Infrastructure Telemetry Card */}
+            {/* Live Infrastructure Status Card */}
             <div className="p-5 rounded-2xl bg-slate-900/50 border border-slate-800/80 backdrop-blur-xl space-y-4 shadow-xl">
               <div className="flex items-center justify-between text-xs font-mono text-slate-400 pb-3 border-b border-slate-800/80">
                 <span className="flex items-center gap-2">
                   <Activity className="w-4 h-4 text-emerald-400" />
-                  Cluster Telemetry
+                  System Status
                 </span>
                 <span className="text-emerald-400 font-semibold flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Systems Nominal
+                  All Systems Online
                 </span>
               </div>
 

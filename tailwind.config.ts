@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
@@ -19,6 +19,13 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["'Cinzel'", "'Playfair Display'", "Georgia", "serif"],
+        classical: ["'Playfair Display'", "'Cinzel'", "Georgia", "serif"],
+        cinzel: ["'Cinzel'", "serif"],
+        playfair: ["'Playfair Display'", "serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

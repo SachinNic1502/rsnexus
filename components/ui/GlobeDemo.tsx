@@ -402,8 +402,8 @@ export function GlobeDemo() {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-center w-full bg-transparent py-12 sm:py-16 md:py-20">
-      <div className="max-w-7xl mx-auto w-full px-4">
+    <div className="flex flex-row items-center justify-center w-full bg-transparent py-4 sm:py-10 md:py-16">
+      <div className="max-w-7xl mx-auto w-full px-2 sm:px-4">
         <div className="relative w-full h-[260px] sm:h-[340px] md:h-[480px] lg:h-[560px] xl:h-[640px]">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>

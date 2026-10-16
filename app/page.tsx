@@ -19,6 +19,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://rsnexus.in",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon.png?v=2", type: "image/png" },
+      { url: "/favicon-32x32.png?v=2", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png?v=2", type: "image/png", sizes: "16x16" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico?v=2",
+  },
 };
 
 export default async function HomePage() {
